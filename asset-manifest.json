@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/yurankagames/static/css/main.075f10e6.css",
-    "main.js": "/yurankagames/static/js/main.18ea5906.js",
+    "main.css": "/yurankagames/static/css/main.7a26dded.css",
+    "main.js": "/yurankagames/static/js/main.485e8692.js",
     "static/js/453.1ac44c76.chunk.js": "/yurankagames/static/js/453.1ac44c76.chunk.js",
     "static/media/serviceimg3.png": "/yurankagames/static/media/serviceimg3.fd272046aeaaf1503e57.png",
     "static/media/serviceimg2.png": "/yurankagames/static/media/serviceimg2.2ab8a34a3b8ef983709f.png",
@@ -34,12 +34,12 @@
     "static/media/noposter.png": "/yurankagames/static/media/noposter.5091a314e36ae1e7b0cc.png",
     "static/media/logo.svg": "/yurankagames/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/yurankagames/index.html",
-    "main.075f10e6.css.map": "/yurankagames/static/css/main.075f10e6.css.map",
-    "main.18ea5906.js.map": "/yurankagames/static/js/main.18ea5906.js.map",
+    "main.7a26dded.css.map": "/yurankagames/static/css/main.7a26dded.css.map",
+    "main.485e8692.js.map": "/yurankagames/static/js/main.485e8692.js.map",
     "453.1ac44c76.chunk.js.map": "/yurankagames/static/js/453.1ac44c76.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.075f10e6.css",
-    "static/js/main.18ea5906.js"
+    "static/css/main.7a26dded.css",
+    "static/js/main.485e8692.js"
   ]
 }
