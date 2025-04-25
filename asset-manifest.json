@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/newyurankagames/static/css/main.8a36205b.css",
-    "main.js": "/newyurankagames/static/js/main.afd6e86e.js",
+    "main.css": "/newyurankagames/static/css/main.76ef1f4b.css",
+    "main.js": "/newyurankagames/static/js/main.66d9262d.js",
     "static/js/453.420dfce0.chunk.js": "/newyurankagames/static/js/453.420dfce0.chunk.js",
     "static/media/serviceimg3.png": "/newyurankagames/static/media/serviceimg3.fd272046aeaaf1503e57.png",
     "static/media/serviceimg2.png": "/newyurankagames/static/media/serviceimg2.2ab8a34a3b8ef983709f.png",
@@ -34,12 +34,12 @@
     "static/media/noposter.png": "/newyurankagames/static/media/noposter.5091a314e36ae1e7b0cc.png",
     "static/media/logo.svg": "/newyurankagames/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/newyurankagames/index.html",
-    "main.8a36205b.css.map": "/newyurankagames/static/css/main.8a36205b.css.map",
-    "main.afd6e86e.js.map": "/newyurankagames/static/js/main.afd6e86e.js.map",
+    "main.76ef1f4b.css.map": "/newyurankagames/static/css/main.76ef1f4b.css.map",
+    "main.66d9262d.js.map": "/newyurankagames/static/js/main.66d9262d.js.map",
     "453.420dfce0.chunk.js.map": "/newyurankagames/static/js/453.420dfce0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a36205b.css",
-    "static/js/main.afd6e86e.js"
+    "static/css/main.76ef1f4b.css",
+    "static/js/main.66d9262d.js"
   ]
 }
