@@ -1,6 +1,5 @@
 .Home {
     min-height: 100vh;
-    display: flex;
     flex-direction: column;
     background-color: #0E0C0C;
   }

@@ -161,7 +161,7 @@ const PersonalityTest = () => {
           <div className="welcome-screen">
             <h1>Let's test your Worth</h1>
             <p>Jedi or Sith Personality Test</p>
-            <button onClick={() => setCurrentScreen('questions')}>Start</button>
+            <button className='personality-test-button' onClick={() => setCurrentScreen('questions')}>Start</button>
           </div>
         );
         
@@ -174,17 +174,22 @@ const PersonalityTest = () => {
             
             {currentQ.isTextField ? (
               <form onSubmit={handleTextAnswer}>
-                <input 
+                <input
+                  className='personality-test-input-field' 
                   type="text" 
                   placeholder="Type your answer..." 
                   required 
                 />
-                <button type="submit">Next</button>
+                <button 
+                className='personality-test-button'  
+                type="submit">
+                  Next</button>
               </form>
             ) : (
               <div className="options">
                 {currentQ.options.map((option, index) => (
                   <button 
+                    className='personality-test-button' 
                     key={index} 
                     onClick={() => handleAnswer(option.ending)}
                   >
@@ -220,7 +225,9 @@ const PersonalityTest = () => {
               </>
             )}
             
-            <button onClick={() => {
+            <button 
+            className='personality-test-button' 
+            onClick={() => {
               setCurrentScreen('welcome');
               setCurrentQuestion(0);
               setAnswers({});

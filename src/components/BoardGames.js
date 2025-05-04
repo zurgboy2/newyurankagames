@@ -127,6 +127,11 @@ const BoardGamesSection = () => {
                                     <p><strong>Expansion:</strong> {game.expansion}</p>
                                     <p><strong>Language:</strong> {game.language}</p>
                                     <p><strong>Time:</strong> {game.time}</p>
+                                    {game.shopifyURL && (
+                                          <a href={game.shopifyURL} target="_blank" rel="noopener noreferrer">
+                                          <button className='buy-now-button'>Buy Now</button>
+                                          </a>
+                                    )}
                                 </div>
                             ))}
                         </div>

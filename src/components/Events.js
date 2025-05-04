@@ -112,22 +112,25 @@ return (
                 </div>
                 {tournament.prizes && (
                   <div className="detail-item">
+                    <span className="label">Prizes: </span> 
                     <span className="detail-readerinfo">
-                      {"Prizes: " + tournament.prizes}
+                      {tournament.prizes}
                     </span>
                   </div>
                 )}
                 {tournament.preReleaseBundleIncludes && (
                   <div className="detail-item">
+                    <span className="label">Pre-Release Bundle Includes: </span> 
                     <span className="detail-readerinfo">
-                      {"Pre-Release Bundle Includes: " + tournament.preReleaseBundleIncludes}
+                      {tournament.preReleaseBundleIncludes}
                     </span>
                   </div>
                 )}
                 {tournament.rules && (
                   <div className="detail-item">
+                    <span className="label">Rules: </span> 
                     <span className="detail-readerinfo">
-                      {"Rules: " + tournament.rules}
+                      {tournament.rules}
                     </span>
                   </div>
                 )}
@@ -177,22 +180,25 @@ return (
                 </div>
                 {tournament.prizes && (
                   <div className="detail-item">
+                    <span className="label">Prizes: </span> 
                     <span className="detail-readerinfo">
-                      {"Prizes: " + tournament.prizes}
+                      {tournament.prizes}
                     </span>
                   </div>
                 )}
                 {tournament.preReleaseBundleIncludes && (
                   <div className="detail-item">
+                    <span className="label">Pre-Release Bundle Includes: </span> 
                     <span className="detail-readerinfo">
-                      {"Pre-Release Bundle Includes: " + tournament.preReleaseBundleIncludes}
+                      {tournament.preReleaseBundleIncludes}
                     </span>
                   </div>
                 )}
                 {tournament.rules && (
                   <div className="detail-item">
                     <span className="detail-readerinfo">
-                      {"Rules: " + tournament.rules}
+                    <span className="label">Rules: </span> 
+                      {tournament.rules}
                     </span>
                   </div>
                 )}

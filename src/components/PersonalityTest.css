@@ -21,7 +21,7 @@
     margin-bottom: 20px;
   }
   
-  button {
+  .personality-test-button {
     background-color: #222;
     color: #FFE81F;
     border: 2px solid #FFE81F;
@@ -33,7 +33,7 @@
     transition: all 0.3s;
   }
   
-  button:hover {
+  .personality-test-button button:hover {
     background-color: #FFE81F;
     color: #000;
   }
@@ -48,7 +48,7 @@
     margin: 20px 0;
   }
   
-  input[type="text"] {
+  .personality-test-input-field{
     padding: 10px;
     width: 80%;
     max-width: 400px;

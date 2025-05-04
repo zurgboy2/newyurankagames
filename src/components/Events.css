@@ -47,7 +47,6 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     max-width: 400px;
 }
 
@@ -89,7 +88,10 @@
     margin-bottom: 0.3rem;
 }
 
-.detail-item .label {}
+.detail-item .label {
+    color: black;
+    font-weight: bold;
+}
 
 .detail-value {
     margin-left: 1rem;

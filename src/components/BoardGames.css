@@ -90,6 +90,11 @@
     background: #2A2727;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;       
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
 }
 
 .card:hover {
@@ -108,6 +113,7 @@
     font-weight: bold;
     margin-top: 8px;
     color: #E5E7EB;
+
 }
 
 .card p {
@@ -119,6 +125,22 @@
 .text-center {
     text-align: center;
     margin-top: 16px;
+}
+
+.buy-now-button{
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #EC4527;
+    color: #E5E7EB;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 1rem;
+}
+
+.buy-now-button:hover{
+    background: darkred;
+
 }
 
 button {
