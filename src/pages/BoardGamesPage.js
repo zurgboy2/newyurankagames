@@ -8,6 +8,7 @@ import './Home.css';
 
 import React, { useEffect } from 'react';
 import BoardGamesSection from '../components/BoardGames';
+import FAQSection from '../components/FAQ';
 
 function BoardGamesPage() {
     useEffect(() => {
@@ -19,6 +20,7 @@ function BoardGamesPage() {
       <OrientationWarning />
       <Navbar/>
       <BoardGamesSection/>
+      <FAQSection filter='games'/>
       <Footer/>
     </div>
   );

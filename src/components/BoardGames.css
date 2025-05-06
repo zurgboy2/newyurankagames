@@ -197,6 +197,21 @@ button:hover {
     .card{
         padding :1rem 2rem,
     }
+
+    .board-games-title {
+        font-size: 1.6rem;   
+        text-align: center;
+        margin-left: 0rem;
+      }
+
+    .boardgames-subtitle{
+        margin-left: 1rem;
+        font-size: 1.5rem;   
+    }
+
+    .forrent-subtitle{
+        margin-left: 1rem;
+    }
 }
 
 .loading-screen {

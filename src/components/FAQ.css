@@ -12,6 +12,14 @@
     text-align: left;
 }
 
+.faq-category-title{
+    font-size: 1.2rem;
+    color: #E5E7EB;
+    margin-bottom: 1rem;
+    text-align: left;
+    margin-top: 2rem;
+}
+
 .faq-list {
     display: flex;
     flex-wrap: wrap;
@@ -99,6 +107,15 @@
         text-align: left;
         margin-left: 1rem;
     }
+
+    .faq-category-title{
+        font-size: 1.2rem;
+        color: #E5E7EB;
+        margin-left: 1rem;
+        text-align: left;
+        margin-top: 2rem;
+    }
+    
 
     .faq-list {
         flex-direction: column;

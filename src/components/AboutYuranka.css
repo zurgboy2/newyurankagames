@@ -217,6 +217,7 @@
     /* Optionally, adjust the font sizes for mobile */
     .about-yuranka-heading {
         font-size: 1.6rem;
+        text-align: center;
     }
 
     .sub-heading {

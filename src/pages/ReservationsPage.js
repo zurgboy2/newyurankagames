@@ -11,6 +11,7 @@ import AboutYuranka from '../components/AboutYuranka';
 import EventsSection from '../components/Events';
 import React, { useEffect } from 'react';
 import OrientationWarning from '../components/OrientationWarning'; 
+import FAQSection from '../components/FAQ';
 
 function ReservationsPage() {
     useEffect(() => {
@@ -22,6 +23,7 @@ function ReservationsPage() {
       <OrientationWarning />
       <Navbar/>
       <ReservationForm/>
+      <FAQSection filter='games'/>
       <Footer/>
     </div>
   );

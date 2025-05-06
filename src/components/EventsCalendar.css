@@ -283,6 +283,7 @@
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
     margin-top: 2.5rem;
+    margin-left: 1rem;
   }
 
    .month-navigation {
@@ -436,6 +437,7 @@
     gap: 0.5rem;
     color: #E5E7EB;
     font-size: 0.9rem;
+    margin-left: 1rem;
   }
 
   .indicator-dot {

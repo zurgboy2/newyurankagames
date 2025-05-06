@@ -12,6 +12,7 @@ import EventsSection from '../components/Events';
 import React, { useEffect } from 'react';
 import VideoGamesSection from '../components/VideoGames';
 import OrientationWarning from '../components/OrientationWarning'; 
+import FAQSection from '../components/FAQ';
 
 
 function VideoGamesPage() {
@@ -24,6 +25,7 @@ function VideoGamesPage() {
       <OrientationWarning />
       <Navbar/>
       <VideoGamesSection/>
+      <FAQSection filter='games'/>
       <Footer/>
     </div>
   );

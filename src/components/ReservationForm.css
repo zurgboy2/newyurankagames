@@ -153,8 +153,9 @@ select option {
 
     .reservation-form label {
         font-size: 1rem;
-
+        margin-left: 1rem;
     }
+    
 
     .disclaimer-section {
         width: 95%;
@@ -376,7 +377,7 @@ select option {
 /* Make the parent container scrollable */
 @media (max-width: 768px) {
     .reservations-title {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
         text-align: center;
         margin-left: 0rem;
     }
