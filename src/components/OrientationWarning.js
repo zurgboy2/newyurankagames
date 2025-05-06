@@ -10,6 +10,7 @@ function OrientationWarning() {
     const checkOrientation = () => {
       const isLandscape = window.matchMedia('(orientation: landscape)').matches;
       const isSmallScreen = window.innerWidth < 1024;
+      const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
       const currentOrientation = isLandscape ? 'landscape' : 'portrait';
 
@@ -19,7 +20,7 @@ function OrientationWarning() {
         setDismissed(false);
       }
 
-      if (isLandscape && isSmallScreen && !dismissed) {
+      if (isMobile && isLandscape && isSmallScreen && !dismissed) {
         setShowWarning(true);
       } else {
         setShowWarning(false);
