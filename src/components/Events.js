@@ -13,12 +13,14 @@ const  EventsSection= ()=>{
   const detailsRef = useRef(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  
+  const [selectedFilter, setSelectedFilter] = useState('all');
+
 
 useEffect(() => {
   makeRequestCall('tournament_script', 'getActiveTournaments')
     .then((tournamentData) => {
       const tournamentsArray = JSON.parse(tournamentData.result);
+      console.log(tournamentsArray);
       setTournaments(tournamentsArray);
       setLoading(false);
 
@@ -69,6 +71,37 @@ const handleEventClick = (tournament) => {
     detailsRef.current.scrollIntoView({ behavior: 'smooth' });
   }
 };
+
+    const filters = [
+      { label: 'All', key: 'all' },
+      { label: 'Yu-Gi-Oh', key: 'yu-gi-oh' },
+      { label: 'Flesh and Blood', key: 'flesh-and-blood' },
+      { label: 'Magic the Gathering', key: 'magic-the-gathering' },
+      { label: 'One-Piece', key: 'one-piece' },
+      { label: 'Star Wars', key: 'star-wars' },
+      { label: 'Pokemon', key: 'pokemon' },
+      { label: 'Digimon', key: 'digimon' },
+      { label: 'Video Game', key: 'video-game' },
+      { label: 'Board Game', key: 'board-game' },
+    ];
+
+    const eventCounts = filters.reduce((acc, filter) => {
+      if (filter.key === 'all') {
+        acc[filter.key] = tournaments.filter(t => !t.isOneTime).length;
+      } else {
+        acc[filter.key] = tournaments.filter(
+          t => !t.isOneTime && t.eventType === filter.key
+        ).length;
+      }
+      return acc;
+    }, {});
+  
+    // Filter tournaments based on selected filter
+    const filteredTournaments = tournaments.filter(t => {
+      if (t.isOneTime) return false;
+      if (selectedFilter === 'all') return true;
+      return t.eventType === selectedFilter;
+    });
 
 
 return (
@@ -145,6 +178,19 @@ return (
 
     {/* Weekly Events Section */}
     <h2 className="events-subtitle">Weekly Events</h2>
+
+    <div className="filters-container">
+        {filters.map((filter) => (
+          <button
+            key={filter.key}
+            className={`filter-button ${selectedFilter === filter.key ? 'active' : ''}`}
+            onClick={() => setSelectedFilter(filter.key)}
+          >
+            {filter.label} ({eventCounts[filter.key]})
+          </button>
+        ))}
+      </div>
+      
     {loading ? (
       <div className="loading-container">
         <div className="spinner"></div>
@@ -152,9 +198,7 @@ return (
       </div>
     ) : (
       <div className="tournament-cards-container">
-        {tournaments
-          .filter(tournament => !tournament.isOneTime)
-          .map((tournament, index) => (
+        {filteredTournaments.map((tournament, index) => (
             <div key={index} className="tournament-card">
               <div className="card-image">
               <img src={tournament.posterUrl||noposter} alt={tournament.name} />
