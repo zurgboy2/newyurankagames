@@ -267,7 +267,7 @@ return (
           
       </div>
       {filteredTournaments.length > 8 && (
-           <div className="event-view-all-button-container">
+           <div className="event-view-all-button-container desktop-only">
               <button
               className="event-view-all-btn"
                 onClick={() => {
