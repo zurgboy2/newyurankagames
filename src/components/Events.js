@@ -116,6 +116,11 @@ const handleEventClick = (tournament) => {
    
 return (
   <div className="events-container"> 
+  <EventsCalendar 
+            tournaments={tournaments} 
+            onEventClick={handleEventClick}
+          />
+          
     <h1 className="events-title">Upcoming Tournaments & Events</h1>
     
     {/* One-Time Events Section */}
@@ -288,11 +293,6 @@ return (
           </>
          )
        }
-
-<EventsCalendar 
-            tournaments={tournaments} 
-            onEventClick={handleEventClick}
-          />
   
   <div ref={detailsRef}>
   <TournamentDetailsSection tournament={selectedTournament} />
