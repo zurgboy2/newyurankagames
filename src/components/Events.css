@@ -48,6 +48,8 @@
     display: flex;
     flex-direction: column;
     max-width: 400px;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 /* Card image centered */
@@ -82,6 +84,30 @@
     font-size: 0.95rem;
     color: black;
     margin-bottom: 1rem;
+    max-height: 250px; /* set limit */
+    overflow-y: auto; 
+}
+
+.card-details::-webkit-scrollbar {
+  width: 10px;
+}
+
+.card-details::-webkit-scrollbar-track {
+  background: #f0f0f0; 
+  border-radius: 10px;
+}
+
+.card-details::-webkit-scrollbar-thumb {
+  background-color: #EC4527; 
+  border-radius: 10px;
+  border: 2px solid #f0f0f0; 
+}
+
+
+.card-details-scroll div {
+  color: #0E0C0C;
+  line-height: 1.6;
+  font-size: 0.8rem;
 }
 
 .detail-item {
@@ -124,6 +150,27 @@
 }
 
 .register-button:hover {
+    background-color: #d03f22;
+}
+.event-view-all-button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.event-view-all-btn {
+    background-color: #EF4444;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    align-self: center;
+    width: 10%;
+    transition: background-color 0.3s ease;
+}
+.event-view-all-btn:hover {
     background-color: #d03f22;
 }
 

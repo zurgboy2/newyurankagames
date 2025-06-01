@@ -14,6 +14,8 @@ const  EventsSection= ()=>{
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [selectedFilter, setSelectedFilter] = useState('all');
+  const [showAll, setShowAll] = useState(false);
+  const weeklyTournamentsRef = useRef(null);
 
 
 useEffect(() => {
@@ -103,7 +105,15 @@ const handleEventClick = (tournament) => {
       return t.eventType === selectedFilter;
     });
 
+    useEffect(() => {
+    setShowAll(false); 
+    }, [selectedFilter, tournaments]);
 
+    const displayedTournaments = showAll
+    ? filteredTournaments
+    : filteredTournaments.slice(0, 8);
+
+   
 return (
   <div className="events-container"> 
     <h1 className="events-title">Upcoming Tournaments & Events</h1>
@@ -177,7 +187,7 @@ return (
     )}
 
     {/* Weekly Events Section */}
-    <h2 className="events-subtitle">Weekly Events</h2>
+    <h2 className="events-subtitle" ref={weeklyTournamentsRef}>Weekly Events</h2>
 
     <div className="filters-container">
         {filters.map((filter) => (
@@ -197,14 +207,16 @@ return (
         <p>Loading Weekly Events & Tournaments...</p>
       </div>
     ) : (
+      <>
       <div className="tournament-cards-container">
-        {filteredTournaments.map((tournament, index) => (
+        {displayedTournaments.map((tournament, index) => (
             <div key={index} className="tournament-card">
               <div className="card-image">
               <img src={tournament.posterUrl||noposter} alt={tournament.name} />
               </div>
               <h3 className="card-title">{tournament.name}</h3>
               <div className="card-details">
+                <div className="card-details-scroll" dangerouslySetInnerHTML={{ __html: tournament.descriptionHtml }} />
                 <div className="detail-item">
                   <span className="detail-readerinfo">{tournament.description || ""}</span>
                 </div>
@@ -252,8 +264,30 @@ return (
               }}>Register</button>
             </div>
           ))}
+          
       </div>
-    )}
+      {filteredTournaments.length > 8 && (
+           <div className="event-view-all-button-container">
+              <button
+              className="event-view-all-btn"
+                onClick={() => {
+              const newState = !showAll;
+              setShowAll(newState);
+              if (!newState && weeklyTournamentsRef.current) {
+              weeklyTournamentsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              setTimeout(() => {
+                  window.scrollBy(0, -100); 
+                }, 650);            }
+            }}
+            >
+              {showAll ? "View Less" : "View All"}
+            </button>
+           </div>
+           
+          )}
+          </>
+         )
+       }
 
 <EventsCalendar 
             tournaments={tournaments} 
