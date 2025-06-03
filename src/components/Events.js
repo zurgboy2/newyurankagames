@@ -13,10 +13,12 @@ const  EventsSection= ()=>{
   const detailsRef = useRef(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const [selectedFilter, setSelectedFilter] = useState('all');
-  const [showAll, setShowAll] = useState(false);
+  const [selectedWeeklyFilter, setSelectedWeeklyFilter] = useState('all');
+  const [showAllWeekly, setShowAllWeekly] = useState(false);
   const weeklyTournamentsRef = useRef(null);
-
+  const [selectedMonthlyFilter, setSelectedMonthlyFilter] = useState('all');
+  const [showAllMonthly, setShowAllMonthly] = useState(false);
+  const monthlyTournamentsRef = useRef(null);
 
 useEffect(() => {
   makeRequestCall('tournament_script', 'getActiveTournaments')
@@ -87,31 +89,42 @@ const handleEventClick = (tournament) => {
       { label: 'Board Game', key: 'board-game' },
     ];
 
-    const eventCounts = filters.reduce((acc, filter) => {
-      if (filter.key === 'all') {
-        acc[filter.key] = tournaments.filter(t => !t.isOneTime).length;
-      } else {
-        acc[filter.key] = tournaments.filter(
-          t => !t.isOneTime && t.eventType === filter.key
-        ).length;
-      }
-      return acc;
-    }, {});
-  
-    // Filter tournaments based on selected filter
-    const filteredTournaments = tournaments.filter(t => {
-      if (t.isOneTime) return false;
-      if (selectedFilter === 'all') return true;
-      return t.eventType === selectedFilter;
-    });
+    // --- One-Time Events ---
+  const oneTimeEvents = tournaments.filter(t => t.eventFrequencyType === 'oneTime');
 
-    useEffect(() => {
-    setShowAll(false); 
-    }, [selectedFilter, tournaments]);
+  // --- Weekly Events ---
+  const weeklyEvents = tournaments.filter(t => t.eventFrequencyType === 'weekly');
+  const weeklyEventCounts = filters.reduce((acc, filter) => {
+    if (filter.key === 'all') {
+      acc[filter.key] = weeklyEvents.length;
+    } else {
+      acc[filter.key] = weeklyEvents.filter(t => t.eventType === filter.key).length;
+    }
+    return acc;
+  }, {});
+  const filteredWeeklyEvents = weeklyEvents.filter(t => {
+    if (selectedWeeklyFilter === 'all') return true;
+    return t.eventType === selectedWeeklyFilter;
+  });
+  useEffect(() => { setShowAllWeekly(false); }, [selectedWeeklyFilter, tournaments]);
+  const displayedWeeklyEvents = showAllWeekly ? filteredWeeklyEvents : filteredWeeklyEvents.slice(0, 8);
 
-    const displayedTournaments = showAll
-    ? filteredTournaments
-    : filteredTournaments.slice(0, 8);
+  // --- Monthly Events ---
+  const monthlyEvents = tournaments.filter(t => t.eventFrequencyType === 'monthly');
+  const monthlyEventCounts = filters.reduce((acc, filter) => {
+    if (filter.key === 'all') {
+      acc[filter.key] = monthlyEvents.length;
+    } else {
+      acc[filter.key] = monthlyEvents.filter(t => t.eventType === filter.key).length;
+    }
+    return acc;
+  }, {});
+  const filteredMonthlyEvents = monthlyEvents.filter(t => {
+    if (selectedMonthlyFilter === 'all') return true;
+    return t.eventType === selectedMonthlyFilter;
+  });
+  useEffect(() => { setShowAllMonthly(false); }, [selectedMonthlyFilter, tournaments]);
+  const displayedMonthlyEvents = showAllMonthly ? filteredMonthlyEvents : filteredMonthlyEvents.slice(0, 8);
 
    
 return (
@@ -132,9 +145,7 @@ return (
       </div>
     ) : (
       <div className="tournament-cards-container">
-        {tournaments
-          .filter(tournament => tournament.isOneTime)
-          .map((tournament, index) => (
+         {oneTimeEvents.map((tournament, index) => (
             <div key={index} className="tournament-card">
               <div className="card-image">
                 <img src={tournament.posterUrl||noposter} alt={tournament.name} />
@@ -191,6 +202,98 @@ return (
       </div>
     )}
 
+      {/* --- Monthly Events Section --- */}
+      <h2 className="events-subtitle" ref={monthlyTournamentsRef}>Monthly Events</h2>
+      <div className="filters-container">
+        {filters.map((filter) => (
+          <button
+            key={filter.key}
+            className={`filter-button ${selectedMonthlyFilter === filter.key ? 'active' : ''}`}
+            onClick={() => setSelectedMonthlyFilter(filter.key)}
+          >
+            {filter.label} ({monthlyEventCounts[filter.key]})
+          </button>
+        ))}
+      </div>
+      {loading ? (
+        <div className="loading-container">
+          <div className="spinner"></div>
+          <p>Loading Monthly Events & Tournaments...</p>
+        </div>
+      ) : (
+        <>
+          <div className="tournament-cards-container">
+            {displayedMonthlyEvents.length === 0 && <p>No monthly events for selected filter.</p>}
+            {displayedMonthlyEvents.map((tournament, index) => (
+              <div key={index} className="tournament-card">
+                <div className="card-image">
+                  <img src={tournament.posterUrl || noposter} alt={tournament.name} />
+                </div>
+                <h3 className="card-title">{tournament.name}</h3>
+                <div className="card-details">
+                  <div className="card-details-scroll" dangerouslySetInnerHTML={{ __html: tournament.descriptionHtml }} />
+                  <div className="detail-item">
+                    <span className="detail-readerinfo">{tournament.description || ""}</span>
+                  </div>
+                  <div className="detail-item">
+                    <span className="label">Date:</span>
+                    <span className="detail-value">
+                      {tournament.date ? moment(tournament.date).format("MMMM Do dddd") : "To be informed"}
+                    </span>
+                  </div>
+                  <div className="detail-item">
+                    <span className="label">Time:</span>
+                    <span className="detail-value">{formatTime(tournament.date) || "To be informed"}</span>
+                  </div>
+                  <div className="detail-item">
+                    <span className="label">Entrance fee:</span>
+                    <span className="detail-value">{tournament.price + " EUR" || "To be informed"}</span>
+                  </div>
+                  {tournament.prizes && (
+                    <div className="detail-item">
+                      <span className="label">Prizes: </span>
+                      <span className="detail-readerinfo">{tournament.prizes}</span>
+                    </div>
+                  )}
+                  {tournament.preReleaseBundleIncludes && (
+                    <div className="detail-item">
+                      <span className="label">Pre-Release Bundle Includes: </span>
+                      <span className="detail-readerinfo">{tournament.preReleaseBundleIncludes}</span>
+                    </div>
+                  )}
+                  {tournament.rules && (
+                    <div className="detail-item">
+                      <span className="label">Rules: </span>
+                      <span className="detail-readerinfo">{tournament.rules}</span>
+                    </div>
+                  )}
+                </div>
+                <button className="register-button" onClick={() => setSelectedTournament(tournament)}>Register</button>
+              </div>
+            ))}
+          </div>
+          {filteredMonthlyEvents.length > 8 && (
+            <div className="event-view-all-button-container desktop-only">
+              <button
+                className="event-view-all-btn"
+                onClick={() => {
+                  const newState = !showAllMonthly;
+                  setShowAllMonthly(newState);
+                  if (!newState && monthlyTournamentsRef.current) {
+                    monthlyTournamentsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setTimeout(() => {
+                      window.scrollBy(0, -100);
+                    }, 650);
+                  }
+                }}
+              >
+                {showAllMonthly ? "View Less" : "View All"}
+              </button>
+            </div>
+          )}
+        </>
+      )}
+      
     {/* Weekly Events Section */}
     <h2 className="events-subtitle" ref={weeklyTournamentsRef}>Weekly Events</h2>
 
@@ -198,14 +301,14 @@ return (
         {filters.map((filter) => (
           <button
             key={filter.key}
-            className={`filter-button ${selectedFilter === filter.key ? 'active' : ''}`}
-            onClick={() => setSelectedFilter(filter.key)}
+            className={`filter-button ${selectedWeeklyFilter === filter.key ? 'active' : ''}`}
+            onClick={() => setSelectedWeeklyFilter(filter.key)}
           >
-            {filter.label} ({eventCounts[filter.key]})
+            {filter.label} ({weeklyEventCounts[filter.key]})
           </button>
         ))}
       </div>
-      
+
     {loading ? (
       <div className="loading-container">
         <div className="spinner"></div>
@@ -214,7 +317,7 @@ return (
     ) : (
       <>
       <div className="tournament-cards-container">
-        {displayedTournaments.map((tournament, index) => (
+        {displayedWeeklyEvents.map((tournament, index) => (
             <div key={index} className="tournament-card">
               <div className="card-image">
               <img src={tournament.posterUrl||noposter} alt={tournament.name} />
@@ -271,13 +374,13 @@ return (
           ))}
           
       </div>
-      {filteredTournaments.length > 8 && (
+      {filteredWeeklyEvents.length > 8 && (
            <div className="event-view-all-button-container desktop-only">
               <button
               className="event-view-all-btn"
                 onClick={() => {
-              const newState = !showAll;
-              setShowAll(newState);
+              const newState = !showAllWeekly;
+              setShowAllWeekly(newState);
               if (!newState && weeklyTournamentsRef.current) {
               weeklyTournamentsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
               setTimeout(() => {
@@ -285,7 +388,7 @@ return (
                 }, 650);            }
             }}
             >
-              {showAll ? "View Less" : "View All"}
+              {showAllWeekly ? "View Less" : "View All"}
             </button>
            </div>
            
