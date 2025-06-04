@@ -37,6 +37,11 @@
   color: #E5E7EB;
 }
 
+.event-type.monthly {
+  background-color: #5f5e5e;
+  color: #E5E7EB;
+}
+
 .month-navigation {
   display: flex;
   align-items: center;
@@ -121,6 +126,9 @@
   border-left: 3px solid #EC4527;
 }
 
+.event-item.monthly {
+  border-left: 3px solid #5f5e5e;
+}
 .event-item .event-name {
   font-size: 0.65rem;
   white-space: normal;
@@ -267,6 +275,10 @@
   padding-bottom: 0rem;
 }
 
+.tooltip-event.monthly {
+  border-left-color: #5f5e5e;
+}
+
 /* Ensure tooltip doesn't get cut off at screen edges */
 @media (max-width: 768px) {
   .calendar-section {
@@ -349,6 +361,10 @@
   
   .event-dot.one-time {
     background-color: #EC4527;
+  }
+
+  .event-dot.monthly{
+    background-color: #5f5e5e;
   }
 
   .selected-day-events {
@@ -448,12 +464,19 @@
 
   .indicator-dot.weekly {
     background-color: #E5E7EB;
-    margin-left: 0.9rem;
+    margin-left: 1.05rem;
   }
 
   .indicator-dot.one-time {
     background-color: #EC4527;
   }
+
+  .indicator-dot.monthly {
+    background-color: #5f5e5e;
+    margin-left: 0.5rem;
+
+  }
+
 
   .mobile-instruction {
     color: #EC4527;

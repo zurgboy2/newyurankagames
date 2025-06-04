@@ -22,7 +22,7 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
     const year = currentDate.year();
     const month = currentDate.month();
     const firstDay = moment([year, month, 1]);
-    const lastDay = moment(firstDay).endOf('month');  // Use this instead
+    const lastDay = moment(firstDay).endOf('month');
     return { firstDay, lastDay };
   };
 
@@ -38,7 +38,14 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
     }
   };
 
-  
+  // Helper to get the event class based on eventFrequencyType
+  const getEventClass = (event) => {
+    if (event.eventFrequencyType === 'oneTime') return 'one-time';
+    if (event.eventFrequencyType === 'weekly') return 'weekly';
+    if (event.eventFrequencyType === 'monthly') return 'monthly';
+    // fallback for old data, treat as weekly
+    return 'weekly';
+  };
 
   const renderCalendarDays = () => {
     const { firstDay, lastDay } = daysInMonth();
@@ -60,10 +67,6 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
         moment(t.date).format('YYYY-MM-DD') === dateString
       );
 
-      const hasOneTimeEvent = dayEvents.some(event => event.isOneTime);
-      const hasWeeklyEvent = dayEvents.some(event => !event.isOneTime);
-    
-
       days.push(
         <div 
           key={day} 
@@ -78,7 +81,7 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
                 {dayEvents.map((event, index) => (
                   <div 
                     key={index} 
-                    className={`event-dot ${event.isOneTime ? 'one-time' : 'weekly'}`} 
+                    className={`event-dot ${getEventClass(event)}`} 
                   />
                 ))}
               </div>
@@ -89,7 +92,7 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
               {dayEvents.map((event, index) => (
                 <div 
                   key={index}
-                  className={`event-item ${event.isOneTime ? 'one-time' : 'weekly'}`}
+                  className={`event-item ${getEventClass(event)}`}
                 >
                   <div className="event-name">{event.name}</div>
                 </div>
@@ -106,7 +109,7 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
                     {dayEvents.map((event, index) => (
                       <div 
                         key={index} 
-                        className={`tooltip-event ${event.isOneTime ? 'one-time' : 'weekly'}`}
+                        className={`tooltip-event ${getEventClass(event)}`}
                         onClick={() => onEventClick(event)}
                       >
                         <p className="event-title">{event.name}</p>
@@ -138,8 +141,6 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
       moment(t.date).format('YYYY-MM-DD') === dateString
     );
 
-   
-
     return (
       <div ref={selectedDayRef} className="selected-events-wrapper">
         <div className="selected-day-events">
@@ -153,7 +154,7 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
             {dayEvents.map((event, index) => (
               <div 
                 key={index}
-                className={`selected-event ${event.isOneTime ? 'one-time' : 'weekly'}`}
+                className={`selected-event ${getEventClass(event)}`}
                 onClick={() => onEventClick(event)}
               >
                 <p className="event-title">{event.name}</p>
@@ -181,6 +182,10 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
               <span>Weekly Events</span>
               <div className="indicator-dot weekly"></div>
             </div>
+            <div className="mobile-event-type">
+              <span>Monthly Events</span>
+              <div className="indicator-dot monthly"></div>
+            </div>
             <div className="mobile-instruction">
               Click on a date to view events!
             </div>
@@ -189,6 +194,7 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
           <div className="event-types">
             <span className="event-type weekly">Weekly events</span>
             <span className="event-type one-time">One time event</span>
+            <span className="event-type monthly">Monthly event</span>
           </div>
         )}
       </div>
