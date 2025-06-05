@@ -20,7 +20,6 @@ const EventsLandingPageSection =() =>{
         })
         .catch((error) => {
           console.error("Error loading tournaments:", error);
-          alert("Error loading tournaments for next month. Please try again.");
           setLoading(false);
 
         });
