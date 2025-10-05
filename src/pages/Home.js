@@ -31,22 +31,6 @@ function Home() {
       <EventsLandingPageSection/>
       <FAQSection/>
       <Footer/>
-
-      {/* <Navbar/>
-      <ReservationForm/>
-      <Footer/> */}
-
-    {/* <Navbar/>
-     <AboutYuranka/>
-     <Footer/> */}
-{/* 
-     <EventsSection/> */}
-
-     {/* <BoardGamesSection/> */}
-
-      {/* <Navbar/>
-     <LoginAndSignup/>
-     <Footer/> */}
     </div>
   );
 }

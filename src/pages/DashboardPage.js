@@ -16,7 +16,6 @@ function DashboardPage() {
       <Navbar/>
       <UserDashboard/>
       <Footer/> 
-
     </div>
   );
 }

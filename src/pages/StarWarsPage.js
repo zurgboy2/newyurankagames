@@ -19,24 +19,10 @@ const StarWarsPage = () => {
         <h1>Star Wars Universe</h1>
         <p>Explore the galaxy far, far away...</p>
       </div>
-      
       <div className="starwars-content">
         <div className="feature-section">
           <PersonalityTest />
         </div>
-        
-        {/* Future content sections can be added here */}
-        {/* For example:
-        <div className="additional-section">
-          <h2>Star Wars Timeline</h2>
-          <p>Coming soon...</p>
-        </div>
-        
-        <div className="additional-section">
-          <h2>Character Database</h2>
-          <p>Coming soon...</p>
-        </div>
-        */}
       </div>
       <Footer/>
     </div>

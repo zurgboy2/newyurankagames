@@ -18,7 +18,6 @@ function AboutUsPage() {
       <AboutYuranka/>
       <FAQSection/>
       <Footer/>
-
     </div>
   );
 }
