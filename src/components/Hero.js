@@ -25,6 +25,7 @@ const Hero=()=>{
             >Visit Our Store</button>
             
           <button className="white-button" onClick={handleJoinEvents}>Join an Event</button>
+          <button className="second-red-button" onClick={ ()=> {navigate('/reservations')}}> Book A Table</button>
         </div>
         </div>
         <div className="hero-image">

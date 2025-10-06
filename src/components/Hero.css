@@ -51,7 +51,7 @@
     justify-content: flex-start;
     /* Center buttons horizontally */
     align-items: center;
-    gap: 1rem;
+    gap: 0rem;
     /* Space between buttons */
     margin-top: 1rem;
     margin-left: 0rem;
@@ -61,26 +61,53 @@
     background-color: #EF4444;
     color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1rem;
     font-size: 1rem;
     cursor: pointer;
     transition: 0.3s;
     font-family: monospace;
     border-radius: 5px;
-    margin-right: 3.5rem;
+    margin-right: 1rem;
 }
 
 .white-button {
     background-color: white;
     color: black;
     border: 0px solid white;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1rem;
     font-size: 1rem;
     cursor: pointer;
     transition: 0.3s;
     font-family: monospace;
     border-radius: 5px;
 
+}
+
+.second-red-button {
+    background-color: #EF4444;
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: monospace;
+    border-radius: 5px;
+    margin-left: 1rem;
+}
+
+.hero-buttons button,
+.red-button,
+.white-button,
+.second-red-button {
+    min-width: 30%; 
+    height: 2.8rem;     
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0;         
 }
 
 .red-button:hover {
@@ -123,6 +150,7 @@
 
     .hero-buttons {
         justify-content: center;
+        gap: 1rem;
     }
 
     .hero-image {
@@ -154,4 +182,18 @@
         margin: 0rem;
         padding: 1rem 1rem;
         }
+
+    .second-red-button {
+        font-size: 1rem;
+        margin-left: 0rem;
+        padding: 1rem 1rem;
+    }
+
+.hero-buttons button,
+.red-button,
+.white-button,
+.second-red-button {
+    padding-top: 1.8rem; 
+    padding-bottom: 1.5rem;        
+}
 }
