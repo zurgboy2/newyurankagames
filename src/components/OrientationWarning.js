@@ -18,7 +18,6 @@ function OrientationWarning() {
 
       const currentOrientation = isLandscape ? "landscape" : "portrait";
 
-      // If orientation changes, reset the dismissed state
       if (currentOrientation !== lastOrientation.current) {
         lastOrientation.current = currentOrientation;
         setDismissed(false);

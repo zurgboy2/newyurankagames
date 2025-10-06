@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css";
 import { FaBars, FaChevronDown } from "react-icons/fa";
-import logo from "../assets/logo.png"; // Make sure to replace this with your actual logo path
+import logo from "../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import avatarImg from "../assets/logo.png";
 
@@ -23,10 +23,7 @@ const Navbar = () => {
       }
     };
 
-    // Add event listener
     document.addEventListener("click", handleClickOutside);
-
-    // Cleanup event listener on unmount
     return () => document.removeEventListener("click", handleClickOutside);
   }, [menuOpen]);
 
@@ -51,7 +48,6 @@ const Navbar = () => {
         }}
       >
         <FaBars />
-        {/* {menuOpen ? <FaTimes /> : <FaBars />} */}
       </div>
 
       {/* Logo on the left side */}

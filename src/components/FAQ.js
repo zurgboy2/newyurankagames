@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./FAQ.css"; // Import styles
-import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Dropdown icons
+import "./FAQ.css";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const FAQSection = ({ filter = "all" }) => {
-  const [openIndex, setOpenIndex] = useState(null); // Track open question
+  const [openIndex, setOpenIndex] = useState(null);
 
   const sections = [
     {

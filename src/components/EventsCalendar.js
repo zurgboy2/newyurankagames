@@ -38,12 +38,10 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
     }
   };
 
-  // Helper to get the event class based on eventFrequencyType
   const getEventClass = (event) => {
     if (event.eventFrequencyType === "oneTime") return "one-time";
     if (event.eventFrequencyType === "weekly") return "weekly";
     if (event.eventFrequencyType === "monthly") return "monthly";
-    // fallback for old data, treat as weekly
     return "weekly";
   };
 
@@ -238,7 +236,7 @@ const formatTime = (isoDate) => {
   if (!isoDate) return null;
 
   const date = new Date(isoDate);
-  if (isNaN(date.getTime())) return null; // Check for invalid dates
+  if (isNaN(date.getTime())) return null; 
 
   return date.toLocaleTimeString([], {
     hour: "2-digit",

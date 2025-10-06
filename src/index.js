@@ -4,10 +4,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter } from "react-router-dom";
 
-// Create a root for rendering the app
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// Render the app using StrictMode
 root.render(
   <HashRouter>
     <App />

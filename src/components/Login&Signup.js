@@ -22,7 +22,6 @@ const LoginAndSignup = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -85,7 +84,7 @@ const LoginAndSignup = () => {
           navigate("/");
         } else {
           alert("Sign up successful! Please log in.");
-          setIsLogin(true); // Switch to login form
+          setIsLogin(true);
         }
       } else {
         alert(data.message || "Request failed.");

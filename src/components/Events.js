@@ -35,7 +35,6 @@ const EventsSection = () => {
 
   useEffect(() => {
     if (selectedTournament && detailsRef.current) {
-      // Allow a slight delay to ensure the details section has rendered with proper height
       setTimeout(() => {
         detailsRef.current.scrollIntoView({ behavior: "smooth" });
       }, 100);
@@ -59,7 +58,7 @@ const EventsSection = () => {
 
   useEffect(() => {
     if (location.state?.tournament) {
-      window.scrollTo(0, 0); // Scrolls to the top on component mount
+      window.scrollTo(0, 0);
     }
   }, [tournaments, location.state]);
 
@@ -83,12 +82,10 @@ const EventsSection = () => {
     { label: "Board Game", key: "board-game" },
   ];
 
-  // --- One-Time Events ---
   const oneTimeEvents = tournaments.filter(
     (t) => t.eventFrequencyType === "oneTime"
   );
 
-  // --- Weekly Events ---
   const weeklyEvents = tournaments.filter(
     (t) => t.eventFrequencyType === "weekly"
   );
@@ -113,7 +110,6 @@ const EventsSection = () => {
     ? filteredWeeklyEvents
     : filteredWeeklyEvents.slice(0, 8);
 
-  // --- Monthly Events ---
   const monthlyEvents = tournaments.filter(
     (t) => t.eventFrequencyType === "monthly"
   );
@@ -535,13 +531,13 @@ const TournamentDetailsSection = ({ tournament }) => {
           eventId: tournament.id,
           name: name,
           email: email,
-          username: username, // Using name as the username (adjust if needed)
+          username: username,
           googleToken: googleToken,
         }
       );
 
       setResult(result);
-      setErrorMessage(""); // Clear any previous error
+      setErrorMessage(""); 
       setShowPopup(true);
     } catch (error) {
       setResult(null);
@@ -745,7 +741,7 @@ const formatTime = (isoDate) => {
   if (!isoDate) return null;
 
   const date = new Date(isoDate);
-  if (isNaN(date.getTime())) return null; // Check for invalid dates
+  if (isNaN(date.getTime())) return null;
 
   return date.toLocaleTimeString([], {
     hour: "2-digit",

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { makeRegistrationRequestCall } from "../api/api"; // Adjust the import based on your structure
+import { makeRegistrationRequestCall } from "../api/api";
 import "./BoardGames.css";
 import noposter from "../assets/noposter.png";
 import { FaSearch } from "react-icons/fa";
@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const BoardGamesSection = () => {
   const [games, setGames] = useState([]);
   const [allVisible, setAllVisible] = useState(false);
-  const [loading, setLoading] = useState(true); // 🔹 Loading state
+  const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [forSaleGames, setForSaleGames] = useState([]);
   const [forRentGames, setForRentGames] = useState([]);
@@ -22,7 +22,7 @@ const BoardGamesSection = () => {
   const navigate = useNavigate();
 
   const handleReserveGame = () => {
-    navigate("/reservations"); // Navigate to the reservations page
+    navigate("/reservations");
   };
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const BoardGamesSection = () => {
     } catch (error) {
       console.error("Error fetching board games:", error);
     } finally {
-      setLoading(false); // 🔹 Hide loading popup once data is fetched
+      setLoading(false);
     }
   };
 

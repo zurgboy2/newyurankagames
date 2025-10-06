@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./UserDashboard.css"; // Importing styles
+import "./UserDashboard.css";
 import avatarImg from "../assets/logo.png";
 import { makeRegistrationRequestCall } from "../api/api";
 
@@ -76,7 +76,6 @@ const UserDashboard = () => {
       );
 
       if (response.success) {
-        // alert('Profile updated successfully!');
         setUpdateStatus({
           success: true,
           message: "Profile updated successfully!",

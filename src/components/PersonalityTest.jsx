@@ -115,13 +115,12 @@ const PersonalityTest = () => {
 
   const handleTextAnswer = (e) => {
     e.preventDefault();
-    const newAnswers = { ...answers, [currentQuestion]: 0 }; // Text answer doesn't affect result
+    const newAnswers = { ...answers, [currentQuestion]: 0 };
     setAnswers(newAnswers);
     setCurrentQuestion(currentQuestion + 1);
   };
 
   const calculateResult = (allAnswers) => {
-    // Count occurrences of each ending
     let counts = { 1: 0, 2: 0, 3: 0 };
 
     for (let question in allAnswers) {
@@ -131,7 +130,6 @@ const PersonalityTest = () => {
       }
     }
 
-    // Determine the most common ending
     let maxCount = 0;
     let resultEnding = 0;
 
@@ -142,7 +140,6 @@ const PersonalityTest = () => {
       }
     }
 
-    // Set result based on ending
     if (resultEnding === 1) {
       setResult("jedi");
     } else if (resultEnding === 2) {

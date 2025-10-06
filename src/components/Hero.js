@@ -6,7 +6,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const handleJoinEvents = () => {
-    navigate("/events"); // Navigate to the reservations page
+    navigate("/events");
   };
   return (
     <section className="hero">

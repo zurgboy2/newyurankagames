@@ -16,15 +16,15 @@ const ReservationForm = () => {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [spaces, setSpaces] = useState([]);
-  const [bigTablesSelected, setBigTablesSelected] = useState(0); // Selected big tables
-  const [smallTablesSelected, setSmallTablesSelected] = useState(0); // Selected small tables
+  const [bigTablesSelected, setBigTablesSelected] = useState(0);
+  const [smallTablesSelected, setSmallTablesSelected] = useState(0);
   const [couchSpacesSelected, setCouchSpacesSelected] = useState(0);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [message, setMessage] = useState("");
   const [checkoutUrl, setCheckoutUrl] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // State for loading
+  const [isLoading, setIsLoading] = useState(false);
   const reservationOptionsRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [isConfirmationStep, setIsConfirmationStep] = useState(false);
@@ -42,19 +42,18 @@ const ReservationForm = () => {
   const handleDateChange = async (newValue) => {
     setTimeSlots("");
     setSelectedDate(dayjs(newValue));
-    const today = dayjs().startOf("day"); // Get today's date as a dayjs object for comparison
+    const today = dayjs().startOf("day");
 
-    // Compare the new date with today's date (ensure both are dayjs objects for proper comparison)
     if (dayjs(newValue).isBefore(today)) {
       setError("Please select a future date.");
       return;
     }
 
-    setError(""); // Clear error if date is valid
+    setError("");
 
     setIsLoading(true);
     try {
-      const currentTime = new Date(); // Get current time
+      const currentTime = new Date();
       const selectedDate = newValue.format("YYYY-MM-DD");
 
       const slots = await makeRegistrationRequestCall(
@@ -62,14 +61,13 @@ const ReservationForm = () => {
         "getTimeSlots",
         { date: newValue.format("YYYY-MM-DD") }
       );
-      // Handle slots (e.g., update state)
 
       const filteredSlots = slots.filter((slot) => {
-        const slotDateTime = new Date(`${selectedDate}T${slot}`); // Convert slot to Date object
+        const slotDateTime = new Date(`${selectedDate}T${slot}`);
         return slotDateTime >= currentTime;
       });
       setTimeSlots(filteredSlots);
-      setStartTime(""); // Reset selected start time
+      setStartTime("");
       setEndTime("");
       setIsLoading(false);
     } catch (error) {
@@ -80,7 +78,7 @@ const ReservationForm = () => {
 
   const handleStartTimeChange = (slot) => {
     setStartTime(slot);
-    setEndTime(""); // Reset end time selection when start time changes
+    setEndTime("");
   };
 
   const handleEndTimeChange = async (slot) => {
@@ -130,8 +128,6 @@ const ReservationForm = () => {
   };
 
   const handleReservationSubmit = async () => {
-    // Validation checks
-
     if (!selectedDate) {
       setMessage("Please select the desired date for your reservation.");
       setCheckoutUrl("");
@@ -170,17 +166,15 @@ const ReservationForm = () => {
       return;
     }
 
-    // If validation passes, show confirmation popup
     const reservationDetails = `Dear ${name},\nYour reservation details are as follows:\n${selectedDate.format(
       "ddd, DD MMM YYYY"
     )} from ${startTime} to ${endTime}\nBig Tables: ${bigTablesSelected}\nSmall Tables: ${smallTablesSelected}\nCouch Spaces: ${couchSpacesSelected}\n\nSubmit reservation and you will be directed to the checkout for payment. Make the payment to confirm your reservation.`;
 
     setMessage(reservationDetails);
-    setIsConfirmationStep(true); // New state to track if we're showing confirmation
+    setIsConfirmationStep(true);
     setShowPopup(true);
   };
 
-  // New function to handle the actual submission
   const handleConfirmedSubmission = async () => {
     var username = sessionStorage.getItem("username");
     var googleToken = sessionStorage.getItem("googleToken");
@@ -213,7 +207,7 @@ const ReservationForm = () => {
       setIsLoading(false);
 
       if (response.checkoutUrl) {
-        window.location.href = response.checkoutUrl; // Direct redirect
+        window.location.href = response.checkoutUrl;
       } else {
         setMessage(
           response.message ||
@@ -234,20 +228,16 @@ const ReservationForm = () => {
 
   useEffect(() => {
     if (spaces && window.innerWidth >= 768) {
-      // Scroll to the reservation options section once spaces are set
       reservationOptionsRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [spaces]);
 
   return (
     <div className="reservations-container">
-      {/* Title */}
       <h1 className="reservations-title">Reservations Form</h1>
 
       <div className="reservations-content">
-        {/* Left Side - Reservation Form */}
         <div className="reservation-form">
-          {/* Select Date */}
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <div className="reservation-form-group">
               <label>Select Date</label>
@@ -261,12 +251,12 @@ const ReservationForm = () => {
                       fullWidth: true,
                       InputProps: {
                         style: {
-                          backgroundColor: "#E5E7EB", // White background
+                          backgroundColor: "#E5E7EB",
                           color: "#333",
-                          border: "1px solid #EC4527", // Red border
+                          border: "1px solid #EC4527", 
                         },
                       },
-                      placeholder: "Select a date", // Placeholder text
+                      placeholder: "Select a date", 
                     },
                   }}
                 />
@@ -277,7 +267,6 @@ const ReservationForm = () => {
 
           {timeSlots.length > 0 && (
             <>
-              {/* Start Time */}
               <div className="reservation-form-group">
                 <label>Select Start Time</label>
                 <div className="time-grid">
@@ -295,12 +284,11 @@ const ReservationForm = () => {
                 </div>
               </div>
 
-              {/* End Time */}
               <div className="reservation-form-group">
                 <label>Select End Time</label>
                 <div className="time-grid">
                   {timeSlots
-                    .filter((slot) => startTime && slot > startTime) // Only show slots after start time
+                    .filter((slot) => startTime && slot > startTime)
                     .map((slot) => (
                       <button
                         key={slot}
@@ -318,7 +306,6 @@ const ReservationForm = () => {
           )}
         </div>
 
-        {/* Right Side - Disclaimer Section */}
         <div className="disclaimer-section">
           <h2 className="disclaimer-title">Disclaimer</h2>
           <p>

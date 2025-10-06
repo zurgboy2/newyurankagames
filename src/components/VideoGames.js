@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { makeVideoGamesRequestCall } from "../api/api"; // Adjust the import based on your structure
-import "./VideoGames.css"; // Create a CSS file for styling
+import { makeVideoGamesRequestCall } from "../api/api";
+import "./VideoGames.css";
 import noposter from "../assets/noposter.png";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ const VideoGamesSection = () => {
   const navigate = useNavigate();
 
   const handleReserveGame = () => {
-    navigate("/reservations"); // Navigate to the reservations page
+    navigate("/reservations");
   };
 
   useEffect(() => {
@@ -67,7 +67,6 @@ const VideoGamesSection = () => {
     setSearchQuery(e.target.value);
   }
 
-  // Function to filter games based on search query
   function filterGames(gameList) {
     if (!searchQuery.trim()) return gameList;
     return gameList.filter((game) =>
@@ -86,19 +85,17 @@ const VideoGamesSection = () => {
     }));
 
     setVisibleCount((prev) => {
-      const isMobile = window.innerWidth <= 768; // Check if screen is mobile
-      const increment = isMobile ? 4 : 10; // Show 4 more on mobile, 10 on desktop
+      const isMobile = window.innerWidth <= 768; 
+      const increment = isMobile ? 4 : 10; 
       const initialCount = isMobile ? 4 : 7;
 
       const currentCount = prev[consoleType];
       const newCount = currentCount + increment;
 
-      // If currently showing all, reset back to 4 (mobile) or 7 (desktop)
       if (currentCount >= totalGames) {
         return { ...prev, [consoleType]: initialCount };
       }
 
-      // Otherwise, increase count by `increment`, but not exceed `totalGames`
       return { ...prev, [consoleType]: Math.min(newCount, totalGames) };
     });
   }

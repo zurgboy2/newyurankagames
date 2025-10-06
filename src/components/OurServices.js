@@ -13,14 +13,14 @@ import smallLogo8 from "../assets/small-logo8.png";
 import { useNavigate } from "react-router-dom";
 
 const OurServices = () => {
-  const navigate = useNavigate(); // Hook to navigate
+  const navigate = useNavigate(); 
 
   const handleReserveTable = () => {
-    navigate("/reservations"); // Navigate to the reservations page
+    navigate("/reservations"); 
   };
 
   const handleViewEvents = () => {
-    navigate("/events"); // Navigate to the reservations page
+    navigate("/events"); 
   };
   return (
     <section class="services-section">
