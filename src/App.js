@@ -10,10 +10,24 @@ import VideoGamesPage from "./pages/VideoGamesPage";
 import BoardGamesPage from "./pages/BoardGamesPage";
 import MiniConsPage from "./pages/MiniConsPage";
 import StarWarsPage from "./pages/StarWarsPage";
+import OpenInBrowserBanner from "./components/OpenInBrowserBanner";
+import { useState, useEffect } from "react";
+import { isInstagramInAppBrowser } from "./components/Utility";
 
 function App() {
+  const [showBanner, setShowBanner] = useState(false);
+
+  useEffect(() => {
+    if (isInstagramInAppBrowser()) {
+      setShowBanner(true);
+    }
+  }, []);
+
   return (
     <div>
+      {showBanner && (
+        <OpenInBrowserBanner onClose={() => setShowBanner(false)} />
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<EventsPage />} />
