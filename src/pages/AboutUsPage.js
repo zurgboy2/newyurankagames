@@ -1,23 +1,23 @@
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import './Home.css';
-import AboutYuranka from '../components/AboutYuranka';
-import React, { useEffect } from 'react';
-import FAQSection from '../components/FAQ';
-import OrientationWarning from '../components/OrientationWarning'; 
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import "./Home.css";
+import AboutYuranka from "../components/AboutYuranka";
+import React, { useEffect } from "react";
+import FAQSection from "../components/FAQ";
+import OrientationWarning from "../components/OrientationWarning";
 
 function AboutUsPage() {
-     useEffect(() => {
-            window.scrollTo(0, 0);
-          }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-      <div className="Home">
+    <div className="Home">
       <OrientationWarning />
-      <Navbar/>
-      <AboutYuranka/>
-      <FAQSection/>
-      <Footer/>
+      <Navbar />
+      <AboutYuranka />
+      <FAQSection />
+      <Footer />
     </div>
   );
 }

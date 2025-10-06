@@ -1,10 +1,10 @@
-import PersonalityTest from '../components/PersonalityTest';
-import './StarWarsPage.css';
-import React, { useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import './Home.css';
-import OrientationWarning from '../components/OrientationWarning'; 
+import PersonalityTest from "../components/PersonalityTest";
+import "./StarWarsPage.css";
+import React, { useEffect } from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import "./Home.css";
+import OrientationWarning from "../components/OrientationWarning";
 
 const StarWarsPage = () => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const StarWarsPage = () => {
   return (
     <div className="starwars-page">
       <OrientationWarning />
-      <Navbar/>
+      <Navbar />
       <div className="starwars-header">
         <h1>Star Wars Universe</h1>
         <p>Explore the galaxy far, far away...</p>
@@ -24,7 +24,7 @@ const StarWarsPage = () => {
           <PersonalityTest />
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

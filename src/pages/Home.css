@@ -1,25 +1,25 @@
 .Home {
-    min-height: 100vh;
-    flex-direction: column;
-    background-color: #0E0C0C;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #0e0c0c;
+}
+
+/* Media query for landscape mode */
+@media screen and (orientation: landscape) {
+  .Home {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
-  
-  /* Media query for landscape mode */
-  @media screen and (orientation: landscape) {
-    .Home {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .Home {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
-  
-  /* Media query for mobile devices */
-  @media screen and (max-width: 768px) {
-    .Home {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-  }
+}

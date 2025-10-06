@@ -1,61 +1,61 @@
 .starwars-page {
-    background-color: #000;
-    min-height: 100vh;
-    color: #FFE81F;
-    padding: 20px;
-    background-image: url('https://images.unsplash.com/photo-1501862700950-18382cd41497');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
-  
-  .starwars-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 20px;
-  }
-  
+  background-color: #000;
+  min-height: 100vh;
+  color: #ffe81f;
+  padding: 20px;
+  background-image: url("https://images.unsplash.com/photo-1501862700950-18382cd41497");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.starwars-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.starwars-header h1 {
+  font-size: 48px;
+  text-shadow: 0 0 10px rgba(255, 232, 31, 0.7);
+  margin-bottom: 10px;
+}
+
+.starwars-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.feature-section {
+  width: 100%;
+  max-width: 800px;
+}
+
+.additional-section {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #ffe81f;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.additional-section h2 {
+  color: #ffe81f;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
   .starwars-header h1 {
-    font-size: 48px;
-    text-shadow: 0 0 10px rgba(255, 232, 31, 0.7);
-    margin-bottom: 10px;
+    font-size: 36px;
   }
-  
-  .starwars-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-  
-  .feature-section {
-    width: 100%;
-    max-width: 800px;
-  }
-  
+
+  .feature-section,
   .additional-section {
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid #FFE81F;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 30px;
-    width: 100%;
-    max-width: 800px;
-    text-align: center;
+    width: 95%;
   }
-  
-  .additional-section h2 {
-    color: #FFE81F;
-    margin-bottom: 15px;
-  }
-  
-  @media (max-width: 768px) {
-    .starwars-header h1 {
-      font-size: 36px;
-    }
-    
-    .feature-section, 
-    .additional-section {
-      width: 95%;
-    }
-  }
+}
