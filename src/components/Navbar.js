@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Navbar.css";
-import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
+import { FaBars, FaChevronDown } from "react-icons/fa";
 import logo from "../assets/logo.png"; // Make sure to replace this with your actual logo path
 import { Link, useNavigate } from "react-router-dom";
 import avatarImg from "../assets/logo.png";

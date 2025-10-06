@@ -1,4 +1,3 @@
-import React from "react";
 import "./AboutYuranka.css";
 import storeImage from "../assets/store.jpg";
 import visionImage from "../assets/vision.png";

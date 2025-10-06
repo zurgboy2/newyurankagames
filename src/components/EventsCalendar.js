@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import moment from "moment";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./EventsCalendar.css";

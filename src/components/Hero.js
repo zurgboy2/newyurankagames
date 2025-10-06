@@ -1,4 +1,3 @@
-import React from "react";
 import "./Hero.css";
 import cardsImage from "../assets/div.png";
 import { useNavigate } from "react-router-dom";

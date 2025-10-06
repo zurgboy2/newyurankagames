@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { makeRegistrationRequestCall } from "../api/api"; // Adjust the import based on your structure
 import "./BoardGames.css";
 import noposter from "../assets/noposter.png";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./FAQ.css"; // Import styles
 import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Dropdown icons
 

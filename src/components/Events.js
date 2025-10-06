@@ -1,5 +1,5 @@
 import { makeRegistrationRequestCall, makeRequestCall } from "../api/api";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Events.css";
 import moment from "moment";
 import noposter from "../assets/noposter.png";

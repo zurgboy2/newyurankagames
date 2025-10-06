@@ -1,4 +1,3 @@
-import React from "react";
 import "./OurServices.css";
 import serviceimg1 from "../assets/serviceimg1.jpg";
 import smallLogo1 from "../assets/small-logo1.png";

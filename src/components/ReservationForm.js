@@ -1,10 +1,9 @@
 import React from "react";
-import { FaCalendarAlt, FaClock } from "react-icons/fa";
-import "./ReservationForm.css"; // Import external CSS for styling
+import "./ReservationForm.css";
 import bigTables from "../assets/bigTables.jpg";
 import smallTables from "../assets/smallTables.jpg";
 import couchSpaces from "../assets/couchSpaces.jpg";
-import { makeRegistrationRequestCall, makeRequestCall } from "../api/api";
+import { makeRegistrationRequestCall } from "../api/api";
 import { useState, useEffect, useRef } from "react";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";

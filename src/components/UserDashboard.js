@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./UserDashboard.css"; // Importing styles
 import avatarImg from "../assets/logo.png";
 import { makeRegistrationRequestCall } from "../api/api";
