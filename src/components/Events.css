@@ -1,91 +1,87 @@
 .events-container {
-    max-width: 100%;
-    padding: 2rem 1rem;
-    background-color: #0E0C0C;
-    min-height: 100vh;
+  max-width: 100%;
+  padding: 2rem 1rem;
+  background-color: #0e0c0c;
+  min-height: 100vh;
 }
 
 .tournament-cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-    background-color: #0E0C0C;
-    padding-top: 2rem;
-    margin-top: 2rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  background-color: #0e0c0c;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 .events-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-align: left;
-    margin-bottom: 1.5rem;
-    color: #E5E7EB;
-    margin-top: 3rem;
-    margin-left: 2.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  color: #e5e7eb;
+  margin-top: 3rem;
+  margin-left: 2.5rem;
 }
 
 .events-subtitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: left;
-    margin-bottom: 0rem;
-    color: #E5E7EB;
-    margin-top: 3rem;
-    margin-left: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0rem;
+  color: #e5e7eb;
+  margin-top: 3rem;
+  margin-left: 2.5rem;
 }
 
 /* Individual card styling */
 .tournament-card {
-    background-color: #EAE8E8;
-    /* Background color as specified */
-    border: 3px solid #EC4527;
-    /* Outline color */
-    border-radius: 8px;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    transition: all 0.3s ease;
-    position: relative;
+  background-color: #eae8e8;
+  /* Background color as specified */
+  border: 3px solid #ec4527;
+  /* Outline color */
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 /* Card image centered */
 .card-image {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.5rem;
-
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
 .card-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    max-height: 250px;
-
-
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  max-height: 250px;
 }
 
 /* Card title (centered) */
 .card-title {
-    text-align: center;
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
-    color: black;
-    font-weight: bold;
+  text-align: center;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: black;
+  font-weight: bold;
 }
 
 /* Card details: left-aligned text */
 .card-details {
-    text-align: left;
-    font-size: 0.95rem;
-    color: black;
-    margin-bottom: 1rem;
-    max-height: 250px; /* set limit */
-    overflow-y: auto; 
+  text-align: left;
+  font-size: 0.95rem;
+  color: black;
+  margin-bottom: 1rem;
+  max-height: 250px; /* set limit */
+  overflow-y: auto;
 }
 
 .card-details::-webkit-scrollbar {
@@ -93,85 +89,82 @@
 }
 
 .card-details::-webkit-scrollbar-track {
-  background: #f0f0f0; 
+  background: #f0f0f0;
   border-radius: 10px;
 }
 
 .card-details::-webkit-scrollbar-thumb {
-  background-color: #EC4527; 
+  background-color: #ec4527;
   border-radius: 10px;
-  border: 2px solid #f0f0f0; 
+  border: 2px solid #f0f0f0;
 }
 
-
 .card-details-scroll div {
-  color: #0E0C0C;
+  color: #0e0c0c;
   line-height: 1.6;
   font-size: 0.8rem;
 }
 
 .detail-item {
-    margin-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 
 .detail-item .label {
-    color: black;
-    font-weight: bold;
+  color: black;
+  font-weight: bold;
 }
 
 .detail-value {
-    margin-left: 1rem;
-    color: #EC4527;
-    font-weight: bold;
-    font-size: 1.1rem;
-
+  margin-left: 1rem;
+  color: #ec4527;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .detail-readerinfo {
-    margin-left: 0rem;
-    color: black;
-    font-size: 0.8rem;
-    text-align: left;
-
+  margin-left: 0rem;
+  color: black;
+  font-size: 0.8rem;
+  text-align: left;
 }
 
 /* Register button (centered) */
 .register-button {
-    background-color: #EF4444;
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    align-self: center;
-    width: 80%;
-    transition: background-color 0.3s ease;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: center;
+  width: 80%;
+  transition: background-color 0.3s ease;
 }
 
 .register-button:hover {
-    background-color: #d03f22;
+  background-color: #d03f22;
 }
-.event-view-all-button-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.event-view-all-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .event-view-all-btn {
-    background-color: #EF4444;
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    align-self: center;
-    width: 10%;
-    transition: background-color 0.3s ease;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: center;
+  width: 10%;
+  transition: background-color 0.3s ease;
 }
 .event-view-all-btn:hover {
-    background-color: #d03f22;
+  background-color: #d03f22;
 }
 
 @media (max-width: 767px) {
@@ -182,451 +175,447 @@
 
 /* Container for the entire details section */
 .tournament-details-section {
-    padding: 3rem 4rem;
-    margin-top: 3rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    background-color: #0E0C0C;
+  padding: 3rem 4rem;
+  margin-top: 3rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  background-color: #0e0c0c;
 }
 
 .tournament-details-section p {
-    color: white;
-    align-self: center;
-    font-size: 1.5rem;
+  color: white;
+  align-self: center;
+  font-size: 1.5rem;
 }
 
 /* Top Section with Image and Details */
 .details-top {
-    display: flex;
-    gap: 5rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
+  display: flex;
+  gap: 5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 /* Left Column: Image Box */
 .image-box {
-    background-color: #E5E2E2;
-    border: 5px solid #E72323;
-    /* Red outline */
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    min-width: 250px;
-    max-width: 400px;
-    border-radius: 10px;
+  background-color: #e5e2e2;
+  border: 5px solid #e72323;
+  /* Red outline */
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  border-radius: 10px;
 }
 
 .tournament-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    max-height: 350px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  max-height: 350px;
 }
 
 /* Right Column: Details */
 .details-column {
-    flex: 1;
-    min-width: 250px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .detail-row {
-    display: flex;
-    gap: 0.5rem;
-    align-items: left;
-    margin-bottom: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: left;
+  margin-bottom: 0.5rem;
 }
 
 .detail-label {
-    font-weight: bold;
-    color: #EF4444;
-    /* Optionally, you can style labels differently */
+  font-weight: bold;
+  color: #ef4444;
+  /* Optionally, you can style labels differently */
 }
 
 .detail-label-bundle {
-    font-weight: bold;
-    color: #EF4444;
-    font-size: 0.85rem;
-    /* Optionally, you can style labels differently */
+  font-weight: bold;
+  color: #ef4444;
+  font-size: 0.85rem;
+  /* Optionally, you can style labels differently */
 }
 
 .detail-val {
-    /* The detail values will be left-aligned */
-    text-align: left;
-    color: white;
-    font-size: 1.1rem;
+  /* The detail values will be left-aligned */
+  text-align: left;
+  color: white;
+  font-size: 1.1rem;
 }
 
 .detail-value-bundle,
 .detail-value-rules,
 .detail-value-prizes {
-    /* The detail values will be left-aligned */
-    text-align: left;
-    color: white;
-    font-size: 0.8rem;
+  /* The detail values will be left-aligned */
+  text-align: left;
+  color: white;
+  font-size: 0.8rem;
 }
 
 .filters-container {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+
+.filter-button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.filter-button :hover {
+  background: #666;
+}
+
+/* Registration Form */
+.registration-form {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: #e5e7eb;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.form-group input {
+  width: 80%;
+  padding: 0.8rem 2rem 0.8rem 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ec4527;
+  outline: none;
+  background: linear-gradient(
+    135deg,
+    #f0f4f8,
+    #e0e7ff
+  ); /* Gradient background */
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease;
+  margin-left: 0.6rem;
+}
+
+/* Disclaimer Section */
+.disclaimer-section {
+  margin-bottom: 2rem;
+  color: white;
+  margin: 0 auto 2rem auto;
+}
+
+.disclaimer-heading {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.disclaimer-text {
+  font-size: 1rem;
+  color: white;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+/* Proceed Button */
+.proceed-button {
+  background-color: #ef4444;
+  /* Red color */
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.proceed-button:hover {
+  background-color: #d03f22;
+}
+
+@media (max-width: 768px) {
+  .events-title {
+    font-size: 1.6rem;
+    margin-left: 0rem;
+    text-align: center;
+  }
+
+  .events-subtitle {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+  }
+  .tournament-cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+    -ms-overflow-style: none;
+    /* Hide scrollbar for IE/Edge */
+    scrollbar-width: none;
+    margin-top: 0rem;
+    /* Hide scrollbar for Firefox */
+  }
+
+  .tournament-cards-container::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar for Chrome/Safari */
+  }
+
+  .tournament-card {
+    flex: 0 0 80%;
+    min-width: 250px;
+    max-width: 300px;
+    scroll-snap-align: start;
+    padding: 0.5rem;
+  }
+
+  .card-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    max-height: 200px;
+  }
+
+  .card-title {
+    font-size: 0.9rem;
+  }
+
+  .card-details .label {
+    font-size: 0.8rem;
+  }
+
+  .card-details .detail-value {
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+  }
+
+  .detail-readerinfo {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-group {
+    min-width: 150px;
+    margin-left: 0rem;
+    margin-right: 1rem;
+  }
+
+  .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .form-group input {
+    padding: 1rem 0.75rem;
+    max-width: 550px;
+    min-width: 250px;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .tournament-details-section {
+    padding: 2rem 0.25rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .details-top {
+    gap: 2rem;
+    flex-direction: column;
+  }
+
+  .image-box {
+    max-width: 100%;
+    min-width: auto;
+    padding: 0.8rem;
+  }
+
+  .details-column {
+    min-width: auto;
+    gap: 0.5rem;
+  }
+
+  .detail-label {
+    font-size: 0.9rem;
+  }
+
+  .detail-val {
+    font-size: 1rem;
+  }
+
+  .detail-label-bundle {
+    font-size: 0.8rem;
+  }
+
+  .detail-value-bundle,
+  .detail-value-prizes,
+  .detail-value-rules {
+    font-size: 0.8rem;
+  }
+
+  .filters-container {
     margin-bottom: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1rem;
-    margin-left: 2rem;
-  }
-  
-  .filter-button {
-    background: #444;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-  }
-  
-  .filter-button :hover{
-    background: #666;
+    margin-left: 1rem;
   }
 
-/* Registration Form */
-.registration-form {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-    margin-top: 4rem;
-}
-
-.form-group {
-    flex: 1;
-    min-width: 250px;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    color: #E5E7EB;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    text-align: left;
-}
-
-.form-group input {
-    width: 80%;
-        padding: 0.8rem 2rem 0.8rem 0.5rem;
-        font-size: 1rem;
-        border-radius: 5px;
-        border: 1px solid #EC4527;
-        outline: none;
-        background: linear-gradient(135deg, #f0f4f8, #e0e7ff); /* Gradient background */
-        color: #333;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        transition: all 0.3s ease;
-        margin-left: 0.6rem; 
-
-}
-
-/* Disclaimer Section */
-.disclaimer-section {
-    margin-bottom: 2rem;
-    color: white;
-    margin: 0 auto 2rem auto;
-
-}
-
-.disclaimer-heading {
-    font-size: 1.2rem;
-    margin-bottom: 0.2rem;
-    text-align: center;
-    width: 100%;
-
-}
-
-.disclaimer-text {
-    font-size: 1rem;
-    color: white;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 0.5rem;
-}
-
-/* Proceed Button */
-.proceed-button {
-    background-color: #EF4444;
-    /* Red color */
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: block;
-    margin-bottom: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+  .registration-form {
+    gap: 1rem;
     margin-top: 2rem;
-    transition: background-color 0.3s ease;
+  }
+
+  .form-group {
+    min-width: 95%;
+    margin-left: 0rem;
+    margin-right: 1rem;
+  }
+
+  .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .form-group input {
+    padding: 1rem 0.75rem;
+    max-width: 550px;
+    min-width: 250px;
+    margin-left: 0rem;
+  }
+
+  .disclaimer-section {
+    margin-bottom: 1rem;
+  }
+
+  .disclaimer-heading h3 {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .disclaimer-text {
+    font-size: 0.8rem;
+    margin-top: 0rem;
+  }
+
+  .proceed-button {
+    padding: 1rem 3.5rem;
+    font-size: 1rem;
+  }
 }
-
-.proceed-button:hover {
-    background-color: #d03f22;
-}
-
-@media (max-width: 768px) {
-    .events-title {
-        font-size: 1.6rem;
-        margin-left: 0rem;
-        text-align: center;
-    }
-
-    .events-subtitle{
-        margin-left: 1rem;
-        font-size: 1.4rem;
-
-    }
-    .tournament-cards-container {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 1rem;
-        padding-right: 0rem;
-        padding-left: 0rem;
-        -ms-overflow-style: none;
-        /* Hide scrollbar for IE/Edge */
-        scrollbar-width: none;
-        margin-top: 0rem;
-        /* Hide scrollbar for Firefox */
-    }
-
-    .tournament-cards-container::-webkit-scrollbar {
-        display: none;
-        /* Hide scrollbar for Chrome/Safari */
-    }
-
-    .tournament-card {
-        flex: 0 0 80%;
-        min-width: 250px;
-        max-width: 300px;
-        scroll-snap-align: start;
-        padding: 0.5rem;
-    }
-
-    .card-image img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 5px;
-        max-height: 200px;
-    }
-
-    .card-title {
-        font-size: 0.9rem;
-    }
-
-    .card-details .label {
-        font-size: 0.8rem;
-    }
-
-    .card-details .detail-value {
-        font-size: 0.9rem;
-        margin-left: 0.5rem;
-    }
-
-    .detail-readerinfo {
-        font-size: 0.6rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .form-group {
-        min-width: 150px;
-        margin-left: 0rem;
-        margin-right: 1rem;
-    }
-
-    .form-group label {
-        margin-bottom: 0.5rem;
-        font-weight: bold;
-        font-size: 1rem;
-    }
-
-    .form-group input {
-        padding: 1rem 0.75rem;
-        max-width: 550px;
-        min-width: 250px;
-
-    }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .tournament-details-section {
-        padding: 2rem 0.25rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-
-    .details-top {
-        gap: 2rem;
-        flex-direction: column;
-    }
-
-    .image-box {
-        max-width: 100%;
-        min-width: auto;
-        padding: 0.8rem;
-    }
-
-    .details-column {
-        min-width: auto;
-        gap: 0.5rem;
-    }
-
-    .detail-label {
-        font-size: 0.9rem;
-    }
-
-    .detail-val {
-        font-size: 1rem;
-    }
-
-    .detail-label-bundle {
-        font-size: 0.8rem;
-    }
-
-    .detail-value-bundle,
-    .detail-value-prizes,
-    .detail-value-rules {
-        font-size: 0.8rem;
-    }
-
-    .filters-container {
-        margin-bottom: 1rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 1rem;
-        margin-left: 1rem;
-      }
-
-    .registration-form {
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-
-    .form-group {
-        min-width: 95%;
-        margin-left: 0rem;
-        margin-right: 1rem;
-    }
-
-    .form-group label {
-        margin-bottom: 0.5rem;
-        font-weight: bold;
-        font-size: 1rem;
-    }
-
-    .form-group input {
-        padding: 1rem 0.75rem;
-        max-width: 550px;
-        min-width: 250px;
-        margin-left: 0rem;
-
-    }
-
-    .disclaimer-section {
-        margin-bottom: 1rem;
-    }
-
-    .disclaimer-heading h3 {
-        font-size: 0.9rem;
-        margin: 0;
-    }
-
-    .disclaimer-text {
-        font-size: 0.8rem;
-        margin-top: 0rem;
-    }
-
-    .proceed-button {
-        padding: 1rem 3.5rem;
-        font-size: 1rem;
-    }
-}
-
 
 .modal-overlay {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
 /* Modal box */
 .modal-content {
-    background-color: black;
-    padding: 2rem;
-    border-radius: 8px;
-    width: 300px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: black;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Close button */
 .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 2rem;
-    cursor: pointer;
-    border: none;
-    background: none;
-    color: #EF4448;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #ef4448;
 }
 
 /* Message text */
 .modal-content .modal-message {
-    font-size: 0.8rem;
-    margin-bottom: 15px;
+  font-size: 0.8rem;
+  margin-bottom: 15px;
 }
 
 /* Checkout button */
 .checkout-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #EF4444;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    font-size: 1rem;
-
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ef4444;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 1rem;
 }
 
 .checkout-btn:hover {
-    background-color: #d03f22;
+  background-color: #d03f22;
 }
 
 .error-message {
-    color: red;
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 15px;
+  color: red;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .tournament-details-section .loading-message {
-    font-size: 1rem;
-    color: #EF4444;
-    margin-top: 10px;
-    text-align: center;
+  font-size: 1rem;
+  color: #ef4444;
+  margin-top: 10px;
+  text-align: center;
 }
 
 @media (max-width: 767px) {

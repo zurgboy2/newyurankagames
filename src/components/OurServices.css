@@ -1,580 +1,566 @@
 /* Section Styling */
 .services-section {
-    background-color: #0E0C0C;
-    padding: 3rem 1.5rem;
+  background-color: #0e0c0c;
+  padding: 3rem 1.5rem;
 }
 
 /* Heading */
 .services-heading {
-    color: white;
-    font-size: 1.8rem;
-    margin-left: 1.5rem;
-    margin-bottom: 2.5rem;
+  color: white;
+  font-size: 1.8rem;
+  margin-left: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 /* Layout */
 .services1-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 /* Image Container */
 .image-container1 {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    max-width: 650px;
-    /* Reduce max width */
-    min-width: 250px;
-    /* Ensure it doesn't shrink too much */
-    margin-left: 0rem;
-    z-index: 1;
-
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  max-width: 650px;
+  /* Reduce max width */
+  min-width: 250px;
+  /* Ensure it doesn't shrink too much */
+  margin-left: 0rem;
+  z-index: 1;
 }
 
 /* Image */
 .service-img1 {
-    width: 85%;
-    border-radius: 5px;
-    height: auto;
-    /* Maintain aspect ratio */
-    min-height: 220px;
+  width: 85%;
+  border-radius: 5px;
+  height: auto;
+  /* Maintain aspect ratio */
+  min-height: 220px;
 
-    max-height: 550px;
-    border-radius: 10px;
-    border: 4px solid #DE2323;
-    /* Reduce height */
+  max-height: 550px;
+  border-radius: 10px;
+  border: 4px solid #de2323;
+  /* Reduce height */
 }
 
 /* Small Logo Positions */
 .small-logo {
-    position: absolute;
+  position: absolute;
 
-    z-index: -1
-        /* Adjust size */
+  z-index: -1;
+  /* Adjust size */
 }
 
 .bottom-right {
-    bottom: -20px;
-    right: 1px;
-    width: 75px;
+  bottom: -20px;
+  right: 1px;
+  width: 75px;
 }
 
 .left-side {
-    left: 6.5%;
-    top: 30%;
-    width: 50px;
-    transform: translateX(-50%);
+  left: 6.5%;
+  top: 30%;
+  width: 50px;
+  transform: translateX(-50%);
 }
 
 /* Text Component */
 .services-text {
-    flex: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    max-width: 600px;
-    margin-right: 3rem;
-
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  max-width: 600px;
+  margin-right: 3rem;
 }
 
 .main-title {
-    color: #EAE5E5;
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    line-height: 120%;
-    margin: 0;
-    margin-bottom: 1rem;
+  color: #eae5e5;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 120%;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .sub-title {
-    font-size: 1.3rem;
-    text-align: left;
-    font-weight: 100;
-    line-height: 120%;
+  font-size: 1.3rem;
+  text-align: left;
+  font-weight: 100;
+  line-height: 120%;
 
-    color: #B2ABAB;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 1.5rem;
+  color: #b2abab;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 1.5rem;
 }
 
 /* Visit Store Button */
 .visit-store {
-    background-color: #EF4444;
-    color: #F7CECE;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #ef4444;
+  color: #f7cece;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .visit-store:hover {
-    background-color: #D63030;
-    /* Darker shade for hover */
-    color: #FFFFFF;
-    /* Change text color on hover */
+  background-color: #d63030;
+  /* Darker shade for hover */
+  color: #ffffff;
+  /* Change text color on hover */
 }
 
 /* Top-right Logo */
 .top-right-logo {
-    position: absolute;
-    top: -35px;
-    right: -40px;
-    width: 45px;
+  position: absolute;
+  top: -35px;
+  right: -40px;
+  width: 45px;
 }
 
 /* Responsive: Mobile */
 @media (max-width: 768px) {
-    .services1-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1.5rem;
-    }
+  .services1-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
 
-    .services-heading {
-        color: white;
-        font-size: 1.8rem;
-        margin-left: 1rem;
-        margin-bottom: 2.5rem;
-    }
+  .services-heading {
+    color: white;
+    font-size: 1.8rem;
+    margin-left: 1rem;
+    margin-bottom: 2.5rem;
+  }
 
-    .image-container1 {
-        width: 90%;
-        margin-left: 0;
-        max-width: 400px;
-        min-width: 280px;
-    }
+  .image-container1 {
+    width: 90%;
+    margin-left: 0;
+    max-width: 400px;
+    min-width: 280px;
+  }
 
-    .service-img1 {
-        max-height: 320px;
-        min-height: 220px;
-    }
+  .service-img1 {
+    max-height: 320px;
+    min-height: 220px;
+  }
 
-    .services-text {
-        max-width: 90%;
-        margin: 0 auto;
-        margin-top: 2.5rem;
-    }
+  .services-text {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+  }
 
-    .main-title {
-        font-size: 2rem;
-        /* Smaller title */
-    }
+  .main-title {
+    font-size: 2rem;
+    /* Smaller title */
+  }
 
-    .sub-title {
-        font-size: 1rem;
-        /* Smaller subtitle */
-        text-align: left;
-    }
+  .sub-title {
+    font-size: 1rem;
+    /* Smaller subtitle */
+    text-align: left;
+  }
 
-    .visit-store {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
+  .visit-store {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
 
-    .small-logo {
+  .small-logo {
+    /* Adjust smaller size */
+  }
 
-        /* Adjust smaller size */
-    }
+  .top-right-logo {
+    top: -20px;
+    right: -20px;
+    width: 30px;
+  }
 
-    .top-right-logo {
-        top: -20px;
-        right: -20px;
-        width: 30px;
-    }
+  .bottom-right {
+    bottom: -5%;
+    right: -4%;
+    width: 15%;
+    /* Adjust size */
+  }
 
-
-
-    .bottom-right {
-        bottom: -5%;
-        right: -4%;
-        width: 15%;
-        /* Adjust size */
-    }
-
-    .left-side {
-        left: 7%;
-        /* Adjust left positioning for smaller screen */
-        top: 25%;
-        /* Slight adjustment */
-        width: 12%;
-        /* Resize icon */
-    }
+  .left-side {
+    left: 7%;
+    /* Adjust left positioning for smaller screen */
+    top: 25%;
+    /* Slight adjustment */
+    width: 12%;
+    /* Resize icon */
+  }
 }
 
 .service2-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 8rem;
 }
 
 /* Image Container */
 .image-container2 {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-
-    flex: 1;
-    max-width: 650px;
-    /* Reduce max width */
-    min-width: 250px;
-    /* Ensure it doesn't shrink too much */
-    margin-left: 0rem;
-    z-index: 1;
-
+  flex: 1;
+  max-width: 650px;
+  /* Reduce max width */
+  min-width: 250px;
+  /* Ensure it doesn't shrink too much */
+  margin-left: 0rem;
+  z-index: 1;
 }
 
 /* Image */
 .service-img2 {
-    width: 85%;
-    border-radius: 5px;
-    height: 80%;
-    /* Maintain aspect ratio */
-    max-height: 450px;
-    border-radius: 10px;
-    border: 4px solid #DE2323;
-    background-color: #E5E2E2;
-    /* Reduce height */
+  width: 85%;
+  border-radius: 5px;
+  height: 80%;
+  /* Maintain aspect ratio */
+  max-height: 450px;
+  border-radius: 10px;
+  border: 4px solid #de2323;
+  background-color: #e5e2e2;
+  /* Reduce height */
 }
 
 .services2-text {
-    flex: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    max-width: 600px;
-    margin-right: 1rem;
-    margin-left: 3.5rem;
-
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  max-width: 600px;
+  margin-right: 1rem;
+  margin-left: 3.5rem;
 }
 
 .main-title2 {
-    color: #EAE5E5;
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    line-height: 120%;
-    margin: 0;
-    margin-bottom: 1rem;
+  color: #eae5e5;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 120%;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .sub-title2 {
-    font-size: 1.3rem;
-    text-align: left;
-    font-weight: 100;
-    line-height: 120%;
+  font-size: 1.3rem;
+  text-align: left;
+  font-weight: 100;
+  line-height: 120%;
 
-    color: #B2ABAB;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 1.5rem;
+  color: #b2abab;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 1.5rem;
 }
 
 /* Visit Store Button */
 .view-events {
-    background-color: #EF4444;
-    color: #F7CECE;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
+  background-color: #ef4444;
+  color: #f7cece;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .view-events:hover {
-    background-color: #D63030;
-    /* Darker shade for hover */
-    color: #FFFFFF;
-    /* Change text color on hover */
+  background-color: #d63030;
+  /* Darker shade for hover */
+  color: #ffffff;
+  /* Change text color on hover */
 }
 
 .top-left {
-    top: -40px;
-    left: 60px;
-    width: 75px;
+  top: -40px;
+  left: 60px;
+  width: 75px;
 }
 
 .bottom-left {
-    left: 4.5%;
-    bottom: 5%;
-    width: 70px;
-    transform: translateX(-50%);
+  left: 4.5%;
+  bottom: 5%;
+  width: 70px;
+  transform: translateX(-50%);
 }
 
 @media (max-width: 768px) {
-    .service2-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1.5rem;
-        margin-top: 5rem;
-    }
+  .service2-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin-top: 5rem;
+  }
 
-    .image-container2 {
-        width: 90%;
-        max-width: 400px;
-        min-width: 280px;
-        order: -1;
-    }
+  .image-container2 {
+    width: 90%;
+    max-width: 400px;
+    min-width: 280px;
+    order: -1;
+  }
 
-    .service-img2 {
-        max-height: 320px;
-        min-height: 220px;
-    }
+  .service-img2 {
+    max-height: 320px;
+    min-height: 220px;
+  }
 
-    .services2-text {
-        max-width: 90%;
-        margin: 0 auto;
-        margin-top: 2.5rem;
-    }
+  .services2-text {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+  }
 
-    .main-title2 {
-        font-size: 2rem;
-        /* Smaller title */
-    }
+  .main-title2 {
+    font-size: 2rem;
+    /* Smaller title */
+  }
 
-    .sub-title2 {
-        font-size: 1rem;
-        /* Smaller subtitle */
-        text-align: left;
-    }
+  .sub-title2 {
+    font-size: 1rem;
+    /* Smaller subtitle */
+    text-align: left;
+  }
 
-    .view-events {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
+  .view-events {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
 
-    .small-logo {
+  .small-logo {
+    /* Adjust smaller size */
+  }
 
-        /* Adjust smaller size */
-    }
+  .top-left {
+    left: 10%;
+    top: -9%;
+    width: 12%;
+    /* Adjust size */
+  }
 
-    .top-left {
-        left: 10%;
-        top: -9%;
-        width: 12%;
-        /* Adjust size */
-    }
-
-    .bottom-left {
-        left: 7%;
-        /* Adjust left positioning for smaller screen */
-        top: 25%;
-        /* Slight adjustment */
-        width: 12%;
-        /* Resize icon */
-    }
+  .bottom-left {
+    left: 7%;
+    /* Adjust left positioning for smaller screen */
+    top: 25%;
+    /* Slight adjustment */
+    width: 12%;
+    /* Resize icon */
+  }
 }
 
-
 .services3-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 8rem;
 }
 
 /* Image Container */
 .image-container3 {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    max-width: 650px;
-    /* Reduce max width */
-    min-width: 250px;
-    /* Ensure it doesn't shrink too much */
-    margin-left: 0rem;
-    z-index: 1;
-
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  max-width: 650px;
+  /* Reduce max width */
+  min-width: 250px;
+  /* Ensure it doesn't shrink too much */
+  margin-left: 0rem;
+  z-index: 1;
 }
 
 /* Image */
 .service-img3 {
-    width: 85%;
-    border-radius: 5px;
-    height: auto;
-    /* Maintain aspect ratio */
-    min-height: 220px;
+  width: 85%;
+  border-radius: 5px;
+  height: auto;
+  /* Maintain aspect ratio */
+  min-height: 220px;
 
-    max-height: 550px;
-    border-radius: 10px;
-    border: 4px solid #DE2323;
-    background-color: #E5E7EB;
-    /* Reduce height */
+  max-height: 550px;
+  border-radius: 10px;
+  border: 4px solid #de2323;
+  background-color: #e5e7eb;
+  /* Reduce height */
 }
 
 /* Small Logo Positions */
 .small-logo {
-    position: absolute;
+  position: absolute;
 
-    z-index: -1
-        /* Adjust size */
+  z-index: -1;
+  /* Adjust size */
 }
 
 .seventhlogo {
-    position: absolute;
-    z-index: -1;
-    top: 120px;
-    right: 20px;
-    width: 40px;
+  position: absolute;
+  z-index: -1;
+  top: 120px;
+  right: 20px;
+  width: 40px;
 }
 
 .eighthlogo {
-    position: absolute;
-    z-index: -1;
-    left: 7%;
-    bottom: 15%;
-    width: 50px;
-    transform: translateX(-50%);
+  position: absolute;
+  z-index: -1;
+  left: 7%;
+  bottom: 15%;
+  width: 50px;
+  transform: translateX(-50%);
 }
 
 /* Text Component */
 .services3-text {
-    flex: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    max-width: 600px;
-    margin-right: 3rem;
-
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  max-width: 600px;
+  margin-right: 3rem;
 }
 
 .main-title3 {
-    color: #EAE5E5;
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    line-height: 120%;
-    margin: 0;
-    margin-bottom: 1rem;
+  color: #eae5e5;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 120%;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .sub-title3 {
-    font-size: 1.3rem;
-    text-align: left;
-    font-weight: 100;
-    line-height: 120%;
+  font-size: 1.3rem;
+  text-align: left;
+  font-weight: 100;
+  line-height: 120%;
 
-    color: #B2ABAB;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 1.5rem;
+  color: #b2abab;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 1.5rem;
 }
 
 /* Visit Store Button */
 .reserve-table {
-    background-color: #EF4444;
-    color: #F7CECE;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #ef4444;
+  color: #f7cece;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
 .reserve-table:hover {
-    background-color: #D63030;
-    /* Darker shade for hover */
-    color: #FFFFFF;
-    /* Change text color on hover */
+  background-color: #d63030;
+  /* Darker shade for hover */
+  color: #ffffff;
+  /* Change text color on hover */
 }
 
 /* Top-right Logo */
 .sixthlogo {
-    position: absolute;
-    top: -35px;
-    right: -40px;
-    width: 45px;
+  position: absolute;
+  top: -35px;
+  right: -40px;
+  width: 45px;
 }
 
 @media (max-width: 768px) {
-    .services3-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1.5rem;
-        margin-top: 5rem;
-    }
+  .services3-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin-top: 5rem;
+  }
 
-    .image-container3 {
-        width: 90%;
-        margin-left: 0;
-        max-width: 400px;
-        min-width: 280px;
-    }
+  .image-container3 {
+    width: 90%;
+    margin-left: 0;
+    max-width: 400px;
+    min-width: 280px;
+  }
 
-    .service-img3 {
-        max-height: 320px;
-        min-height: 22px;
-    }
+  .service-img3 {
+    max-height: 320px;
+    min-height: 22px;
+  }
 
-    .services3-text {
-        max-width: 90%;
-        margin: 0 auto;
-        margin-top: 2.5rem;
-    }
+  .services3-text {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+  }
 
-    .main-title3 {
-        font-size: 2rem;
-        /* Smaller title */
-    }
+  .main-title3 {
+    font-size: 2rem;
+    /* Smaller title */
+  }
 
-    .sub-title3 {
-        font-size: 1rem;
-        /* Smaller subtitle */
-        text-align: left;
-    }
+  .sub-title3 {
+    font-size: 1rem;
+    /* Smaller subtitle */
+    text-align: left;
+  }
 
-    .reserve-table {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
+  .reserve-table {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
 
-    .sixthlogo {
-        top: -20px;
-        right: -20px;
-        width: 30px;
-    }
+  .sixthlogo {
+    top: -20px;
+    right: -20px;
+    width: 30px;
+  }
 
-    .seventhlogo {
-        top: 22%;
-        right: 1.5%;
-        width: 8%;
-        /* Adjust size */
-    }
+  .seventhlogo {
+    top: 22%;
+    right: 1.5%;
+    width: 8%;
+    /* Adjust size */
+  }
 
-    .eigthlogo {
-        left: 7%;
-        /* Adjust left positioning for smaller screen */
-        top: 25%;
-        /* Slight adjustment */
-        width: 12%;
-        /* Resize icon */
-    }
+  .eigthlogo {
+    left: 7%;
+    /* Adjust left positioning for smaller screen */
+    top: 25%;
+    /* Slight adjustment */
+    width: 12%;
+    /* Resize icon */
+  }
 }

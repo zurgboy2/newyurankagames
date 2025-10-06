@@ -1,7 +1,7 @@
 .calendar-section {
   padding: 2rem;
-  background-color: #0E0C0C;
-  color: #E5E7EB;
+  background-color: #0e0c0c;
+  color: #e5e7eb;
 }
 
 .calendar-header {
@@ -10,7 +10,7 @@
 
 .calendar-title {
   font-size: 1.8rem;
-  color: #E5E7EB;
+  color: #e5e7eb;
   margin-bottom: 1rem;
   text-align: left;
 }
@@ -28,18 +28,18 @@
 }
 
 .event-type.weekly {
-  background-color: #E5E7EB;
-  color: #0D0A0A;
+  background-color: #e5e7eb;
+  color: #0d0a0a;
 }
 
 .event-type.one-time {
-  background-color: #EC4527;
-  color: #E5E7EB;
+  background-color: #ec4527;
+  color: #e5e7eb;
 }
 
 .event-type.monthly {
   background-color: #5f5e5e;
-  color: #E5E7EB;
+  color: #e5e7eb;
 }
 
 .month-navigation {
@@ -53,7 +53,7 @@
 .month-nav-icon {
   cursor: pointer;
   font-size: 1.2rem;
-  color: #EC4527;
+  color: #ec4527;
   transition: transform 0.2s;
 }
 
@@ -63,7 +63,7 @@
 
 .current-month {
   font-size: 1.5rem;
-  color: #E5E7EB;
+  color: #e5e7eb;
 }
 
 .calendar-grid {
@@ -76,11 +76,11 @@
   text-align: center;
   padding: 0.5rem;
   font-weight: bold;
-  color: #E5E7EB;
+  color: #e5e7eb;
 }
 
 .calendar-day {
-  background-color: #1A1818;
+  background-color: #1a1818;
   min-height: 20px;
   padding: 2rem 0.4rem 0.4rem 0.4rem;
   border-radius: 8px;
@@ -101,7 +101,7 @@
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
-  color: #EC4527;
+  color: #ec4527;
   font-weight: bold;
 }
 
@@ -110,7 +110,7 @@
 }
 
 .event-item {
-  background-color: #2A2727;
+  background-color: #2a2727;
   margin: 0.3rem 0;
   padding: 0.4rem 0.2rem;
   border-radius: 4px;
@@ -119,11 +119,11 @@
 }
 
 .event-item.weekly {
-  border-left: 3px solid #E5E7EB;
+  border-left: 3px solid #e5e7eb;
 }
 
 .event-item.one-time {
-  border-left: 3px solid #EC4527;
+  border-left: 3px solid #ec4527;
 }
 
 .event-item.monthly {
@@ -134,7 +134,7 @@
   white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%; 
+  max-width: 100%;
   word-wrap: break-word; /* Ensures long words are broken */
   line-height: 1.2;
   margin-left: 0rem;
@@ -148,8 +148,8 @@
   transform: translateX(-50%);
   top: 100%;
   z-index: 10;
-  background-color: #2A2727;
-  border: 1px solid #EC4527;
+  background-color: #2a2727;
+  border: 1px solid #ec4527;
   border-radius: 4px;
   padding: 0.8rem;
   width: 200px;
@@ -161,12 +161,12 @@
 }
 
 .tooltip-header {
-  color: #E5E7EB;
+  color: #e5e7eb;
   font-size: 0.8rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
   text-align: center;
-  border-bottom: 1px solid #EC4527;
+  border-bottom: 1px solid #ec4527;
   padding-bottom: 0.5rem;
   width: 100%;
 }
@@ -176,13 +176,14 @@
 }
 
 .event-title {
-  color: #EC4527;
+  color: #ec4527;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-.event-time, .event-price {
-  color: #E5E7EB;
+.event-time,
+.event-price {
+  color: #e5e7eb;
   margin: 0.2rem 0;
 }
 
@@ -193,8 +194,8 @@
   transform: translateX(-50%);
   top: 30%;
   z-index: 10;
-  background-color: #2A2727;
-  border: 1px solid #EC4527;
+  background-color: #2a2727;
+  border: 1px solid #ec4527;
   border-radius: 4px;
   padding: 0.8rem 0.4rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -207,12 +208,12 @@
 }
 
 .tooltip-header {
-  color: #E5E7EB;
+  color: #e5e7eb;
   font-size: 0.7rem;
   font-weight: bold;
   margin-bottom: 0.2rem;
   text-align: center;
-  border-bottom: 1px solid #EC4527;
+  border-bottom: 1px solid #ec4527;
   padding-bottom: 0.2rem;
   width: 100%;
 }
@@ -226,8 +227,8 @@
   border-radius: 4px;
   margin-bottom: 0.5rem;
   cursor: pointer;
-  background-color: #1A1818;
-  border-left: 3px solid #E5E7EB;
+  background-color: #1a1818;
+  border-left: 3px solid #e5e7eb;
   transition: background-color 0.2s;
 }
 
@@ -236,7 +237,7 @@
 }
 
 .tooltip-event.one-time {
-  border-left-color: #EC4527;
+  border-left-color: #ec4527;
 }
 
 .tooltip-event:hover {
@@ -244,7 +245,7 @@
 }
 
 .tooltip-event .event-title {
-  color: #E5E7EB;
+  color: #e5e7eb;
   font-weight: bold;
   margin-bottom: 0.3rem;
   font-size: 0.8rem;
@@ -252,23 +253,22 @@
 }
 
 .tooltip-event.one-time .event-title {
-    color: #EC4527;
-    font-weight: bold;
-    margin-bottom: 0.3rem;
-    font-size: 0.8rem;
-    margin-top: 0rem;
-  }
-
+  color: #ec4527;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  margin-top: 0rem;
+}
 
 .tooltip-event .event-time,
 .tooltip-event .event-price {
-  color: #E5E7EB;
+  color: #e5e7eb;
   font-size: 0.7rem;
   margin: 0.2rem 0;
 }
 
 .tooltip-date {
-  color: #E5E7EB;
+  color: #e5e7eb;
   font-size: 0.75rem;
   text-align: center;
   margin-bottom: 0.2rem;
@@ -298,7 +298,7 @@
     margin-left: 1rem;
   }
 
-   .month-navigation {
+  .month-navigation {
     gap: 1rem;
     margin-bottom: 1rem;
   }
@@ -356,21 +356,21 @@
   }
 
   .event-dot.weekly {
-    background-color: #E5E7EB;
-  }
-  
-  .event-dot.one-time {
-    background-color: #EC4527;
+    background-color: #e5e7eb;
   }
 
-  .event-dot.monthly{
+  .event-dot.one-time {
+    background-color: #ec4527;
+  }
+
+  .event-dot.monthly {
     background-color: #5f5e5e;
   }
 
   .selected-day-events {
     margin: 0rem 0rem 0rem 0rem;
     padding: 2rem 1rem 1rem 1rem;
-    background-color: #1A1818;  /* Darker background */
+    background-color: #1a1818; /* Darker background */
     border-radius: 8px;
   }
 
@@ -379,8 +379,8 @@
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;
     text-align: center;
-    color: #EC4527;
-    border-bottom: 1px solid #EC4527;
+    color: #ec4527;
+    border-bottom: 1px solid #ec4527;
   }
 
   .selected-day-date {
@@ -388,7 +388,7 @@
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     text-align: center;
-    color: #E5E7EB;
+    color: #e5e7eb;
     border-bottom: 1px solid #333;
     margin-top: 0.5rem;
   }
@@ -400,31 +400,30 @@
   }
 
   .selected-event {
-    
     padding: 0.5rem;
     margin-bottom: 0.5rem;
     border-radius: 4px;
-    background-color: #2A2727;  /* Individual card background */
-    border-left: 3px solid #E5E7EB;
+    background-color: #2a2727; /* Individual card background */
+    border-left: 3px solid #e5e7eb;
     position: relative;
     transition: transform 0.2s ease, background-color 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .selected-event.one-time {
-    border-left-color: #EC4527;  /* Red border for one-time events */
+    border-left-color: #ec4527; /* Red border for one-time events */
   }
 
   .selected-event:active {
-    transform: scale(0.98);  /* Slight press effect */
+    transform: scale(0.98); /* Slight press effect */
   }
 
   .selected-event:hover {
-    background-color: #333;  /* Darker on hover */
+    background-color: #333; /* Darker on hover */
   }
 
   .selected-event .event-title {
-    color: #EC4527;
+    color: #ec4527;
     font-weight: bold;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
@@ -433,7 +432,7 @@
 
   .selected-event .event-time,
   .selected-event .event-price {
-    color: #E5E7EB;
+    color: #e5e7eb;
     font-size: 0.8rem;
     margin: 0.2rem 0;
   }
@@ -451,7 +450,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #E5E7EB;
+    color: #e5e7eb;
     font-size: 0.9rem;
     margin-left: 1rem;
   }
@@ -463,23 +462,21 @@
   }
 
   .indicator-dot.weekly {
-    background-color: #E5E7EB;
+    background-color: #e5e7eb;
     margin-left: 1.05rem;
   }
 
   .indicator-dot.one-time {
-    background-color: #EC4527;
+    background-color: #ec4527;
   }
 
   .indicator-dot.monthly {
     background-color: #5f5e5e;
     margin-left: 0.5rem;
-
   }
 
-
   .mobile-instruction {
-    color: #EC4527;
+    color: #ec4527;
     font-size: 0.9rem;
     text-align: center;
     margin-top: 0.8rem;

@@ -1,199 +1,193 @@
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4rem 4rem 2rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 4rem 2rem 5rem;
 
-    background-image: url("../assets/store-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    height: 50vh;
-    margin-top: 61px;
-    padding-bottom: 5rem;
-
+  background-image: url("../assets/store-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 50vh;
+  margin-top: 61px;
+  padding-bottom: 5rem;
 }
 
 .hero-content {
-    flex: 1;
-    max-width: 600px;
+  flex: 1;
+  max-width: 600px;
 }
 
 .hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-image img {
-    max-width: 70%;
-    height: auto;
-    border-radius: 10px;
+  max-width: 70%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
-    font-weight: bolder;
-    margin-bottom: 1rem;
-    color: #FAFAFA;
-    line-height: 120%;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+  color: #fafafa;
+  line-height: 120%;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: #ACB0B4;
-    font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #acb0b4;
+  font-weight: 600;
 }
 
 .hero-buttons {
-    display: flex;
-    justify-content: flex-start;
-    /* Center buttons horizontally */
-    align-items: center;
-    gap: 0rem;
-    /* Space between buttons */
-    margin-top: 1rem;
-    margin-left: 0rem;
+  display: flex;
+  justify-content: flex-start;
+  /* Center buttons horizontally */
+  align-items: center;
+  gap: 0rem;
+  /* Space between buttons */
+  margin-top: 1rem;
+  margin-left: 0rem;
 }
 
 .red-button {
-    background-color: #EF4444;
-    color: white;
-    border: none;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: monospace;
-    border-radius: 5px;
-    margin-right: 1rem;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: monospace;
+  border-radius: 5px;
+  margin-right: 1rem;
 }
 
 .white-button {
-    background-color: white;
-    color: black;
-    border: 0px solid white;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: monospace;
-    border-radius: 5px;
-
+  background-color: white;
+  color: black;
+  border: 0px solid white;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: monospace;
+  border-radius: 5px;
 }
 
 .second-red-button {
-    background-color: #EF4444;
-    color: white;
-    border: none;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: monospace;
-    border-radius: 5px;
-    margin-left: 1rem;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: monospace;
+  border-radius: 5px;
+  margin-left: 1rem;
 }
 
 .hero-buttons button,
 .red-button,
 .white-button,
 .second-red-button {
-    min-width: 30%; 
-    height: 2.8rem;     
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    padding: 0;         
+  min-width: 30%;
+  height: 2.8rem;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0;
 }
 
 .red-button:hover {
-    background-color: darkred;
+  background-color: darkred;
 }
 
 .white-button:hover {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-        padding-top: 5rem;
-        margin: 0rem 0rem;
-        padding-bottom: 2rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding-top: 5rem;
+    margin: 0rem 0rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 
+  .hero-content {
+    max-width: 100%;
+  }
 
-    }
+  .hero h1 {
+    text-align: left;
+    font-size: 1.8rem;
+    margin: 0rem;
+  }
 
-    .hero-content {
-        max-width: 100%;
-    }
+  .hero p {
+    text-align: left;
+    font-size: 1rem;
+  }
 
-    .hero h1 {
-        text-align: left;
-        font-size: 1.8rem;
-        margin: 0rem;
-    }
+  .hero-buttons {
+    justify-content: center;
+    gap: 1rem;
+  }
 
-    .hero p {
-        text-align: left;
-        font-size: 1rem;
-    }
+  .hero-image {
+    min-width: 100%;
+    max-width: 250%;
+    order: -1;
+    margin-bottom: 1.8rem;
+    margin-top: 0rem;
+    margin: 0;
+    padding: 0;
+  }
 
-    .hero-buttons {
-        justify-content: center;
-        gap: 1rem;
-    }
+  .hero-image img {
+    width: 120%;
+    min-width: 100%;
+    margin-bottom: 1.5rem;
+  }
 
-    .hero-image {
-        min-width: 100%;
-        max-width: 250%;
-        order: -1;
-        margin-bottom: 1.8rem;
-        margin-top: 0rem;
-        margin: 0;
-        padding: 0;
+  .red-button {
+    font-size: 1rem;
+    margin: 0rem;
+    padding: 1rem 1rem;
+  }
 
-    }
+  .white-button {
+    font-size: 1rem;
+    margin: 0rem;
+    padding: 1rem 1rem;
+  }
 
-    .hero-image img {
-        width: 120%;
-        min-width: 100%;
-        margin-bottom: 1.5rem;
+  .second-red-button {
+    font-size: 1rem;
+    margin-left: 0rem;
+    padding: 1rem 1rem;
+  }
 
-    }
-
-    .red-button {
-        font-size: 1rem;
-        margin: 0rem;
-        padding: 1rem 1rem;
-    }
-
-    .white-button {
-        font-size: 1rem;
-        margin: 0rem;
-        padding: 1rem 1rem;
-        }
-
-    .second-red-button {
-        font-size: 1rem;
-        margin-left: 0rem;
-        padding: 1rem 1rem;
-    }
-
-.hero-buttons button,
-.red-button,
-.white-button,
-.second-red-button {
-    padding-top: 1.8rem; 
-    padding-bottom: 1.5rem;        
-}
+  .hero-buttons button,
+  .red-button,
+  .white-button,
+  .second-red-button {
+    padding-top: 1.8rem;
+    padding-bottom: 1.5rem;
+  }
 }
