@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import moment from 'moment';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import './EventsCalendar.css';
+import React, { useState, useEffect, useRef } from "react";
+import moment from "moment";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import "./EventsCalendar.css";
 
 const EventsCalendar = ({ tournaments, onEventClick }) => {
   const [currentDate, setCurrentDate] = useState(moment());
@@ -14,15 +14,15 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
-  
+
   const daysInMonth = () => {
     const year = currentDate.year();
     const month = currentDate.month();
     const firstDay = moment([year, month, 1]);
-    const lastDay = moment(firstDay).endOf('month');
+    const lastDay = moment(firstDay).endOf("month");
     return { firstDay, lastDay };
   };
 
@@ -30,9 +30,9 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
     if (isMobile && dayEvents.length > 0) {
       setSelectedDay(currentDayDate);
       setTimeout(() => {
-        selectedDayRef.current?.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
+        selectedDayRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
       }, 100);
     }
@@ -40,11 +40,11 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
 
   // Helper to get the event class based on eventFrequencyType
   const getEventClass = (event) => {
-    if (event.eventFrequencyType === 'oneTime') return 'one-time';
-    if (event.eventFrequencyType === 'weekly') return 'weekly';
-    if (event.eventFrequencyType === 'monthly') return 'monthly';
+    if (event.eventFrequencyType === "oneTime") return "one-time";
+    if (event.eventFrequencyType === "weekly") return "weekly";
+    if (event.eventFrequencyType === "monthly") return "monthly";
     // fallback for old data, treat as weekly
-    return 'weekly';
+    return "weekly";
   };
 
   const renderCalendarDays = () => {
@@ -59,18 +59,22 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
 
     // Add days of the month
     for (let day = 1; day <= lastDay.date(); day++) {
-      const currentDayDate = moment([currentDate.year(), currentDate.month(), day]);
-      const dateString = currentDayDate.format('YYYY-MM-DD');
-      
+      const currentDayDate = moment([
+        currentDate.year(),
+        currentDate.month(),
+        day,
+      ]);
+      const dateString = currentDayDate.format("YYYY-MM-DD");
+
       // Find events for this day
-      const dayEvents = tournaments.filter(t => 
-        moment(t.date).format('YYYY-MM-DD') === dateString
+      const dayEvents = tournaments.filter(
+        (t) => moment(t.date).format("YYYY-MM-DD") === dateString
       );
 
       days.push(
-        <div 
-          key={day} 
-          className={`calendar-day ${dayEvents.length > 0 ? 'has-events' : ''}`}
+        <div
+          key={day}
+          className={`calendar-day ${dayEvents.length > 0 ? "has-events" : ""}`}
           onClick={() => handleDayClick(currentDayDate, dayEvents)}
         >
           <span className="day-number">{day}</span>
@@ -79,9 +83,9 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
             dayEvents.length > 0 && (
               <div className="event-indicators">
                 {dayEvents.map((event, index) => (
-                  <div 
-                    key={index} 
-                    className={`event-dot ${getEventClass(event)}`} 
+                  <div
+                    key={index}
+                    className={`event-dot ${getEventClass(event)}`}
                   />
                 ))}
               </div>
@@ -90,7 +94,7 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
             // Desktop: Show event names and tooltip
             <div className="individualevents-container">
               {dayEvents.map((event, index) => (
-                <div 
+                <div
                   key={index}
                   className={`event-item ${getEventClass(event)}`}
                 >
@@ -103,17 +107,19 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
                     Click on an event to learn more & register!
                   </div>
                   <div className="tooltip-date">
-                    {currentDayDate.format('dddd, Do MMMM')}
+                    {currentDayDate.format("dddd, Do MMMM")}
                   </div>
                   <div className="tooltip-content">
                     {dayEvents.map((event, index) => (
-                      <div 
-                        key={index} 
+                      <div
+                        key={index}
                         className={`tooltip-event ${getEventClass(event)}`}
                         onClick={() => onEventClick(event)}
                       >
                         <p className="event-title">{event.name}</p>
-                        <p className="event-time">Time: {formatTime(event.date) || "To be informed"}</p>
+                        <p className="event-time">
+                          Time: {formatTime(event.date) || "To be informed"}
+                        </p>
                         <p className="event-price">Entry: {event.price} EUR</p>
                       </div>
                     ))}
@@ -130,15 +136,15 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
   };
 
   const changeMonth = (increment) => {
-    setCurrentDate(moment(currentDate).add(increment, 'months'));
+    setCurrentDate(moment(currentDate).add(increment, "months"));
   };
 
   const renderSelectedDayEvents = () => {
     if (!selectedDay) return null;
-  
-    const dateString = selectedDay.format('YYYY-MM-DD');
-    const dayEvents = tournaments.filter(t => 
-      moment(t.date).format('YYYY-MM-DD') === dateString
+
+    const dateString = selectedDay.format("YYYY-MM-DD");
+    const dayEvents = tournaments.filter(
+      (t) => moment(t.date).format("YYYY-MM-DD") === dateString
     );
 
     return (
@@ -148,17 +154,19 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
             Click on an event to learn more & register!
           </div>
           <div className="selected-day-date">
-            {selectedDay.format('dddd, Do MMMM')}
+            {selectedDay.format("dddd, Do MMMM")}
           </div>
           <div className="selected-day-content">
             {dayEvents.map((event, index) => (
-              <div 
+              <div
                 key={index}
                 className={`selected-event ${getEventClass(event)}`}
                 onClick={() => onEventClick(event)}
               >
                 <p className="event-title">{event.name}</p>
-                <p className="event-time">Time: {formatTime(event.date)||"To be informed"}</p>
+                <p className="event-time">
+                  Time: {formatTime(event.date) || "To be informed"}
+                </p>
                 <p className="event-price">Entry fee: {event.price} EUR</p>
               </div>
             ))}
@@ -167,7 +175,7 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
       </div>
     );
   };
-  
+
   return (
     <div className="calendar-section">
       <div className="calendar-header">
@@ -200,20 +208,22 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
       </div>
 
       <div className="month-navigation">
-        <FaChevronLeft 
-          className="month-nav-icon" 
+        <FaChevronLeft
+          className="month-nav-icon"
           onClick={() => changeMonth(-1)}
         />
-        <h3 className="current-month">{currentDate.format('MMMM YYYY')}</h3>
-        <FaChevronRight 
-          className="month-nav-icon" 
+        <h3 className="current-month">{currentDate.format("MMMM YYYY")}</h3>
+        <FaChevronRight
+          className="month-nav-icon"
           onClick={() => changeMonth(1)}
         />
       </div>
 
       <div className="calendar-grid">
-        {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map(day => (
-          <div key={day} className="weekday-header">{day}</div>
+        {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day) => (
+          <div key={day} className="weekday-header">
+            {day}
+          </div>
         ))}
         {renderCalendarDays()}
       </div>
@@ -222,13 +232,17 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
   );
 };
 
-export default EventsCalendar; 
+export default EventsCalendar;
 
 const formatTime = (isoDate) => {
   if (!isoDate) return null;
-  
+
   const date = new Date(isoDate);
   if (isNaN(date.getTime())) return null; // Check for invalid dates
 
-  return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+  return date.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
 };
