@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import ReservationsPage from "./pages/ReservationsPage";
 import AboutUsPage from "./pages/AboutUsPage";

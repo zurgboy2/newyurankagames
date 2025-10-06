@@ -30,13 +30,6 @@ const Navbar = () => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [menuOpen]);
 
-  // Add event listener
-
-  const toggleEventsDropdown = (e) => {
-    e.stopPropagation();
-    setEventsDropdownOpen(!eventsDropdownOpen);
-  };
-
   const handleEventsHover = (e) => {
     e.stopPropagation();
     setEventsDropdownOpen(true);

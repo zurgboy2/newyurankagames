@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const BoardGamesSection = () => {
   const [games, setGames] = useState([]);
-  const [visibleGames, setVisibleGames] = useState(10); // Initially 10 games for desktop (5x2) & 12 for mobile (2x6)
   const [allVisible, setAllVisible] = useState(false);
   const [loading, setLoading] = useState(true); // 🔹 Loading state
   const [searchQuery, setSearchQuery] = useState("");
@@ -52,17 +51,12 @@ const BoardGamesSection = () => {
   };
 
   const loadMoreForSale = () => setVisibleForSale((prev) => prev + 10);
-  const loadMoreForRent = () => setVisibleForRent((prev) => prev + 10);
 
   const viewAll = () => {
     setVisibleForSale(forSaleGames.length);
     setVisibleForRent(forRentGames.length);
     setAllVisible(true);
   };
-
-  const filteredGames = games.filter((game) =>
-    game.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   const filteredForSale = forSaleGames.filter((game) =>
     game.name.toLowerCase().includes(searchQuery.toLowerCase())

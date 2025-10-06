@@ -239,8 +239,6 @@ const ReservationForm = () => {
     }
   }, [spaces]);
 
-  const dateInputRef = useRef(null);
-
   return (
     <div className="reservations-container">
       {/* Title */}
