@@ -50,15 +50,16 @@
 }
 
 .registration-badge {
-  background-color: #ef4444;
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.6rem;
+  background-color: rgb(246, 247, 249);
+  color: #0e0c0c;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2rem;
+  font-size: 0.7rem;
   position: absolute;
   top: 10px;
   right: 15px;
   margin-bottom: 5rem;
+  font-weight: bold;
 }
 
 /* Card poster: centered image */
