@@ -43,7 +43,7 @@ const OurServices = () => {
             class="visit-store"
             onClick={() => window.open("https://store.yuranka.com", "_blank")}
           >
-            Visit Our Store
+            Visit Our Webshop
           </button>
           <img src={smallLogo3} alt="Top-right Logo" class="top-right-logo" />
         </div>

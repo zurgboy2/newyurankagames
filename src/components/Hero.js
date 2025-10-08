@@ -24,7 +24,7 @@ const Hero = () => {
             className="red-button"
             onClick={() => window.open("https://store.yuranka.com", "_blank")}
           >
-            Visit Our Store
+            Visit Our Webshop
           </button>
 
           <button className="white-button" onClick={handleJoinEvents}>
