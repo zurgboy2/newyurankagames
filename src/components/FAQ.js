@@ -101,7 +101,7 @@ const FAQSection = ({ filter = "all" }) => {
         {
           question: "Do you host TCG tournaments at Yuranka Games?",
           answer:
-            "Events—> Main events—> Weekly events. \n Your registration will be confirmed once payment has been made. ",
+            "Yes! We host a variety of TCG tournaments under our Events section — including Main Events and Weekly Events.",
         },
         {
           question:
