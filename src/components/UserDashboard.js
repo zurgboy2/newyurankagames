@@ -12,6 +12,7 @@ const UserDashboard = () => {
   const [updateStatus, setUpdateStatus] = useState(null);
   const [storeCredit, setStoreCredit] = useState("0.00");
   const [salesData, setSalesData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setName(sessionStorage.getItem("name") || "");
@@ -33,7 +34,12 @@ const UserDashboard = () => {
       setStoreCredit(
         data.Value != null ? parseFloat(data.Value).toFixed(2) : "0.00"
       );
-    } catch (e) {}
+      // If you fetch salesData or other info, set it here as well
+      // setSalesData(data.salesData || {});
+    } catch (e) {
+    } finally {
+      setLoading(false);
+    }
   }
   const handleEditClick = () => {
     setIsEditing(!isEditing);
@@ -94,15 +100,17 @@ const UserDashboard = () => {
         <button className="sign-out">Sign Out</button>
       </div>
 
-      {/* User Details */}
       <div className="user-details">
         <img src={avatarImg} alt="User Avatar" className="user-avatar" />
         <div className="user-info">
           <h3>{name}</h3>
           <p>{email}</p>
-          <p>
-            <strong>Store Credit: </strong>${storeCredit}{" "}
-          </p>
+          {/* Store Credit: only show when not loading */}
+          {!loading && (
+            <p>
+              <strong>Store Credit: </strong>${storeCredit}{" "}
+            </p>
+          )}
         </div>
         <button className="editprofilebutton" onClick={handleEditClick}>
           {isEditing ? "Close" : "Edit Profile"}
@@ -173,6 +181,19 @@ const UserDashboard = () => {
         </div>
       )}
 
+  {/* Loading: only covers lower dashboard */}
+  {loading && (
+    <div className="loading-screen">
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Loading User Data..</p>
+      </div>
+    </div>
+  )}
+
+  {/* Rest of dashboard: only when not loading */}
+  {!loading && (
+    <>
       {/* Subscription Details */}
       <div className="dashboard-section">
         <h3>Subscription Details</h3>
@@ -237,6 +258,8 @@ const UserDashboard = () => {
         </p>
         <p>You currently have no active discount codes.</p>
       </div>
+    </>
+  )}
     </div>
   );
 };
