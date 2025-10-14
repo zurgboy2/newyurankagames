@@ -275,3 +275,72 @@ input {
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
+
+.discount-code-form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 700px) {
+  .dashboard-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .dashboard-header.mobile {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  .sign-out-mobile-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.2rem;
+    margin-top: 2rem;
+  }
+  .user-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin-bottom: 0.7rem;
+  }
+  .user-details.mobile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0.7rem;
+  }
+  .editprofilebutton-mobile-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0rem;
+  }
+  .user-avatar {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .user-info {
+    margin-bottom: 0.7rem;
+  }
+  .discount-code-form.mobile {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .discount-code-form.mobile .enter-amount-field {
+    width: 80% !important;
+    max-width: 260px;
+    margin-bottom: 0.5rem;
+  }
+  .discount-code-form.mobile .generate-amount-btn {
+    width: 80%;
+    max-width: 260px;
+  }
+}

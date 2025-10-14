@@ -3,7 +3,18 @@ import "./UserDashboard.css";
 import avatarImg from "../assets/logo.png";
 import { makeRegistrationRequestCall } from "../api/api";
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 700);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  return isMobile;
+};
+
 const UserDashboard = () => {
+  const isMobile = useIsMobile();
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -34,8 +45,6 @@ const UserDashboard = () => {
       setStoreCredit(
         data.Value != null ? parseFloat(data.Value).toFixed(2) : "0.00"
       );
-      // If you fetch salesData or other info, set it here as well
-      // setSalesData(data.salesData || {});
     } catch (e) {
     } finally {
       setLoading(false);
@@ -95,27 +104,44 @@ const UserDashboard = () => {
   return (
     <div className="dashboard-container">
       {/* Header */}
-      <div className="dashboard-header">
+      <div className={`dashboard-header${isMobile ? " mobile" : ""}`}>
         <h2>User Dashboard</h2>
-        <button className="sign-out">Sign Out</button>
+        {isMobile ? null : (
+          <button className="sign-out">Sign Out</button>
+        )}
       </div>
+      {isMobile && (
+        <div className="sign-out-mobile-row">
+          <button className="sign-out">Sign Out</button>
+        </div>
+      )}
 
-      <div className="user-details">
+      {/* User Details */}
+      <div className={`user-details${isMobile ? " mobile" : ""}`}>
         <img src={avatarImg} alt="User Avatar" className="user-avatar" />
         <div className="user-info">
           <h3>{name}</h3>
           <p>{email}</p>
-          {/* Store Credit: only show when not loading */}
           {!loading && (
             <p>
               <strong>Store Credit: </strong>${storeCredit}{" "}
             </p>
           )}
         </div>
-        <button className="editprofilebutton" onClick={handleEditClick}>
-          {isEditing ? "Close" : "Edit Profile"}
-        </button>
+        {isMobile ? null : (
+          <button className="editprofilebutton" onClick={handleEditClick}>
+            {isEditing ? "Close" : "Edit Profile"}
+          </button>
+        )}
+    {isMobile && (
+            <div className="editprofilebutton-mobile-row">
+              <button className="editprofilebutton" onClick={handleEditClick}>
+                {isEditing ? "Close" : "Edit Profile"}
+              </button>
+            </div>
+          )}
       </div>
+      
 
       {/* Edit Profile Form */}
       {isEditing && (
@@ -181,85 +207,80 @@ const UserDashboard = () => {
         </div>
       )}
 
-  {/* Loading: only covers lower dashboard */}
-  {loading && (
-    <div className="loading-screen">
-      <div className="loading-container">
-        <div className="spinner"></div>
-        <p>Loading User Data..</p>
-      </div>
-    </div>
-  )}
+      {/* Loading: only covers lower dashboard */}
+      {loading && (
+        <div className="loading-screen">
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <p>Loading User Data..</p>
+          </div>
+        </div>
+      )}
 
-  {/* Rest of dashboard: only when not loading */}
-  {!loading && (
-    <>
-      {/* Subscription Details */}
-      <div className="dashboard-section">
-        <h3>Subscription Details</h3>
-      </div>
-
-      {/* This Month's Sales */}
-      <div className="dashboard-section">
-        <h3>This Month's Sales</h3>
-        {Object.keys(salesData).length === 0 ? (
-          <p>No sales data for this month.</p>
-        ) : (
-          <table className="sales-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Amount (€)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.entries(salesData).map(([date, amount]) => (
-                <tr key={date}>
-                  <td>{date}</td>
-                  <td> € {Number(amount).toFixed(2)}</td>
-                </tr>
-              ))}
-              <tr className="total-row">
-                <td>
-                  <strong>Total</strong>
-                </td>
-                <td>
-                  <strong>
-                    €{" "}
-                    {Object.values(salesData)
-                      .reduce((sum, amt) => sum + Number(amt), 0)
-                      .toFixed(2)}
-                  </strong>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        )}
-      </div>
-
-      {/* Generate Discount Code */}
-      <div className="dashboard-section">
-        <h3>Generate Discount Code</h3>
-        <input
-          className="enter-amount-field"
-          type="number"
-          placeholder="Enter Amount"
-        />
-        <button className="generate-amount-btn">Generate Discount Code</button>
-      </div>
-
-      {/* Your Discount Codes */}
-      <div className="dashboard-section">
-        <h3>Your Discount Codes</h3>
-        <p className="note">
-          Note: Once a discount code is generated, it becomes a Shopify coupon
-          and cannot be transferred back to in-store credit without contacting
-          the IT admin.
-        </p>
-        <p>You currently have no active discount codes.</p>
-      </div>
-    </>
-  )}
+      {!loading && (
+        <>
+          {/* Subscription Details */}
+          <div className="dashboard-section">
+            <h3>Subscription Details</h3>
+          </div>
+          <div className="dashboard-section">
+            <h3>This Month's Sales</h3>
+            {Object.keys(salesData).length === 0 ? (
+              <p>No sales data for this month.</p>
+            ) : (
+              <table className="sales-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Amount (€)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.entries(salesData).map(([date, amount]) => (
+                    <tr key={date}>
+                      <td>{date}</td>
+                      <td> € {Number(amount).toFixed(2)}</td>
+                    </tr>
+                  ))}
+                  <tr className="total-row">
+                    <td>
+                      <strong>Total</strong>
+                    </td>
+                    <td>
+                      <strong>
+                        €{" "}
+                        {Object.values(salesData)
+                          .reduce((sum, amt) => sum + Number(amt), 0)
+                          .toFixed(2)}
+                      </strong>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            )}
+          </div>
+         <div className="dashboard-section">
+            <h3>Generate Discount Code</h3>
+            <div className={`discount-code-form${isMobile ? " mobile" : ""}`}>
+              <input
+                className="enter-amount-field"
+                type="number"
+                placeholder="Enter Amount"
+              />
+              <button className="generate-amount-btn">Generate Discount Code</button>
+            </div>
+          </div>
+          <div className="dashboard-section">
+            <h3>Your Discount Codes</h3>
+            <p className="note">
+              Note: Once a discount code is generated, it becomes a Shopify coupon
+              and cannot be transferred back to in-store credit without contacting
+              the IT admin.
+            </p>
+            <p>You currently have no active discount codes.</p>
+          </div>
+        </>
+      )}
     </div>
   );
 };
