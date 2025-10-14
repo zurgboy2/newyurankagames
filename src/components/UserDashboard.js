@@ -33,15 +33,6 @@ const UserDashboard = () => {
       setStoreCredit(
         data.Value != null ? parseFloat(data.Value).toFixed(2) : "0.00"
       );
-
-      //setSalesData(data.Sales);
-      const dummySalesData = {
-        "2024-03-01": 50.75,
-        "2024-03-05": 120.0,
-        "2024-03-12": 89.99,
-        "2024-03-18": 45.5,
-      };
-      setSalesData(dummySalesData);
     } catch (e) {}
   }
   const handleEditClick = () => {
