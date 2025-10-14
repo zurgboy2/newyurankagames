@@ -106,9 +106,7 @@ const UserDashboard = () => {
       {/* Header */}
       <div className={`dashboard-header${isMobile ? " mobile" : ""}`}>
         <h2>User Dashboard</h2>
-        {isMobile ? null : (
-          <button className="sign-out">Sign Out</button>
-        )}
+        {isMobile ? null : <button className="sign-out">Sign Out</button>}
       </div>
       {isMobile && (
         <div className="sign-out-mobile-row">
@@ -133,15 +131,14 @@ const UserDashboard = () => {
             {isEditing ? "Close" : "Edit Profile"}
           </button>
         )}
-    {isMobile && (
-            <div className="editprofilebutton-mobile-row">
-              <button className="editprofilebutton" onClick={handleEditClick}>
-                {isEditing ? "Close" : "Edit Profile"}
-              </button>
-            </div>
-          )}
+        {isMobile && (
+          <div className="editprofilebutton-mobile-row">
+            <button className="editprofilebutton" onClick={handleEditClick}>
+              {isEditing ? "Close" : "Edit Profile"}
+            </button>
+          </div>
+        )}
       </div>
-      
 
       {/* Edit Profile Form */}
       {isEditing && (
@@ -259,7 +256,7 @@ const UserDashboard = () => {
               </table>
             )}
           </div>
-         <div className="dashboard-section">
+          <div className="dashboard-section">
             <h3>Generate Discount Code</h3>
             <div className={`discount-code-form${isMobile ? " mobile" : ""}`}>
               <input
@@ -267,15 +264,17 @@ const UserDashboard = () => {
                 type="number"
                 placeholder="Enter Amount"
               />
-              <button className="generate-amount-btn">Generate Discount Code</button>
+              <button className="generate-amount-btn">
+                Generate Discount Code
+              </button>
             </div>
           </div>
           <div className="dashboard-section">
             <h3>Your Discount Codes</h3>
             <p className="note">
-              Note: Once a discount code is generated, it becomes a Shopify coupon
-              and cannot be transferred back to in-store credit without contacting
-              the IT admin.
+              Note: Once a discount code is generated, it becomes a Shopify
+              coupon and cannot be transferred back to in-store credit without
+              contacting the IT admin.
             </p>
             <p>You currently have no active discount codes.</p>
           </div>
