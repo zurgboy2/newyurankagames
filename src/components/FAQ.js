@@ -54,7 +54,7 @@ const FAQSection = ({ filter = "all" }) => {
         {
           question: "Do you ship internationally?",
           answer:
-            "Yes! We offer worldwide shipping, and for orders above 400€, we provide free shipping via DHL or UPS Express.",
+            "Yes! We offer worldwide shipping via DHL or UPS Express.",
         },
         {
           question: "Do international orders include customs duties or taxes?",
