@@ -203,6 +203,20 @@ const LoginAndSignup = () => {
             </div>
           )}
 
+          {isLogin && (
+            <p
+              className="forgot-text"
+              style={{
+                cursor: "pointer",
+                marginTop: 12,
+                textAlign: "right",
+                marginBottom: 10,
+              }}
+              onClick={() => navigate("/reset-password")}
+            >
+              Forgot password?
+            </p>
+          )}
           <button type="submit" className="auth-button">
             {loading ? "Processing..." : isLogin ? "Login" : "Sign Up"}
           </button>
