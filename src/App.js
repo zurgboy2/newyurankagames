@@ -11,6 +11,7 @@ import BoardGamesPage from "./pages/BoardGamesPage";
 import MiniConsPage from "./pages/MiniConsPage";
 import StarWarsPage from "./pages/StarWarsPage";
 import OpenInBrowserBanner from "./components/OpenInBrowserBanner";
+import ResetPassword from "./components/ResetPassword";
 import { useState, useEffect } from "react";
 import { isInstagramInAppBrowser } from "./components/Utility";
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/videogames" element={<VideoGamesPage />} />
         <Route path="/boardgames" element={<BoardGamesPage />} />
         <Route path="/starwars" element={<StarWarsPage />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     </div>
   );
