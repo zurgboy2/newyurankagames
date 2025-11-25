@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./UserDashboard.css";
 import avatarImg from "../assets/logo.png";
 import { makeRegistrationRequestCall } from "../api/api";
+import { useNavigate } from "react-router-dom";
 
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
@@ -24,6 +25,7 @@ const UserDashboard = () => {
   const [storeCredit, setStoreCredit] = useState("0.00");
   const [salesData, setSalesData] = useState({});
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setName(sessionStorage.getItem("name") || "");
@@ -101,16 +103,31 @@ const UserDashboard = () => {
     } catch (e) {}
   }
 
+  function handleLogout() {
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("googleToken");
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("avatarurl");
+
+    navigate("/login&signup");
+  }
   return (
     <div className="dashboard-container">
       {/* Header */}
       <div className={`dashboard-header${isMobile ? " mobile" : ""}`}>
         <h2>User Dashboard</h2>
-        {isMobile ? null : <button className="sign-out">Sign Out</button>}
+        {isMobile ? null : (
+          <button className="sign-out" onClick={handleLogout}>
+            Sign Out
+          </button>
+        )}
       </div>
       {isMobile && (
         <div className="sign-out-mobile-row">
-          <button className="sign-out">Sign Out</button>
+          <button className="sign-out" onClick={handleLogout}>
+            Sign Out
+          </button>
         </div>
       )}
 
