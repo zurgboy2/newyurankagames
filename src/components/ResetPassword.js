@@ -143,7 +143,7 @@ const ResetPassword = () => {
             <h2>Reset Password</h2>
 
             {loadingMode === "verify" && (
-              <p style={{ color: "#bbb" }}>Verifying token...</p>
+              <p style={{ color: "#bbb" }}>Loading...</p>
             )}
             {loadingMode === "save" && (
               <p style={{ color: "#bbb" }}>Confirming new password...</p>
