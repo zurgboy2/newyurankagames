@@ -73,12 +73,31 @@
 
 .auth-box .input-field input {
   flex: 1;
-  padding: 0.2rem 0rem 0.2rem 3rem;
-  /* Space for the icon */
+  padding: 0.2rem 3rem 0.2rem 3rem;
+  /* Space for both icons */
   background: none;
   border: none;
   color: white;
   outline: none;
+}
+
+.eye-button {
+  background: none;
+  border: none;
+  color: #de2323;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  transition: color 0.2s ease;
+  position: absolute;
+  right: 0.5rem;
+}
+
+.eye-button:hover {
+  color: #ff4444;
 }
 
 .auth-box .auth-button {
