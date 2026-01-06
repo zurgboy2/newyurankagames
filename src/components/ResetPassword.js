@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaEnvelope, FaLock } from "react-icons/fa";
+import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { makeRequestCall } from "../api/api";
 import "./ResetPassword.css";
@@ -21,6 +21,8 @@ const ResetPassword = () => {
   const [verifyStatus, setVerifyStatus] = useState(null);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -176,13 +178,20 @@ const ResetPassword = () => {
                   <div className="input-field">
                     <FaLock className="icon" />
                     <input
-                      type="password"
+                      type={showNewPassword ? "text" : "password"}
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
                       placeholder="Enter new password"
                       required
                       style={{ color: "white" }}
                     />
+                    <button
+                      type="button"
+                      className="eye-button"
+                      onClick={() => setShowNewPassword(!showNewPassword)}
+                    >
+                      {showNewPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
                   </div>
                 </div>
 
@@ -191,13 +200,20 @@ const ResetPassword = () => {
                   <div className="input-field">
                     <FaLock className="icon" />
                     <input
-                      type="password"
+                      type={showConfirmPassword ? "text" : "password"}
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       placeholder="Confirm new password"
                       required
                       style={{ color: "white" }}
                     />
+                    <button
+                      type="button"
+                      className="eye-button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    >
+                      {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
                   </div>
                 </div>
 
