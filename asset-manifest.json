@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.4258d5e9.css",
-    "main.js": "/static/js/main.bebdd570.js",
+    "main.css": "/static/css/main.5c2cc5ab.css",
+    "main.js": "/static/js/main.0fa1b029.js",
     "static/js/453.420dfce0.chunk.js": "/static/js/453.420dfce0.chunk.js",
     "static/media/serviceimg2.png": "/static/media/serviceimg2.70bf9058267496713c61.png",
     "static/media/serviceimg3.png": "/static/media/serviceimg3.fd272046aeaaf1503e57.png",
     "static/media/small-logo1.png": "/static/media/small-logo1.bdf9e20e3d478b7f4ec8.png",
-    "static/media/div.png": "/static/media/div.779f8878c429bb772a33.png",
+    "static/media/div.png": "/static/media/div.4c2f81dbfdc841c31d57.png",
     "static/media/store.jpg": "/static/media/store.016215654aa8a65b3def.jpg",
     "static/media/vision.png": "/static/media/vision.545b146903ed5db236b3.png",
     "static/media/couchSpaces.jpg": "/static/media/couchSpaces.f9724c69262efb87aee9.jpg",
@@ -33,12 +33,12 @@
     "static/media/small-logo7.png": "/static/media/small-logo7.26e35e30ba6fa509c18f.png",
     "static/media/noposter.png": "/static/media/noposter.5091a314e36ae1e7b0cc.png",
     "index.html": "/index.html",
-    "main.4258d5e9.css.map": "/static/css/main.4258d5e9.css.map",
-    "main.bebdd570.js.map": "/static/js/main.bebdd570.js.map",
+    "main.5c2cc5ab.css.map": "/static/css/main.5c2cc5ab.css.map",
+    "main.0fa1b029.js.map": "/static/js/main.0fa1b029.js.map",
     "453.420dfce0.chunk.js.map": "/static/js/453.420dfce0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4258d5e9.css",
-    "static/js/main.bebdd570.js"
+    "static/css/main.5c2cc5ab.css",
+    "static/js/main.0fa1b029.js"
   ]
 }
