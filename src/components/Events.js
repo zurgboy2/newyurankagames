@@ -150,9 +150,23 @@ const EventsSection = () => {
           <div className="spinner"></div>
           <p>Loading Events & Tournaments...</p>
         </div>
+      ) : oneTimeEvents.length === 0 ? (
+        <div className="no-events-container">
+          <p className="no-events-message">
+            No one-time events planned yet. Check our site later or{" "}
+            <a 
+              href="https://discord.com/invite/dDccDK3SnN" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="discord-link"
+            >
+              join our Discord
+            </a>{" "}
+            to stay in touch!
+          </p>
+        </div>
       ) : (
-        <div className="tournament-cards-container">
-          {oneTimeEvents.map((tournament, index) => (
+        <div className="tournament-cards-container">{oneTimeEvents.map((tournament, index) => (
             <div key={index} className="tournament-card">
               <div className="card-image">
                 <img
@@ -250,11 +264,24 @@ const EventsSection = () => {
       ) : (
         <>
           <div className="tournament-cards-container">
-            {displayedMonthlyEvents.length === 0 && (
-              <p>No monthly events for selected filter.</p>
-            )}
-            {displayedMonthlyEvents.map((tournament, index) => (
-              <div key={index} className="tournament-card">
+            {displayedMonthlyEvents.length === 0 ? (
+              <div className="no-events-container">
+                <p className="no-events-message">
+                  No monthly events for planned yet. Check our site later or{" "}
+                  <a 
+                    href="https://discord.com/invite/dDccDK3SnN" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="discord-link"
+                  >
+                    join our Discord
+                  </a>{" "}
+                  to stay in touch!
+                </p>
+              </div>
+            ) : (
+              displayedMonthlyEvents.map((tournament, index) => (
+                <div key={index} className="tournament-card">
                 <div className="card-image">
                   <img
                     src={tournament.posterUrl || noposter}
@@ -328,7 +355,8 @@ const EventsSection = () => {
                   Register
                 </button>
               </div>
-            ))}
+              ))
+            )}
           </div>
           {filteredMonthlyEvents.length > 8 && (
             <div className="event-view-all-button-container desktop-only">
@@ -378,6 +406,21 @@ const EventsSection = () => {
         <div className="loading-container">
           <div className="spinner"></div>
           <p>Loading Weekly Events & Tournaments...</p>
+        </div>
+      ) : displayedWeeklyEvents.length === 0 ? (
+        <div className="no-events-container">
+          <p className="no-events-message">
+            No weekly events planned yet. Check our site later or{" "}
+            <a 
+              href="https://discord.com/invite/dDccDK3SnN" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="discord-link"
+            >
+              join our Discord
+            </a>{" "}
+            to stay in touch!
+          </p>
         </div>
       ) : (
         <>

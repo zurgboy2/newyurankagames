@@ -623,3 +623,34 @@
     display: none !important;
   }
 }
+
+/* No events message styling */
+.no-events-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+.no-events-message {
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.discord-link {
+  color: #ef4444;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.discord-link:hover {
+  color: #dc2626;
+  text-decoration: underline;
+}
