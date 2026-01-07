@@ -267,7 +267,7 @@ const EventsSection = () => {
             {displayedMonthlyEvents.length === 0 ? (
               <div className="no-events-container">
                 <p className="no-events-message">
-                  No monthly events for planned yet. Check our site later or{" "}
+                  No monthly events planned yet. Check our site later or{" "}
                   <a 
                     href="https://discord.com/invite/dDccDK3SnN" 
                     target="_blank" 
