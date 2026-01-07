@@ -128,7 +128,10 @@ const Navbar = () => {
               <button
                 className="signin"
                 onClick={() =>
-                  navigate("/login&signup", { state: { isLogin: true } })
+                  navigate("/login&signup", {
+                    state: { isLogin: true },
+                    replace: true,
+                  })
                 }
               >
                 Login
@@ -138,7 +141,10 @@ const Navbar = () => {
               <button
                 className="signup"
                 onClick={() =>
-                  navigate("/login&signup", { state: { isLogin: false } })
+                  navigate("/login&signup", {
+                    state: { isLogin: false },
+                    replace: true,
+                  })
                 }
               >
                 Sign Up
@@ -159,7 +165,10 @@ const Navbar = () => {
           <button
             className="signin"
             onClick={() =>
-              navigate("/login&signup", { state: { isLogin: true } })
+              navigate("/login&signup", {
+                state: { isLogin: true },
+                replace: true,
+              })
             }
           >
             Login
@@ -167,7 +176,10 @@ const Navbar = () => {
           <button
             className="signup"
             onClick={() =>
-              navigate("/login&signup", { state: { isLogin: false } })
+              navigate("/login&signup", {
+                state: { isLogin: false },
+                replace: true,
+              })
             }
           >
             Sign Up

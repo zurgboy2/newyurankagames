@@ -12,6 +12,12 @@ const LoginAndSignup = () => {
   const [checkingUsername, setCheckingUsername] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (location.state?.isLogin !== undefined) {
+      setIsLogin(location.state.isLogin);
+    }
+  }, [location.state]);
+
   const [formData, setFormData] = useState({
     name: "",
     username: "",
