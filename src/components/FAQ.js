@@ -53,8 +53,7 @@ const FAQSection = ({ filter = "all" }) => {
         },
         {
           question: "Do you ship internationally?",
-          answer:
-            "Yes! We offer worldwide shipping via DHL or UPS Express.",
+          answer: "Yes! We offer worldwide shipping via DHL or UPS Express.",
         },
         {
           question: "Do international orders include customs duties or taxes?",
@@ -69,7 +68,7 @@ const FAQSection = ({ filter = "all" }) => {
         {
           question: "What are the shipping costs?",
           answer:
-            "• Orders below 40€: 15€ shipping fee\n• Orders between 40€ and 199€: Shipping cost varies based on the destination\n• Orders between 200€ and 399€: 75€ shipping fee\n• Orders above 400€: Free worldwide shipping via DHL or UPS Express",
+            "• Orders below 40€: 15€ shipping fee\n• Orders between 40€ and 199€: Shipping cost varies based on the destination\n• Orders between 200€ and 399€: 75€ shipping fee\n•",
         },
         {
           question: "Can I sell my cards to Yuranka Games?",
