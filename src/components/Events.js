@@ -139,6 +139,7 @@ const EventsSection = () => {
       <EventsCalendar
         tournaments={tournaments}
         onEventClick={handleEventClick}
+        loading={loading}
       />
 
       <h1 className="events-title">Upcoming Tournaments & Events</h1>

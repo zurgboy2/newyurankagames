@@ -3,7 +3,7 @@ import moment from "moment";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./EventsCalendar.css";
 
-const EventsCalendar = ({ tournaments, onEventClick }) => {
+const EventsCalendar = ({ tournaments, onEventClick, loading }) => {
   const [currentDate, setCurrentDate] = useState(moment());
   const [selectedDay, setSelectedDay] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -176,56 +176,69 @@ const EventsCalendar = ({ tournaments, onEventClick }) => {
 
   return (
     <div className="calendar-section">
-      <div className="calendar-header">
-        <h2 className="calendar-title">Monthly Events Calendar</h2>
-        {isMobile ? (
-          <div className="mobile-event-types">
-            <div className="mobile-event-type">
-              <span>One time Events</span>
-              <div className="indicator-dot one-time"></div>
-            </div>
-            <div className="mobile-event-type">
-              <span>Weekly Events</span>
-              <div className="indicator-dot weekly"></div>
-            </div>
-            <div className="mobile-event-type">
-              <span>Monthly Events</span>
-              <div className="indicator-dot monthly"></div>
-            </div>
-            <div className="mobile-instruction">
-              Click on a date to view events!
-            </div>
+      {loading && (
+        <div className="calendar-loading-overlay">
+          <div className="calendar-loading-blur" />
+          <div className="calendar-loading-indicator">
+            <div className="spinner"></div>
+            <p>Loading Events Calendar...</p>
           </div>
-        ) : (
-          <div className="event-types">
-            <span className="event-type weekly">Weekly events</span>
-            <span className="event-type one-time">One time event</span>
-            <span className="event-type monthly">Monthly event</span>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
+      <div
+        className={loading ? "calendar-content blurred" : "calendar-content"}
+      >
+        <div className="calendar-header">
+          <h2 className="calendar-title">Monthly Events Calendar</h2>
+          {isMobile ? (
+            <div className="mobile-event-types">
+              <div className="mobile-event-type">
+                <span>One time Events</span>
+                <div className="indicator-dot one-time"></div>
+              </div>
+              <div className="mobile-event-type">
+                <span>Weekly Events</span>
+                <div className="indicator-dot weekly"></div>
+              </div>
+              <div className="mobile-event-type">
+                <span>Monthly Events</span>
+                <div className="indicator-dot monthly"></div>
+              </div>
+              <div className="mobile-instruction">
+                Click on a date to view events!
+              </div>
+            </div>
+          ) : (
+            <div className="event-types">
+              <span className="event-type weekly">Weekly events</span>
+              <span className="event-type one-time">One time event</span>
+              <span className="event-type monthly">Monthly event</span>
+            </div>
+          )}
+        </div>
 
-      <div className="month-navigation">
-        <FaChevronLeft
-          className="month-nav-icon"
-          onClick={() => changeMonth(-1)}
-        />
-        <h3 className="current-month">{currentDate.format("MMMM YYYY")}</h3>
-        <FaChevronRight
-          className="month-nav-icon"
-          onClick={() => changeMonth(1)}
-        />
-      </div>
+        <div className="month-navigation">
+          <FaChevronLeft
+            className="month-nav-icon"
+            onClick={() => changeMonth(-1)}
+          />
+          <h3 className="current-month">{currentDate.format("MMMM YYYY")}</h3>
+          <FaChevronRight
+            className="month-nav-icon"
+            onClick={() => changeMonth(1)}
+          />
+        </div>
 
-      <div className="calendar-grid">
-        {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day) => (
-          <div key={day} className="weekday-header">
-            {day}
-          </div>
-        ))}
-        {renderCalendarDays()}
+        <div className="calendar-grid">
+          {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((day) => (
+            <div key={day} className="weekday-header">
+              {day}
+            </div>
+          ))}
+          {renderCalendarDays()}
+        </div>
+        {isMobile && renderSelectedDayEvents()}
       </div>
-      {isMobile && renderSelectedDayEvents()}
     </div>
   );
 };
@@ -236,7 +249,7 @@ const formatTime = (isoDate) => {
   if (!isoDate) return null;
 
   const date = new Date(isoDate);
-  if (isNaN(date.getTime())) return null; 
+  if (isNaN(date.getTime())) return null;
 
   return date.toLocaleTimeString([], {
     hour: "2-digit",
