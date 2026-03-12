@@ -1,6 +1,6 @@
 import { makeRequestCall } from "../api/api";
 import { useState, useEffect } from "react";
-import noposter from "../assets/noposter.png";
+import noposter from "../assets/noposter.avif";
 import moment from "moment";
 import "./EventsLanding.css";
 import { useNavigate } from "react-router-dom";

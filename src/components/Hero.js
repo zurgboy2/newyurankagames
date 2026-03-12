@@ -1,5 +1,5 @@
 import "./Hero.css";
-import cardsImage from "../assets/div.png";
+import cardsImage from "../assets/div.avif";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {

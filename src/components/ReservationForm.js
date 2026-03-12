@@ -1,8 +1,8 @@
 import React from "react";
 import "./ReservationForm.css";
-import bigTables from "../assets/bigTables.jpg";
-import smallTables from "../assets/smallTables.jpg";
-import couchSpaces from "../assets/couchSpaces.jpg";
+import bigTables from "../assets/bigTables.avif";
+import smallTables from "../assets/smallTables.avif";
+import couchSpaces from "../assets/couchSpaces.avif";
 import { makeRegistrationRequestCall } from "../api/api";
 import { useState, useEffect, useRef } from "react";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";

@@ -1,9 +1,9 @@
 import "./AboutYuranka.css";
-import storeImage from "../assets/store.jpg";
-import visionImage from "../assets/vision.png";
-import missionIcon1 from "../assets/missionIcon1.png";
-import missionIcon2 from "../assets/missionIcon2.png";
-import missionIcon3 from "../assets/missionIcon3.png";
+import storeImage from "../assets/store.avif";
+import visionImage from "../assets/vision.avif";
+import missionIcon1 from "../assets/missionIcon1.avif";
+import missionIcon2 from "../assets/missionIcon2.avif";
+import missionIcon3 from "../assets/missionIcon3.avif";
 
 const AboutYuranka = () => {
   return (

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./UserDashboard.css";
-import avatarImg from "../assets/logo.png";
+import avatarImg from "../assets/logo.avif";
 import { makeRegistrationRequestCall } from "../api/api";
 import { useNavigate } from "react-router-dom";
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { makeRegistrationRequestCall } from "../api/api";
 import "./BoardGames.css";
-import noposter from "../assets/noposter.png";
+import noposter from "../assets/noposter.avif";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 

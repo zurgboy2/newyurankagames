@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css";
 import { FaBars, FaChevronDown } from "react-icons/fa";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.avif";
 import { Link, useNavigate } from "react-router-dom";
-import avatarImg from "../assets/logo.png";
+import avatarImg from "../assets/logo.avif";
 
 const Navbar = () => {
   const navigate = useNavigate();

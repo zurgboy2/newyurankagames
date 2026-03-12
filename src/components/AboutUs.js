@@ -1,12 +1,12 @@
 import "./AboutUs.css";
-import aboutUs1 from "../assets/aboutUs1.jpg";
-import aboutUs2 from "../assets/aboutUs2.jpg";
-import aboutUs3 from "../assets/aboutUs3.jpg";
-import aboutUs4 from "../assets/aboutUs4.jpg";
-import aboutUs5 from "../assets/aboutUs5.jpg";
-import aboutUs6 from "../assets/aboutUs6.jpg";
-import aboutUs7 from "../assets/aboutUs7.jpg";
-import aboutUs8 from "../assets/aboutUs8.jpg";
+import aboutUs1 from "../assets/aboutUs1.avif";
+import aboutUs2 from "../assets/aboutUs2.avif";
+import aboutUs3 from "../assets/aboutUs3.avif";
+import aboutUs4 from "../assets/aboutUs4.avif";
+import aboutUs5 from "../assets/aboutUs5.avif";
+import aboutUs6 from "../assets/aboutUs6.avif";
+import aboutUs7 from "../assets/aboutUs7.avif";
+import aboutUs8 from "../assets/aboutUs8.avif";
 
 const AboutUs = () => {
   return (

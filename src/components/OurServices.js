@@ -1,15 +1,15 @@
 import "./OurServices.css";
-import serviceimg1 from "../assets/serviceimg1.jpg";
-import smallLogo1 from "../assets/small-logo1.png";
-import smallLogo2 from "../assets/small-logo2.png";
-import smallLogo3 from "../assets/small-logo3.png";
-import serviceimg2 from "../assets/serviceimg2.png";
-import smallLogo4 from "../assets/small-logo4.png";
-import smallLogo5 from "../assets/small-logo5.png";
-import serviceimg3 from "../assets/serviceimg3.png";
-import smallLogo6 from "../assets/small-logo6.png";
-import smallLogo7 from "../assets/small-logo7.png";
-import smallLogo8 from "../assets/small-logo8.png";
+import serviceimg1 from "../assets/serviceimg1.avif";
+import smallLogo1 from "../assets/small-logo1.avif";
+import smallLogo2 from "../assets/small-logo2.avif";
+import smallLogo3 from "../assets/small-logo3.avif";
+import serviceimg2 from "../assets/serviceimg2.avif";
+import smallLogo4 from "../assets/small-logo4.avif";
+import smallLogo5 from "../assets/small-logo5.avif";
+import serviceimg3 from "../assets/serviceimg3.avif";
+import smallLogo6 from "../assets/small-logo6.avif";
+import smallLogo7 from "../assets/small-logo7.avif";
+import smallLogo8 from "../assets/small-logo8.avif";
 import { useNavigate } from "react-router-dom";
 
 const OurServices = () => {

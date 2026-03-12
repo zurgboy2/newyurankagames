@@ -2,7 +2,7 @@ import { makeRegistrationRequestCall, makeRequestCall } from "../api/api";
 import { useState, useEffect, useRef } from "react";
 import "./Events.css";
 import moment from "moment";
-import noposter from "../assets/noposter.png";
+import noposter from "../assets/noposter.avif";
 import { useLocation, useNavigate } from "react-router-dom";
 import EventsCalendar from "./EventsCalendar";
 
