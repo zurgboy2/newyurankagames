@@ -191,3 +191,10 @@
     padding-bottom: 1.5rem;
   }
 }
+
+@media (min-width: 1600px)
+{
+ .hero-image img {
+    max-width: 780px;
+  }
+}

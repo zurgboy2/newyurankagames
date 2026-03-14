@@ -313,3 +313,60 @@
     /* Adjust margin for readability */
   }
 }
+
+@media (min-width: 1600px) {
+  .about-yuranka-heading {
+    font-size: 2.2rem;
+  }
+
+  .sub-heading {
+    font-size: 1.8rem;
+  }
+
+  .about-yuranka-store-paragraph {
+    font-size: 1.1rem;
+  }
+
+  .image-block img {
+    max-height: 280px;
+  }
+
+  .sub-heading-vision {
+    margin-left: 32rem;
+    font-size: 1.8rem;
+  }
+
+  .vision-image-block img {
+    max-height: 405px;
+  }
+
+  .vision-paragraph {
+    font-size: 1.1rem;
+  }
+
+  .mission-subheading {
+    font-size: 1.8rem;
+  }
+
+  .mission-intro {
+    font-size: 1.2rem;
+  }
+
+  .mission-paragraph {
+    font-size: 1rem;
+  }
+
+  .mission-icon img {
+    max-height: 120px;
+  }
+
+  .mission-icon-flag img {
+    max-height: 120px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .sub-heading-vision {
+    margin-left: 38rem;
+  }
+}

@@ -564,3 +564,9 @@
     /* Resize icon */
   }
 }
+
+@media (min-width: 1600px) {
+  .services-section {
+    padding: 3rem 5rem;
+  }
+}

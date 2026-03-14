@@ -85,3 +85,17 @@
     /* 2 images per row on smaller screens */
   }
 }
+
+@media (min-width: 1600px) {
+  .about-us {
+    padding: 0.5rem 5rem;
+  }
+
+  .image-gallery {
+    gap: 2rem;
+  }
+
+  .about-img {
+    max-width: 400px;
+  }
+}
