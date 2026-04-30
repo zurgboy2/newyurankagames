@@ -12,6 +12,11 @@ const Navbar = () => {
   const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
   const username = sessionStorage.getItem("username");
 
+  const closeNavigation = () => {
+    setMenuOpen(false);
+    setEventsDropdownOpen(false);
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -60,10 +65,14 @@ const Navbar = () => {
       {/* Navigation Links inside an oval */}
       <ul className={menuOpen ? "nav-links active" : "nav-links"}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={closeNavigation}>
+            Home
+          </Link>
         </li>
         <li>
-          <a href="https://store.yuranka.com">Store</a>
+          <a href="https://store.yuranka.com" onClick={closeNavigation}>
+            Store
+          </a>
         </li>
         <li
           className="events-dropdown"
@@ -71,7 +80,9 @@ const Navbar = () => {
           onMouseLeave={handleEventsLeave}
         >
           <div className="events-dropdown-trigger">
-            <Link to="/events">Events</Link>
+            <Link to="/events" onClick={closeNavigation}>
+              Events
+            </Link>
             <FaChevronDown
               className={`dropdown-arrow ${eventsDropdownOpen ? "open" : ""}`}
             />
@@ -82,27 +93,46 @@ const Navbar = () => {
             }`}
           >
             <li>
-              <Link to="/events">Main Events</Link>
+              <Link to="/events" onClick={closeNavigation}>
+                Main Events
+              </Link>
             </li>
             <li>
-              <Link to="/minicons">Minicons</Link>
+              <Link to="/minicons" onClick={closeNavigation}>
+                Minicons
+              </Link>
             </li>
             <li>
-              <Link to="/starwars">Star Wars</Link>
+              <Link to="/starwars" onClick={closeNavigation}>
+                Star Wars
+              </Link>
             </li>
           </ul>
         </li>
         <li>
-          <Link to="/reservations">Reservations</Link>
+          <Link to="/reservations" onClick={closeNavigation}>
+            Reservations
+          </Link>
         </li>
         <li>
-          <a href="#boardgames">Board Games</a>
+          <a href="#boardgames" onClick={closeNavigation}>
+            Board Games
+          </a>
         </li>
         <li>
-          <a href="#videogames">Video Games</a>
+          <a href="#videogames" onClick={closeNavigation}>
+            Video Games
+          </a>
         </li>
         <li>
-          <Link to="/about">About Us</Link>
+          <Link to="/about" onClick={closeNavigation}>
+            About Us
+          </Link>
+        </li>
+        <li>
+          <Link to="/careers" onClick={closeNavigation}>
+            Careers
+          </Link>
         </li>
 
         {/* Auth Buttons for Mobile */}
@@ -110,7 +140,10 @@ const Navbar = () => {
           <li className="mobile-auth">
             <div
               className="mobile-user-profile"
-              onClick={() => navigate("/dashboard")}
+              onClick={() => {
+                closeNavigation();
+                navigate("/dashboard");
+              }}
             >
               <img
                 src={avatarImg}
@@ -128,6 +161,7 @@ const Navbar = () => {
               <button
                 className="signin"
                 onClick={() =>
+                  closeNavigation() ||
                   navigate("/login&signup", {
                     state: { isLogin: true },
                     replace: true,
@@ -141,6 +175,7 @@ const Navbar = () => {
               <button
                 className="signup"
                 onClick={() =>
+                  closeNavigation() ||
                   navigate("/login&signup", {
                     state: { isLogin: false },
                     replace: true,
@@ -156,7 +191,13 @@ const Navbar = () => {
 
       {/* Auth Buttons */}
       {username ? (
-        <div className="user-profile" onClick={() => navigate("/dashboard")}>
+        <div
+          className="user-profile"
+          onClick={() => {
+            closeNavigation();
+            navigate("/dashboard");
+          }}
+        >
           <img src={avatarImg} alt="User Avatar" className="avatar" />
           <span className="username">{username}</span>
         </div>
@@ -165,6 +206,7 @@ const Navbar = () => {
           <button
             className="signin"
             onClick={() =>
+              closeNavigation() ||
               navigate("/login&signup", {
                 state: { isLogin: true },
                 replace: true,
@@ -176,6 +218,7 @@ const Navbar = () => {
           <button
             className="signup"
             onClick={() =>
+              closeNavigation() ||
               navigate("/login&signup", {
                 state: { isLogin: false },
                 replace: true,

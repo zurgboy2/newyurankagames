@@ -1,0 +1,405 @@
+import { useEffect, useState } from "react";
+import "./Careers.css";
+import {
+  getAvailablePositions,
+  submitCareerApplication,
+} from "../api/api";
+
+const getDefaultFormData = () => ({
+  fullName: sessionStorage.getItem("name") || "",
+  contactNumber: "",
+  email: sessionStorage.getItem("email") || "",
+});
+
+const getPositionKey = (position, index) => {
+  if (typeof position === "string") {
+    return `${position}-${index}`;
+  }
+
+  return String(
+    position.id ||
+      position.jobId ||
+      position.positionId ||
+      position.slug ||
+      `${position.title || position.name || "position"}-${index}`
+  );
+};
+
+const getPositionTitle = (position, index) => {
+  if (typeof position === "string") {
+    return position;
+  }
+
+  return (
+    position.title ||
+    position.name ||
+    position.positionTitle ||
+    `Position ${index + 1}`
+  );
+};
+
+const getPositionDescription = (position) => {
+  if (typeof position === "string") {
+    return "Role details will be shared once your application is reviewed.";
+  }
+
+  return (
+    position.description ||
+    position.details ||
+    position.summary ||
+    "Role details will be shared once your application is reviewed."
+  );
+};
+
+const fileToBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      if (typeof reader.result !== "string") {
+        reject(new Error("Unable to read the uploaded CV."));
+        return;
+      }
+
+      const [, base64Content = ""] = reader.result.split(",");
+      resolve(base64Content);
+    };
+
+    reader.onerror = () => {
+      reject(new Error("Unable to read the uploaded CV."));
+    };
+
+    reader.readAsDataURL(file);
+  });
+
+const Careers = () => {
+  const [positions, setPositions] = useState([]);
+  const [isLoadingPositions, setIsLoadingPositions] = useState(true);
+  const [positionsError, setPositionsError] = useState("");
+  const [formData, setFormData] = useState(getDefaultFormData);
+  const [selectedPositions, setSelectedPositions] = useState([]);
+  const [cvFile, setCvFile] = useState(null);
+  const [formError, setFormError] = useState("");
+  const [submitState, setSubmitState] = useState({
+    status: "idle",
+    message: "",
+  });
+
+  const normalizedPositions = positions.map((position, index) => ({
+    raw: position,
+    optionKey: getPositionKey(position, index),
+    title: getPositionTitle(position, index),
+    description: getPositionDescription(position),
+  }));
+
+  useEffect(() => {
+    fetchPositions();
+  }, []);
+
+  async function fetchPositions() {
+    setIsLoadingPositions(true);
+    setPositionsError("");
+
+    try {
+      const availablePositions = await getAvailablePositions();
+      setPositions(Array.isArray(availablePositions) ? availablePositions : []);
+    } catch (error) {
+      console.error("Error fetching available positions:", error);
+      setPositionsError(
+        "Sorry, there was an error loading the available positions. Please try again later."
+      );
+    } finally {
+      setIsLoadingPositions(false);
+    }
+  }
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((currentFormData) => ({
+      ...currentFormData,
+      [name]: value,
+    }));
+    setFormError("");
+    setSubmitState({ status: "idle", message: "" });
+  };
+
+  const handlePositionToggle = (positionKey) => {
+    setSelectedPositions((currentSelections) =>
+      currentSelections.includes(positionKey)
+        ? currentSelections.filter((currentKey) => currentKey !== positionKey)
+        : [...currentSelections, positionKey]
+    );
+    setFormError("");
+    setSubmitState({ status: "idle", message: "" });
+  };
+
+  const handleCvChange = (event) => {
+    const [uploadedFile] = event.target.files || [];
+    setCvFile(uploadedFile || null);
+    setFormError("");
+    setSubmitState({ status: "idle", message: "" });
+  };
+
+  const validateForm = () => {
+    if (normalizedPositions.length === 0) {
+      setFormError(
+        "There are no available positions to apply for right now. Please check back later."
+      );
+      return false;
+    }
+
+    if (
+      !formData.fullName.trim() ||
+      !formData.contactNumber.trim() ||
+      !formData.email.trim() ||
+      !cvFile ||
+      selectedPositions.length === 0
+    ) {
+      setFormError(
+        "Please complete every required field, upload your CV, and choose at least one position."
+      );
+      return false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(formData.email.trim())) {
+      setFormError("Please enter a valid email address.");
+      return false;
+    }
+
+    return true;
+  };
+
+  const resetForm = () => {
+    setFormData(getDefaultFormData());
+    setSelectedPositions([]);
+    setCvFile(null);
+    setFormError("");
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setSubmitState({ status: "idle", message: "" });
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setSubmitState({ status: "submitting", message: "" });
+
+    try {
+      const encodedCv = await fileToBase64(cvFile);
+      const selectedJobDetails = normalizedPositions
+        .filter((position) => selectedPositions.includes(position.optionKey))
+        .map((position) => ({
+          ...(typeof position.raw === "object" ? position.raw : {}),
+          title: position.title,
+          description: position.description,
+        }));
+
+      const response = await submitCareerApplication({
+        name: formData.fullName.trim(),
+        contactNumber: formData.contactNumber.trim(),
+        email: formData.email.trim(),
+        positions: selectedJobDetails,
+        cv: {
+          fileName: cvFile.name,
+          fileType: cvFile.type || "application/octet-stream",
+          fileSize: cvFile.size,
+          contentBase64: encodedCv,
+        },
+      });
+
+      if (response?.success === false || response?.error) {
+        throw new Error(response?.message || "Unable to submit application.");
+      }
+
+      resetForm();
+      setSubmitState({
+        status: "success",
+        message:
+          "Your application has been receieved and we'll get back to you if you have been shortlisted for the position.",
+      });
+    } catch (error) {
+      console.error("Error submitting career application:", error);
+      setSubmitState({
+        status: "error",
+        message:
+          "Sorry there was an error please try again later or apply to the job via email support@yuranka.com and we'll get back to you.",
+      });
+    }
+  };
+
+  return (
+    <section className="careers-section">
+      <div className="careers-shell">
+        <div className="careers-hero">
+          <span className="careers-badge">Careers at Yuranka</span>
+          <h1>Join the team behind the games, events, and community.</h1>
+          <p>
+            Explore our open roles, tell us which positions interest you, and
+            send through your CV in one application.
+          </p>
+        </div>
+
+        {isLoadingPositions ? (
+          <div className="careers-loading-card">
+            <div className="careers-loading-container">
+              <div className="careers-spinner"></div>
+              <p>Loading available positions...</p>
+            </div>
+          </div>
+        ) : positionsError ? (
+          <div className="careers-state-card">
+            <h2>We could not load the careers list.</h2>
+            <p>{positionsError}</p>
+            <button className="careers-submit" onClick={fetchPositions}>
+              Try Again
+            </button>
+          </div>
+        ) : (
+          <div className="careers-grid">
+            <form className="careers-form-card" onSubmit={handleSubmit}>
+              <div className="careers-section-header">
+                <h2>Application Form</h2>
+                <p>All fields are required.</p>
+              </div>
+
+              <div className="careers-form-grid">
+                <label className="careers-field">
+                  <span>Full Name</span>
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Enter your full name"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </label>
+
+                <label className="careers-field">
+                  <span>Contact Number</span>
+                  <input
+                    type="tel"
+                    name="contactNumber"
+                    placeholder="Enter your contact number"
+                    value={formData.contactNumber}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </label>
+
+                <label className="careers-field careers-field-full">
+                  <span>Email Address</span>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </label>
+
+                <label className="careers-field careers-field-full">
+                  <span>CV</span>
+                  <input
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={handleCvChange}
+                    required
+                  />
+                  <small>
+                    Upload your CV as a PDF, DOC, or DOCX file.
+                  </small>
+                  {cvFile && (
+                    <div className="careers-file-pill">Selected: {cvFile.name}</div>
+                  )}
+                </label>
+              </div>
+
+              {formError && (
+                <div className="careers-feedback careers-feedback-error">
+                  {formError}
+                </div>
+              )}
+
+              {submitState.message && (
+                <div
+                  className={`careers-feedback ${
+                    submitState.status === "success"
+                      ? "careers-feedback-success"
+                      : "careers-feedback-error"
+                  }`}
+                >
+                  {submitState.message}
+                </div>
+              )}
+
+              <button
+                type="submit"
+                className="careers-submit"
+                disabled={submitState.status === "submitting"}
+              >
+                {submitState.status === "submitting" ? "Submitting..." : "Apply"}
+              </button>
+            </form>
+
+            <div className="careers-positions-card">
+              <div className="careers-section-header">
+                <h2>Available Positions</h2>
+                <p>
+                  Select any number of roles that match your experience and
+                  interests.
+                </p>
+              </div>
+
+              {normalizedPositions.length === 0 ? (
+                <div className="careers-empty-state">
+                  No open positions are listed right now. Please check back
+                  later.
+                </div>
+              ) : (
+                <div className="careers-positions-list">
+                  {normalizedPositions.map((position) => {
+                    const isSelected = selectedPositions.includes(
+                      position.optionKey
+                    );
+
+                    return (
+                      <label
+                        key={position.optionKey}
+                        className={`careers-position-card ${
+                          isSelected ? "selected" : ""
+                        }`}
+                      >
+                        <div className="careers-position-top">
+                          <input
+                            type="checkbox"
+                            checked={isSelected}
+                            onChange={() =>
+                              handlePositionToggle(position.optionKey)
+                            }
+                          />
+                          <div>
+                            <h3>{position.title}</h3>
+                            <p>{position.description}</p>
+                          </div>
+                        </div>
+                      </label>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default Careers;

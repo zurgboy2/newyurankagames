@@ -40,10 +40,11 @@
   flex-grow: 0;
   /* ⬅️ Removed flex-grow to prevent it from stretching */
   justify-content: center;
+  gap: 0.15rem;
 }
 
 .nav-links li {
-  margin: 0 0.8rem;
+  margin: 0 0.45rem;
   /* Less space between links */
 }
 
@@ -183,6 +184,42 @@
   color: #ef4444;
 }
 
+@media (max-width: 1280px) and (min-width: 769px) {
+  .navbar {
+    padding: 0.45rem 1rem;
+  }
+
+  .logo {
+    width: 78px;
+  }
+
+  .nav-links {
+    padding: 0.25rem 0.75rem;
+  }
+
+  .nav-links li {
+    margin: 0 0.2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.84rem;
+  }
+
+  .auth-buttons {
+    gap: 0.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .user-profile {
+    gap: 0.45rem;
+    margin-right: 1.5rem;
+  }
+
+  .username {
+    font-size: 0.9rem;
+  }
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
   .navbar {
@@ -206,26 +243,35 @@
   .nav-links {
     position: fixed;
     top: 0;
-    width: 220px;
+    width: min(260px, 78vw);
     /* Fixed width instead of 50% */
-    left: -300px;
-    height: 100%;
+    left: 0;
+    height: 100vh;
     background: #0e0c0c;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     gap: 1.5rem;
-    padding: 0rem 1.5rem;
+    padding: 4.5rem 1.5rem 1.5rem;
     transition: transform 0.15s ease-in-out;
     z-index: 999;
     /* Sit above content */
-    margin-top: 1rem;
+    margin-top: 0;
     justify-content: flex-start;
+    overflow-y: auto;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    border-radius: 0 18px 18px 0;
+    box-shadow: 10px 0 28px rgba(0, 0, 0, 0.35);
   }
 
   /* When active, slide in from the left */
   .nav-links.active {
-    transform: translateX(300px);
+    transform: translateX(0);
     /* Move it into view */
+  }
+
+  .nav-links li {
+    width: 100%;
   }
 
   /* Optionally adjust links styling */
