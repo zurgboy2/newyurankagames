@@ -168,6 +168,26 @@
   font-size: 0.95rem;
 }
 
+.careers-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.95rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(17, 17, 17, 0.82);
+  color: #f9fafb;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  min-height: 140px;
+}
+
+.careers-field textarea:focus {
+  outline: none;
+  border-color: rgba(239, 68, 68, 0.65);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.14);
+}
+
 .careers-field input:focus {
   outline: none;
   border-color: rgba(239, 68, 68, 0.65);
