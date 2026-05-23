@@ -29,6 +29,7 @@ const getPositionTitle = (position, index) => {
   }
 
   return (
+    position.position ||
     position.title ||
     position.name ||
     position.positionTitle ||
