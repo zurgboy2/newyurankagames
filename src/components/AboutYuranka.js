@@ -69,7 +69,7 @@ const infoSections = [
 
 const AboutYuranka = () => {
   return (
-    <main className="border-t bg-background">
+    <main className="border-t">
       <section className="overflow-hidden">
         <div className="container py-10 sm:py-14">
           <div className="mx-auto max-w-3xl text-center">
@@ -99,7 +99,7 @@ const AboutYuranka = () => {
         </div>
       </section>
 
-      <section className="border-t bg-muted/20">
+      <section className="border-t">
         <div className="container py-10 sm:py-14">
           <div className="grid gap-6">
             {infoSections.map((section) => (

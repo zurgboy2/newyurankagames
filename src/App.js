@@ -4,7 +4,6 @@ import Home from './pages/Home';
 import ReservationsPage from './pages/ReservationsPage';
 import AboutUsPage from './pages/AboutUsPage';
 import EventsPage from './pages/EventsPage';
-import LoginAndSignupPage from './pages/Login&SignupPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import DashboardPage from './pages/DashboardPage';
@@ -40,7 +39,6 @@ function App() {
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/login&signup" element={<LoginAndSignupPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/videogames" element={<VideoGamesPage />} />
         <Route path="/boardgames" element={<BoardGamesPage />} />

@@ -1,10 +1,10 @@
-import EventsSection from "../components/Events";
-import { useEffect } from "react";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import "./Home.css";
-import OrientationWarning from "../components/OrientationWarning";
-import FAQSection from "../components/FAQ";
+import EventsSection from '../components/Events';
+import { useEffect } from 'react';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import './Home.css';
+import OrientationWarning from '../components/OrientationWarning';
+import FAQSection from '../components/FAQ';
 
 function EventsPage() {
   useEffect(() => {
@@ -12,13 +12,13 @@ function EventsPage() {
   }, []);
 
   return (
-    <div className="Home">
+    <>
       <OrientationWarning />
       <Navbar />
       <EventsSection />
       <FAQSection filter="events" />
       <Footer />
-    </div>
+    </>
   );
 }
 
