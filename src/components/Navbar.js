@@ -1,234 +1,263 @@
-import { useState, useEffect } from "react";
-import "./Navbar.css";
-import { FaBars, FaChevronDown } from "react-icons/fa";
-import logo from "../assets/logo.avif";
-import { Link, useNavigate } from "react-router-dom";
-import avatarImg from "../assets/logo.avif";
+import { FaBars } from 'react-icons/fa';
+import logo from '../assets/logo.avif';
+import { Link, useNavigate } from 'react-router-dom';
+import avatarImg from '../assets/logo.avif';
+import { Button } from './ui/button';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from './ui/navigation-menu';
+import { Drawer, DrawerContent, DrawerTrigger } from './ui/drawer';
+
+const mainLinks = [
+  { title: 'Store', to: 'https://store.yuranka.com', external: true },
+  { title: 'Reservations', to: '/reservations' },
+  { title: 'Board Games', to: '/boardgames' },
+  { title: 'Video Games', to: '/videogames' },
+];
+
+const eventLinks = [
+  { title: 'Main Events', to: '/events' },
+  { title: 'Minicons', to: '/minicons' },
+  { title: 'Star Wars', to: '/starwars' },
+];
+
+const moreLinks = [
+  { title: 'About Us', to: '/about' },
+  { title: 'Careers', to: '/careers' },
+];
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const username = sessionStorage.getItem('username');
 
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
-  const username = sessionStorage.getItem("username");
-
-  const closeNavigation = () => {
-    setMenuOpen(false);
-    setEventsDropdownOpen(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        menuOpen &&
-        !event.target.closest(".nav-links") &&
-        !event.target.closest(".menu-icon")
-      ) {
-        setMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [menuOpen]);
-
-  const handleEventsHover = (e) => {
-    e.stopPropagation();
-    setEventsDropdownOpen(true);
-  };
-
-  const handleEventsLeave = (e) => {
-    e.stopPropagation();
-    setEventsDropdownOpen(false);
-  };
-
-  return (
-    <nav className="navbar">
-      {/* Hamburger Menu (Mobile) */}
-      <div
-        className="menu-icon"
-        onClick={(e) => {
-          e.stopPropagation();
-          setMenuOpen(!menuOpen);
-        }}
+  const navLink = ({ title, to, external }) => {
+    return (
+      <Button
+        variant="link"
+        className="text-base text-primary link hover:no-underline"
+        asChild
       >
-        <FaBars />
-      </div>
-
-      {/* Logo on the left side */}
-      <div className="logo-container">
-        <Link to="/">
-          <img src={logo} alt="YurankaGames Logo" className="logo" />
-        </Link>
-      </div>
-
-      {/* Navigation Links inside an oval */}
-      <ul className={menuOpen ? "nav-links active" : "nav-links"}>
-        <li>
-          <Link to="/" onClick={closeNavigation}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <a href="https://store.yuranka.com" onClick={closeNavigation}>
-            Store
-          </a>
-        </li>
-        <li
-          className="events-dropdown"
-          onMouseEnter={handleEventsHover}
-          onMouseLeave={handleEventsLeave}
+        <Link
+          to={to}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener noreferrer' : undefined}
         >
-          <div className="events-dropdown-trigger">
-            <Link to="/events" onClick={closeNavigation}>
-              Events
-            </Link>
-            <FaChevronDown
-              className={`dropdown-arrow ${eventsDropdownOpen ? "open" : ""}`}
-            />
-          </div>
-          <ul
-            className={`events-dropdown-menu ${
-              eventsDropdownOpen ? "active" : ""
-            }`}
-          >
-            <li>
-              <Link to="/events" onClick={closeNavigation}>
-                Main Events
-              </Link>
-            </li>
-            <li>
-              <Link to="/minicons" onClick={closeNavigation}>
-                Minicons
-              </Link>
-            </li>
-            <li>
-              <Link to="/starwars" onClick={closeNavigation}>
-                Star Wars
-              </Link>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <Link to="/reservations" onClick={closeNavigation}>
-            Reservations
-          </Link>
-        </li>
-        <li>
-          <a href="#boardgames" onClick={closeNavigation}>
-            Board Games
-          </a>
-        </li>
-        <li>
-          <a href="#videogames" onClick={closeNavigation}>
-            Video Games
-          </a>
-        </li>
-        <li>
-          <Link to="/about" onClick={closeNavigation}>
-            About Us
-          </Link>
-        </li>
-        <li>
-          <Link to="/careers" onClick={closeNavigation}>
-            Careers
-          </Link>
-        </li>
+          {title}
+        </Link>
+      </Button>
+    );
+  };
 
-        {/* Auth Buttons for Mobile */}
-        {sessionStorage.getItem("username") ? (
-          <li className="mobile-auth">
-            <div
-              className="mobile-user-profile"
-              onClick={() => {
-                closeNavigation();
-                navigate("/dashboard");
-              }}
+  const navigationMenu = () => {
+    return (
+      <ul className="bg-muted rounded-full lg:flex items-center px-5 my-3.5 hidden">
+        {mainLinks.slice(0, 1).map((link) => (
+          <li key={link.title}>{navLink(link)}</li>
+        ))}
+        <li>
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-base h-8 px-2.5 text-primary font-medium">
+                  Events
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="bg-background">
+                  {eventLinks.map((link) => (
+                    <NavigationMenuLink key={link.title} className="p-0">
+                      <Link
+                        className="min-w-30 text-base px-3 py-1.5 hover:text-primary transition-colors"
+                        to={link.to}
+                      >
+                        {link.title}
+                      </Link>
+                    </NavigationMenuLink>
+                  ))}
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </li>
+        {mainLinks.slice(1).map((link) => (
+          <li key={link.title}>{navLink(link)}</li>
+        ))}
+        <li>
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-base h-8 px-2.5 text-primary font-medium">
+                  More
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="bg-background">
+                  {moreLinks.map((link) => (
+                    <NavigationMenuLink key={link.title} className="p-0">
+                      <Link
+                        className="min-w-30 text-base px-3 py-1.5 hover:text-primary transition-colors"
+                        to={link.to}
+                      >
+                        {link.title}
+                      </Link>
+                    </NavigationMenuLink>
+                  ))}
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </li>
+      </ul>
+    );
+  };
+
+  const mobileLink = ({ title, to, external }) => {
+    return (
+      <Button
+        variant="ghost"
+        size="lg"
+        className="justify-start text-xl hover:text-highlight active:text-highlight"
+        asChild
+      >
+        <Link
+          to={to}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener noreferrer' : undefined}
+        >
+          {title}
+        </Link>
+      </Button>
+    );
+  };
+
+  const mobileDrawer = () => {
+    return (
+      <Drawer direction="left">
+        <DrawerTrigger asChild>
+          <Button variant="icon" className="lg:hidden mr-auto">
+            <FaBars className="text-primary size-6" />
+          </Button>
+        </DrawerTrigger>
+        <DrawerContent className="flex flex-col gap-3 p-4 data-[vaul-drawer-direction=left]:sm:max-w-60">
+          {mainLinks.slice(0, 1).map((link) => (
+            <div key={link.title}>{mobileLink(link)}</div>
+          ))}
+          {eventLinks.map((link) => (
+            <div key={link.title}>{mobileLink(link)}</div>
+          ))}
+          {mainLinks.slice(1).map((link) => (
+            <div key={link.title}>{mobileLink(link)}</div>
+          ))}
+          {moreLinks.map((link) => (
+            <div key={link.title}>{mobileLink(link)}</div>
+          ))}
+
+          {username ? (
+            <button
+              type="button"
+              className="mt-2 flex items-center gap-3 rounded-lg px-3 py-2 text-left hover:bg-muted"
+              onClick={() => navigate('/dashboard')}
             >
               <img
                 src={avatarImg}
                 alt="User Avatar"
-                className="mobile-avatar"
+                className="size-8 rounded-full object-cover"
               />
-              <span className="mobile-username">
-                {sessionStorage.getItem("username")}
-              </span>
-            </div>
-          </li>
-        ) : (
-          <>
-            <li className="mobile-auth">
-              <button
-                className="signin"
+              <span className="text-base font-medium">{username}</span>
+            </button>
+          ) : (
+            <div className="flex gap-3 flex-col pt-2">
+              <Button
+                variant="secondary"
+                className="text-base w-full"
                 onClick={() =>
-                  closeNavigation() ||
-                  navigate("/login&signup", {
+                  navigate('/login&signup', {
                     state: { isLogin: true },
                     replace: true,
                   })
                 }
               >
                 Login
-              </button>
-            </li>
-            <li className="mobile-auth">
-              <button
-                className="signup"
+              </Button>
+              <Button
+                variant="default"
+                className="text-base w-full"
                 onClick={() =>
-                  closeNavigation() ||
-                  navigate("/login&signup", {
+                  navigate('/login&signup', {
                     state: { isLogin: false },
                     replace: true,
                   })
                 }
               >
                 Sign Up
-              </button>
-            </li>
-          </>
-        )}
-      </ul>
+              </Button>
+            </div>
+          )}
+        </DrawerContent>
+      </Drawer>
+    );
+  };
 
-      {/* Auth Buttons */}
-      {username ? (
-        <div
-          className="user-profile"
-          onClick={() => {
-            closeNavigation();
-            navigate("/dashboard");
-          }}
-        >
-          <img src={avatarImg} alt="User Avatar" className="avatar" />
-          <span className="username">{username}</span>
+  return (
+    <nav className="sticky top-0 bg-background z-50 border-b">
+      <div className="container lg:flex items-center justify-between grid grid-cols-[minmax(0,1fr)_1fr_minmax(0,1fr)] h-15">
+        {mobileDrawer()}
+
+        <Link to="/" className="mx-auto lg:mx-0">
+          <img
+            src={logo}
+            alt="YurankaGames Logo"
+            className="-my-5.5 w-18 lg:w-22.5"
+          />
+        </Link>
+
+        {navigationMenu()}
+
+        <div className="hidden md:block ml-auto lg:ml-0">
+          {username ? (
+            <button
+              type="button"
+              className="flex items-center gap-2 rounded-lg px-2 py-1 hover:bg-muted"
+              onClick={() => navigate('/dashboard')}
+            >
+              <img
+                src={avatarImg}
+                alt="User Avatar"
+                className="size-7 rounded-full object-cover"
+              />
+              <span className="text-sm font-medium">{username}</span>
+            </button>
+          ) : (
+            <div className="flex gap-3 flex-col md:flex-row">
+              <Button
+                variant="ghost"
+                className="max-md:text-base w-full md:w-auto"
+                onClick={() =>
+                  navigate('/login&signup', {
+                    state: { isLogin: true },
+                    replace: true,
+                  })
+                }
+              >
+                Login
+              </Button>
+              <Button
+                variant="default"
+                className="max-md:text-base w-full md:w-auto"
+                onClick={() =>
+                  navigate('/login&signup', {
+                    state: { isLogin: false },
+                    replace: true,
+                  })
+                }
+              >
+                Sign Up
+              </Button>
+            </div>
+          )}
         </div>
-      ) : (
-        <div className="auth-buttons">
-          <button
-            className="signin"
-            onClick={() =>
-              closeNavigation() ||
-              navigate("/login&signup", {
-                state: { isLogin: true },
-                replace: true,
-              })
-            }
-          >
-            Login
-          </button>
-          <button
-            className="signup"
-            onClick={() =>
-              closeNavigation() ||
-              navigate("/login&signup", {
-                state: { isLogin: false },
-                replace: true,
-              })
-            }
-          >
-            Sign Up
-          </button>
-        </div>
-      )}
+      </div>
     </nav>
   );
 };

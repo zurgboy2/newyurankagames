@@ -15,7 +15,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="Home">
+    <>
       <OrientationWarning />
       <Navbar />
       <Hero />
@@ -24,7 +24,7 @@ function Home() {
       <EventsLandingPageSection />
       <FAQSection />
       <Footer />
-    </div>
+    </>
   );
 }
 

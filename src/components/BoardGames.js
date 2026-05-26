@@ -66,7 +66,7 @@ const BoardGamesSection = () => {
     game.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
   return (
-    <div className="container">
+    <div className="boardgames-container">
       <h1 className="board-games-title">Board Games</h1>
 
       <div className="responsive-align">
@@ -80,7 +80,7 @@ const BoardGamesSection = () => {
           4 for board games or 2 for TCGs.
         </h3>
 
-        <div className="flex">
+        <div className="board-games-button-wrapper">
           <button onClick={handleReserveGame}>Reserve a Table</button>
         </div>
 
@@ -116,7 +116,7 @@ const BoardGamesSection = () => {
           {/* For Sale Section */}
           <section className="for-sale-section">
             <h2 className="boardgames-subtitle">For Sale</h2>
-            <div className="grid">
+            <div className="boardgames-grid">
               {filteredForSale.slice(0, visibleForSale).map((game, index) => (
                 <div key={index} className="card">
                   <img
@@ -155,7 +155,7 @@ const BoardGamesSection = () => {
               ))}
             </div>
             {visibleForSale < filteredForSale.length && (
-              <div className="text-center">
+              <div className="boardgames-text-center">
                 <button onClick={loadMoreForSale}>View More</button>
               </div>
             )}
@@ -168,7 +168,7 @@ const BoardGamesSection = () => {
               Browse our wide collection of Board Games and reserve a table to
               play!
             </h3>
-            <div className="grid">
+            <div className="boardgames-grid">
               {filteredForRent.slice(0, visibleForRent).map((game, index) => (
                 <div key={index} className="card">
                   <img
@@ -195,7 +195,7 @@ const BoardGamesSection = () => {
               ))}
             </div>
             {visibleForRent < filteredForRent.length && (
-              <div className="text-center">
+              <div className="boardgames-text-center">
                 <button
                   onClick={() => setVisibleForRent(filteredForRent.length)}
                 >

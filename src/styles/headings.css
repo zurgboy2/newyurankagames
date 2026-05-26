@@ -1,0 +1,21 @@
+@layer utilities {
+  .heading-1 {
+    @apply text-4xl font-bold;
+  }
+
+  .heading-2 {
+    @apply text-3xl font-semibold;
+  }
+
+  .heading-3 {
+    @apply text-2xl font-medium;
+  }
+
+  .heading-4 {
+    @apply text-xl font-medium;
+  }
+
+  .heading-5 {
+    @apply text-lg font-medium;
+  }
+}

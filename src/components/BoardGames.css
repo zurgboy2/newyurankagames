@@ -1,4 +1,4 @@
-.container {
+.boardgames-container {
   padding: 3rem 3rem;
   background-color: #0d0a0a;
   min-height: 90vh;
@@ -24,19 +24,19 @@
   font-weight: normal;
 }
 
-.flex {
+.board-games-button-wrapper {
   display: block;
   gap: 16px;
   margin: 16px 0;
   flex-direction: column;
 }
 
-.flex button {
+.board-games-button-wrapper button {
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
 }
 
-.grid {
+.boardgames-grid {
   display: grid;
   gap: 16px;
 }
@@ -81,7 +81,7 @@
 
 /* Desktop: 5 columns */
 @media (min-width: 769px) {
-  .grid {
+  .boardgames-grid {
     grid-template-columns: repeat(8, 1fr);
   }
 }
@@ -125,7 +125,7 @@
   color: #e5e7eb;
 }
 
-.text-center {
+.boardgames-text-center {
   text-align: center;
   margin-top: 16px;
 }
@@ -142,20 +142,6 @@
 }
 
 .buy-now-button:hover {
-  background: darkred;
-}
-
-button {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  background: #ec4527;
-  color: #e5e7eb;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-button:hover {
   background: darkred;
 }
 
@@ -178,12 +164,12 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .container {
+  .boardgames-container {
     padding: 3rem 1rem;
     background-color: #0d0a0a;
   }
 
-  .grid {
+  .boardgames-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -278,10 +264,10 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .flex {
+  /* .flex {
     max-width: 90%;
     margin-left: 0rem;
-  }
+  } */
 }
 @media (max-width: 768px) {
   .board-games-caption {

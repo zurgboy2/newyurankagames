@@ -1,3 +1,9 @@
+@import './styles/globals.css';
+
+body {
+  background-color: var(--color-background);
+}
+
 .App {
   text-align: center;
 }

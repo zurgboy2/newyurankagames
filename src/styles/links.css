@@ -1,0 +1,5 @@
+@layer components {
+  .link {
+    @apply hover:underline hover:text-highlight transition-colors duration-200;
+  }
+}
