@@ -5,7 +5,6 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ClockIcon,
-  TicketIcon,
 } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -22,16 +21,15 @@ import { Skeleton } from './ui/skeleton';
 const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
 const frequencyBadgeStyles = {
-  weekly: 'border-white/70 bg-white text-black hover:bg-white',
-  oneTime: 'border-highlight bg-highlight text-white hover:bg-highlight',
-  monthly:
-    'border-muted-foreground/30 bg-muted-foreground/15 text-foreground hover:bg-muted-foreground/15',
+  weekly: 'border-white/90 bg-white/90 text-black',
+  oneTime: 'border-highlight/80 bg-highlight/60 text-white',
+  monthly: 'border-muted-foreground/30 bg-muted-foreground/15 text-foreground',
 };
 
 const frequencySurfaceStyles = {
-  weekly: 'border-white/30 bg-white/10 text-white',
-  oneTime: 'border-highlight/50 bg-highlight/15 text-highlight',
-  monthly: 'border-muted-foreground/25 bg-muted-foreground/10 text-foreground',
+  weekly: 'border-white/90 bg-white/90 text-black',
+  oneTime: 'border-highlight/80 bg-highlight/60 text-white',
+  monthly: 'border-muted-foreground/30 bg-muted-foreground/15 text-foreground',
 };
 
 const frequencyLabels = {
@@ -46,12 +44,6 @@ const formatTypeLabel = (value) => {
     .split('-')
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ');
-};
-
-const getPriceLabel = (price) => {
-  const numericPrice = Number(price);
-  if (!Number.isFinite(numericPrice) || numericPrice === 0) return 'Free entry';
-  return `${numericPrice} EUR`;
 };
 
 const EventsCalendar = ({ tournaments, onEventClick, loading }) => {
@@ -275,7 +267,7 @@ const EventsCalendar = ({ tournaments, onEventClick, loading }) => {
                   ) : (
                     <div
                       key={day.key}
-                      className={`flex min-h-40 flex-col overflow-hidden rounded-lg border bg-card p-2 ${
+                      className={`flex min-h-36 flex-col overflow-hidden rounded-lg border bg-card p-2 ${
                         isToday(day.date)
                           ? 'border-highlight/60 ring-1 ring-highlight/30'
                           : ''
@@ -351,7 +343,7 @@ const EventsCalendar = ({ tournaments, onEventClick, loading }) => {
         onOpenChange={(open) => !open && setActiveDay(null)}
       >
         <DrawerContent className="max-h-[85vh]">
-          <div className="mx-auto flex w-full max-w-3xl flex-col">
+          <div className="mx-auto flex w-full max-w-3xl flex-col overflow-hidden">
             <DrawerHeader className="px-4 text-left sm:px-6">
               <DrawerTitle>
                 {activeDay
@@ -362,7 +354,7 @@ const EventsCalendar = ({ tournaments, onEventClick, loading }) => {
                 {activeDay ? `${activeDay.events.length} events scheduled` : ''}
               </DrawerDescription>
             </DrawerHeader>
-            <div className="grid gap-3 overflow-y-auto px-4 pb-4 sm:px-6">
+            <div className="grid gap-3 px-4 pb-4 sm:px-6 overflow-y-auto">
               {activeDay?.events.map((event) => (
                 <button
                   key={event.id}
@@ -404,15 +396,12 @@ const EventsCalendar = ({ tournaments, onEventClick, loading }) => {
                     </Badge>
                   </div>
 
-                  <div className="mt-4 grid gap-3 text-sm text-muted-foreground">
+                  <div className="mt-4 flex flex-wrap gap-3 text-sm text-muted-foreground">
                     <DrawerMeta icon={CalendarDaysIcon}>
                       {moment(event.date).format('dddd, MMMM D')}
                     </DrawerMeta>
                     <DrawerMeta icon={ClockIcon}>
                       {moment(event.date).format('h:mm A')}
-                    </DrawerMeta>
-                    <DrawerMeta icon={TicketIcon}>
-                      {getPriceLabel(event.price)}
                     </DrawerMeta>
                   </div>
                 </button>
@@ -458,7 +447,7 @@ const CalendarSkeleton = () => {
           <Skeleton key={`head-${index}`} className="h-8 w-full rounded-md" />
         ))}
         {Array.from({ length: 36 }).map((_, index) => (
-          <Skeleton key={index} className="min-h-40 rounded-lg border" />
+          <Skeleton key={index} className="min-h-36 rounded-lg border" />
         ))}
       </div>
     </>

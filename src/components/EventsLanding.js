@@ -76,7 +76,7 @@ const EventsLandingPageSection = () => {
         </div>
 
         {loading ? (
-          <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-3 pt-px [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {Array.from({ length: 4 }).map((_, index) => (
               <Card
                 key={index}
@@ -129,7 +129,7 @@ const EventsLandingPageSection = () => {
               <Card
                 key={tournament.id}
                 data-event-card
-                className="min-h-124 w-[82vw] shrink-0 snap-start p-0 transition-colors hover:ring-highlight/60 sm:min-h-132 sm:w-88 lg:min-h-124 lg:w-[20rem]"
+                className="min-h-124 w-[82vw] shrink-0 snap-start p-0 transition-colors overflow-hidden sm:min-h-132 sm:w-88 lg:min-h-124 lg:w-[20rem]"
               >
                 <div className="relative aspect-4/3 overflow-hidden bg-muted">
                   <img
@@ -137,7 +137,7 @@ const EventsLandingPageSection = () => {
                     alt={tournament.name}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover/card:scale-105"
                   />
-                  <div className="absolute left-3 top-3 rounded-lg bg-background/90 px-3 py-2 text-center shadow-sm ring-1 ring-border backdrop-blur">
+                  <div className="absolute left-3 top-3 rounded-lg bg-background/90 px-3 py-2 text-center shadow-sm border backdrop-blur">
                     <div className="text-xs font-medium uppercase text-muted-foreground">
                       {moment(tournament.date).format('MMM')}
                     </div>

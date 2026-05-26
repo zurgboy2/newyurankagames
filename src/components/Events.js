@@ -536,13 +536,16 @@ const RegistrationModal = ({ tournament, open, onClose }) => {
           </div>
         </CardHeader>
 
-        <CardContent className="grid gap-6 p-5 lg:grid-cols-[18rem_1fr]">
+        <CardContent className="grid gap-6 p-5 md:grid-cols-[18rem_1fr]">
           <div className="space-y-4">
             <img
               src={tournament.posterUrl || noposter}
               alt={tournament.name}
-              className="aspect-4/3 w-full rounded-lg object-cover"
+              className="w-full max-w-72 mx-auto rounded-lg object-cover"
             />
+          </div>
+
+          <div className="space-y-5">
             <div className="grid gap-3 text-sm text-muted-foreground">
               <EventMeta icon={CalendarDaysIcon}>
                 {getEventDate(tournament.date)}
@@ -554,9 +557,6 @@ const RegistrationModal = ({ tournament, open, onClose }) => {
                 {getPriceLabel(tournament.price)}
               </EventMeta>
             </div>
-          </div>
-
-          <div className="space-y-5">
             <EventDetails tournament={tournament} />
 
             {result || errorMessage ? (
@@ -630,7 +630,7 @@ const EventDetails = ({ tournament }) => {
     <div className="grid gap-3">
       {details.map(({ label, value, icon: Icon }) => (
         <div key={label} className="rounded-lg border p-3">
-          <div className="mb-1 flex items-center gap-2 text-sm font-medium">
+          <div className="mb-3 flex items-center gap-2 text-sm font-medium">
             <Icon className="size-4 text-highlight" />
             {label}
           </div>

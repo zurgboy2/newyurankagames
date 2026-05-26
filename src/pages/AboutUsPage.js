@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./Home.css";
 import AboutYuranka from "../components/AboutYuranka";
 import { useEffect } from "react";
 import FAQSection from "../components/FAQ";
@@ -12,7 +11,7 @@ function AboutUsPage() {
   }, []);
 
   return (
-    <div className="Home">
+    <div className="min-h-screen bg-background text-foreground">
       <OrientationWarning />
       <Navbar />
       <AboutYuranka />
