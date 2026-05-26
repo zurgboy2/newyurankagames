@@ -156,13 +156,13 @@
   background-color: #d03f22;
 }
 
-input {
+/* input {
   width: 80%;
   padding: 8px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
+} */
 
 .confrim-password-btn {
   background: #10b981;

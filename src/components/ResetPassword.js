@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { makeRequestCall } from "../api/api";
-import "./ResetPassword.css";
+import { Button } from "./ui/button";
+import { AuthCardShell } from "./AuthCardShell";
+import { AuthField } from "./AuthFields";
 
 /**
  * ResetPassword component styled to match the Login/Sign Up page.
@@ -55,7 +56,7 @@ const ResetPassword = () => {
         emailOrUsername: identifier,
       });
       alert(res.message || "If an account exists, an email will be sent.");
-      navigate("/login&signup");
+      navigate("/login");
     } catch (err) {
       console.error(err);
       alert("Request failed");
@@ -82,7 +83,7 @@ const ResetPassword = () => {
       });
       if (res.success) {
         alert("Password updated. Please log in.");
-        navigate("/login&signup");
+        navigate("/login");
       } else {
         alert(res.message || "Failed to reset password");
       }
@@ -95,149 +96,123 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-box">
+    <AuthCardShell
+      eyebrow="Account access"
+      title={mode === "request" ? "Forgot Password" : "Reset Password"}
+      description={
+        mode === "request"
+          ? "Enter your email or username and we will send a password reset link if an account exists."
+          : "Choose a new password for your Yuranka Games account."
+      }
+    >
         {mode === "request" && (
           <>
-            <h2>Forgot Password</h2>
-            <p>
-              Enter your email or username and we'll send a password reset link
-              if an account exists.
-            </p>
+            <form className="grid gap-4" onSubmit={handleRequest}>
+              <AuthField
+                icon="email"
+                label="Email or Username"
+                value={identifier}
+                onChange={(e) => setIdentifier(e.target.value)}
+                placeholder="Email or username"
+              />
 
-            <form onSubmit={handleRequest}>
-              <div className="input-group">
-                <label>Email or Username</label>
-                <div className="input-field">
-                  <FaEnvelope className="icon" />
-                  <input
-                    value={identifier}
-                    onChange={(e) => setIdentifier(e.target.value)}
-                    placeholder="Email or username"
-                    style={{ color: "white" }}
-                  />
-                </div>
-              </div>
-
-              <button
+              <Button
                 type="submit"
-                className="auth-button"
+                size="lg"
                 disabled={requestLoading}
               >
                 {requestLoading ? "Sending..." : "Send Reset Link"}
-              </button>
+              </Button>
             </form>
 
-            <p
-              className="toggle-text"
-              style={{ marginTop: 12, cursor: "pointer" }}
-              onClick={() => navigate("/login&signup")}
+            <Button
+              variant="link"
+              className="mt-4 h-auto w-full p-0"
+              onClick={() => navigate("/login")}
             >
               Back to login
-            </p>
+            </Button>
           </>
         )}
 
         {mode === "reset" && (
           <>
-            <h2>Reset Password</h2>
-
             {loadingMode === "verify" && (
-              <p style={{ color: "#bbb" }}>Loading...</p>
+              <p className="text-sm text-muted-foreground">Loading...</p>
             )}
             {loadingMode === "save" && (
-              <p style={{ color: "#bbb" }}>Confirming new password...</p>
+              <p className="text-sm text-muted-foreground">
+                Confirming new password...
+              </p>
             )}
 
             {!loadingMode && verifyStatus && !verifyStatus.success && (
-              <>
-                <p style={{ color: "red", marginTop: 8 }}>
+              <div className="grid gap-4">
+                <p className="text-sm text-destructive">
                   {verifyStatus.message || "Token invalid or expired."}
                 </p>
-                <p style={{ marginTop: 12 }}>
-                  <button
-                    className="auth-button"
-                    onClick={() => {
-                      setMode("request");
-                      setVerifyStatus(null);
-                      setNewPassword("");
-                      setConfirmPassword("");
-                    }}
-                    style={{ width: "auto" }}
-                  >
-                    Request a new reset link
-                  </button>
-                </p>
-              </>
+                <Button
+                  size="lg"
+                  onClick={() => {
+                    setMode("request");
+                    setVerifyStatus(null);
+                    setNewPassword("");
+                    setConfirmPassword("");
+                  }}
+                >
+                  Request a new reset link
+                </Button>
+              </div>
             )}
 
             {!loadingMode && verifyStatus && verifyStatus.success && (
-              <form onSubmit={handleReset}>
-                <div className="input-group">
-                  <label>New password</label>
-                  <div className="input-field">
-                    <FaLock className="icon" />
-                    <input
-                      type={showNewPassword ? "text" : "password"}
-                      value={newPassword}
-                      onChange={(e) => setNewPassword(e.target.value)}
-                      placeholder="Enter new password"
-                      required
-                      style={{ color: "white" }}
-                    />
-                    <button
-                      type="button"
-                      className="eye-button"
-                      onClick={() => setShowNewPassword(!showNewPassword)}
-                    >
-                      {showNewPassword ? <FaEyeSlash /> : <FaEye />}
-                    </button>
-                  </div>
-                </div>
+              <form className="grid gap-4" onSubmit={handleReset}>
+                <AuthField
+                  icon="lock"
+                  label="New password"
+                  type={showNewPassword ? "text" : "password"}
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="Enter new password"
+                  showPassword={showNewPassword}
+                  onTogglePassword={() => setShowNewPassword(!showNewPassword)}
+                  required
+                />
 
-                <div className="input-group">
-                  <label>Confirm password</label>
-                  <div className="input-field">
-                    <FaLock className="icon" />
-                    <input
-                      type={showConfirmPassword ? "text" : "password"}
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                      placeholder="Confirm new password"
-                      required
-                      style={{ color: "white" }}
-                    />
-                    <button
-                      type="button"
-                      className="eye-button"
-                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    >
-                      {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                    </button>
-                  </div>
-                </div>
+                <AuthField
+                  icon="lock"
+                  label="Confirm password"
+                  type={showConfirmPassword ? "text" : "password"}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="Confirm new password"
+                  showPassword={showConfirmPassword}
+                  onTogglePassword={() =>
+                    setShowConfirmPassword(!showConfirmPassword)
+                  }
+                  required
+                />
 
-                <button
+                <Button
                   type="submit"
-                  className="auth-button"
+                  size="lg"
                   disabled={loadingMode === "save"}
                 >
                   {loadingMode === "save" ? "Saving..." : "Save New Password"}
-                </button>
+                </Button>
 
-                <p
-                  className="toggle-text"
-                  style={{ marginTop: 12, cursor: "pointer" }}
-                  onClick={() => navigate("/login&signup")}
+                <Button
+                  variant="link"
+                  className="h-auto p-0"
+                  onClick={() => navigate("/login")}
                 >
                   Back to login
-                </p>
+                </Button>
               </form>
             )}
           </>
         )}
-      </div>
-    </div>
+    </AuthCardShell>
   );
 };
 

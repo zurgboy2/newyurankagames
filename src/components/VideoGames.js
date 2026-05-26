@@ -4,6 +4,8 @@ import "./VideoGames.css";
 import noposter from "../assets/noposter.avif";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 const VideoGamesSection = () => {
   const [games, setGames] = useState([]);
@@ -118,14 +120,15 @@ const VideoGamesSection = () => {
               Browse our wide range of games and reserve a Couch Space to play.
               Each couch space can accommodate upto 6 people.
             </p>
-            <button
+            <Button
+              size="lg"
               className="videogames-reserve-button"
               onClick={handleReserveGame}
             >
               Reserve Couch Space
-            </button>
+            </Button>
             <div className="search-bar-container">
-              <input
+              <Input
                 type="text"
                 placeholder="Search for a game..."
                 value={searchQuery}
@@ -140,13 +143,14 @@ const VideoGamesSection = () => {
 
           <div className="filters">
             {filters.map((filter) => (
-              <button
+              <Button
+                variant={activeFilter === filter ? "default" : "outline"}
                 className="filter-button"
                 key={filter}
                 onClick={() => handleFilterClick(filter)}
               >
                 {filter}
-              </button>
+              </Button>
             ))}
           </div>
           <div className="games-container">
@@ -180,7 +184,8 @@ const VideoGamesSection = () => {
                         ))}
                     </div>
                     {games.length > 4 && window.innerWidth <= 768 && (
-                      <button
+                      <Button
+                        variant="outline"
                         className="display-button"
                         onClick={() =>
                           toggleGameDisplay(consoleType, games.length)
@@ -190,10 +195,11 @@ const VideoGamesSection = () => {
                         games.length > (window.innerWidth <= 768 ? 4 : 7)
                           ? "View Less"
                           : "View More"}
-                      </button>
+                      </Button>
                     )}
                     {games.length > 7 && window.innerWidth >= 768 && (
-                      <button
+                      <Button
+                        variant="outline"
                         className="display-button"
                         onClick={() =>
                           toggleGameDisplay(consoleType, games.length)
@@ -203,7 +209,7 @@ const VideoGamesSection = () => {
                         games.length > (window.innerWidth <= 768 ? 4 : 7)
                           ? "View Less"
                           : "View More"}
-                      </button>
+                      </Button>
                     )}
                   </div>
                 );

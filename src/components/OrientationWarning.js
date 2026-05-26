@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "./OrientationWarning.css";
+import { Button } from "./ui/button";
 
 function OrientationWarning() {
   const [showWarning, setShowWarning] = useState(false);
@@ -50,9 +51,9 @@ function OrientationWarning() {
   return (
     <div className="orientation-modal-backdrop">
       <div className="orientation-modal">
-        <button className="close-button" onClick={handleClose}>
+        <Button variant="ghost" size="icon" className="close-button" onClick={handleClose}>
           ✕
-        </button>
+        </Button>
         <p>
           Site not configured for horizontal view yet.
           <br />

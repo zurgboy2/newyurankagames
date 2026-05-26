@@ -1,4 +1,5 @@
 import "./OpenInBrowserBanner.css";
+import { Button } from "./ui/button";
 
 const OpenInBrowserBanner = ({ onClose }) => {
   const currentUrl = window.location.href;
@@ -9,14 +10,16 @@ const OpenInBrowserBanner = ({ onClose }) => {
         className="open-in-browser-popup-container"
         style={{ position: "relative" }}
       >
-        <button
+        <Button
+          variant="ghost"
+          size="icon"
           className="close-banner-btn"
           onClick={onClose}
           aria-label="Close"
           title="Close"
         >
           ×
-        </button>
+        </Button>
         <span className="banner-text">
           For the best experience, please open this page in your browser.
           <br />

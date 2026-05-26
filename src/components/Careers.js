@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import "./Careers.css";
 import { makeRequestCall, makeRegistrationRequestCall } from "../api/api";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 
 const getDefaultFormData = () => ({
   name: sessionStorage.getItem("name") || "",
@@ -341,9 +344,9 @@ const Careers = () => {
           <div className="careers-state-card">
             <h2>We could not load the careers list.</h2>
             <p>{positionsError}</p>
-            <button className="careers-submit" onClick={fetchPositions}>
+            <Button size="lg" className="careers-submit" onClick={fetchPositions}>
               Try Again
-            </button>
+            </Button>
           </div>
         ) : (
           <div className="careers-grid">
@@ -377,7 +380,7 @@ const Careers = () => {
                         }`}
                       >
                         <div className="careers-position-top">
-                          <input
+                          <Input
                             type="checkbox"
                             checked={isSelected}
                             onChange={() =>
@@ -408,7 +411,7 @@ const Careers = () => {
               <div className="careers-form-grid">
                 <label className="careers-field">
                   <span>Full Name</span>
-                  <input
+                  <Input
                     type="text"
                     name="name"
                     placeholder="Enter your full name"
@@ -420,7 +423,7 @@ const Careers = () => {
 
                 <label className="careers-field">
                   <span>Contact Number</span>
-                  <input
+                  <Input
                     type="tel"
                     name="contactNumber"
                     placeholder="Enter your contact number"
@@ -432,7 +435,7 @@ const Careers = () => {
 
                 <label className="careers-field careers-field-full">
                   <span>Email Address</span>
-                  <input
+                  <Input
                     type="email"
                     name="email"
                     placeholder="Enter your email address"
@@ -444,7 +447,7 @@ const Careers = () => {
 
                 <label className="careers-field careers-field-full">
                   <span>Message to the Hiring Team</span>
-                  <textarea
+                  <Textarea
                     name="messageToHiringTeam"
                     placeholder="Share anything you want the hiring team to know"
                     value={formData.messageToHiringTeam || ""}
@@ -456,7 +459,7 @@ const Careers = () => {
 
                 <label className="careers-field careers-field-full">
                   <span>CV</span>
-                  <input
+                  <Input
                     ref={cvInputRef}
                     type="file"
                     accept=".pdf,.doc,.docx"
@@ -473,7 +476,7 @@ const Careers = () => {
 
                 <label className="careers-field careers-field-full">
                   <span>Cover Letter</span>
-                  <input
+                  <Input
                     ref={coverLetterInputRef}
                     type="file"
                     accept=".pdf,.doc,.docx"
@@ -509,15 +512,16 @@ const Careers = () => {
                 </div>
               )}
 
-              <button
+              <Button
                 type="submit"
+                size="lg"
                 className="careers-submit"
                 disabled={submitState.status === "submitting"}
               >
                 {submitState.status === "submitting"
                   ? "Submitting..."
                   : "Apply"}
-              </button>
+              </Button>
             </form>
           </div>
         )}

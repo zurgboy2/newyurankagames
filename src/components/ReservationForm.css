@@ -78,8 +78,8 @@
 }
 
 input:focus {
-  border-color: #ec4527; /* Blue border on focus */
-  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+  /* border-color: #ec4527; Blue border on focus */
+  /* box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3); */
 }
 .calendar-icon {
   position: absolute;

@@ -1,23 +1,14 @@
 import { useEffect } from "react";
-import Navbar from "../components/Navbar";
-import LoginAndSignup from "../components/Login&Signup";
-import Footer from "../components/Footer";
-import "./Home.css";
-import OrientationWarning from "../components/OrientationWarning";
+import { Navigate, useLocation } from "react-router-dom";
 
 function LoginAndSignupPage() {
+  const location = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  return (
-    <div className="Home">
-      <OrientationWarning />
-      <Navbar />
-      <LoginAndSignup />
-      <Footer />
-    </div>
-  );
+  return <Navigate to={location.state?.isLogin === false ? "/signup" : "/login"} replace />;
 }
 
 export default LoginAndSignupPage;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "./MiniCons.css";
+import { Button } from "./ui/button";
 
 export default function MiniCon() {
   const [activeTab, setActiveTab] = useState(null);
@@ -278,9 +279,9 @@ export default function MiniCon() {
     return (
       <div className="minicons-modal-overlay" style={eventBackgroundStyle}>
         <div className="event-container">
-          <button onClick={handleBackClick} className="back-button">
+          <Button variant="ghost" size="icon" onClick={handleBackClick} className="back-button">
             <ChevronLeft className="back-icon" />
-          </button>
+          </Button>
 
           {/* Event Header */}
           <div className="event-header">
@@ -292,34 +293,34 @@ export default function MiniCon() {
 
             {activeTab.id === 1 && (
               <div className="registration-buttons">
-                <button disabled className="registration-button">
+                <Button disabled className="registration-button">
                   Click here to sign up
-                </button>
-                <button disabled className="registration-button">
+                </Button>
+                <Button disabled className="registration-button">
                   Artist Registration
-                </button>
+                </Button>
               </div>
             )}
 
             {activeTab.id === 2 && (
               <div className="registration-buttons">
-                <button disabled className="registration-button">
+                <Button disabled className="registration-button">
                   Sign up as individual (2 euros)
-                </button>
-                <button disabled className="registration-button">
+                </Button>
+                <Button disabled className="registration-button">
                   Sign up as team (6 euros)
-                </button>
+                </Button>
               </div>
             )}
 
             {activeTab.id === 5 && (
               <div className="registration-buttons">
-                <button disabled className="registration-button">
+                <Button disabled className="registration-button">
                   Sign up as individual (5 euros)
-                </button>
-                <button disabled className="registration-button">
+                </Button>
+                <Button disabled className="registration-button">
                   Sign up as team (17 euros)
-                </button>
+                </Button>
               </div>
             )}
           </div>
@@ -368,18 +369,22 @@ export default function MiniCon() {
                     </div>
                   ))}
                 </div>
-                <button
+                <Button
+                  variant="ghost"
+                  size="icon"
                   onClick={prevSlide}
                   className="carousel-button prev-button"
                 >
                   <ChevronLeft className="prev-button-icon" />
-                </button>
-                <button
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
                   onClick={nextSlide}
                   className="carousel-button next-button"
                 >
                   <ChevronRight className="next-button-icon" />
-                </button>
+                </Button>
               </div>
             </div>
           )}

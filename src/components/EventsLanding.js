@@ -60,7 +60,7 @@ const EventsLandingPageSection = () => {
   };
 
   return (
-    <section className="border-t bg-muted/25">
+    <section className="border-t">
       <div className="container py-10">
         <div className="mb-8 flex flex-col items-center text-center">
           <div className="max-w-2xl">
@@ -88,12 +88,12 @@ const EventsLandingPageSection = () => {
                   <Skeleton className="absolute right-3 top-3 h-6 w-32 rounded-lg bg-background/70" />
                 </div>
                 <CardHeader>
-                  <div className="flex min-h-11 flex-col justify-center gap-1 mb-1">
+                  <div className="flex flex-col justify-center gap-1 mb-1">
                     <Skeleton className="h-6 w-11/12" />
                     <Skeleton className="h-6 w-2/3" />
                   </div>
                 </CardHeader>
-                <CardContent className="flex min-h-24 flex-col flex-1 gap-3">
+                <CardContent className="flex min-h-21 flex-col flex-1 gap-3">
                   {Array.from({ length: 3 }).map((_, rowIndex) => (
                     <div key={rowIndex} className="flex h-5 items-center gap-2">
                       <Skeleton className="size-5 shrink-0 rounded-full" />

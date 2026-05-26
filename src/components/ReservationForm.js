@@ -9,6 +9,8 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 const ReservationForm = () => {
   const [error, setError] = useState("");
@@ -271,7 +273,9 @@ const ReservationForm = () => {
                 <label>Select Start Time</label>
                 <div className="time-grid">
                   {timeSlots.map((slot) => (
-                    <button
+                    <Button
+                      type="button"
+                      variant={startTime === slot ? "default" : "outline"}
                       key={slot}
                       className={`reservationform-time-slot ${
                         startTime === slot ? "selected" : ""
@@ -279,7 +283,7 @@ const ReservationForm = () => {
                       onClick={() => handleStartTimeChange(slot)}
                     >
                       {slot}
-                    </button>
+                    </Button>
                   ))}
                 </div>
               </div>
@@ -290,7 +294,9 @@ const ReservationForm = () => {
                   {timeSlots
                     .filter((slot) => startTime && slot > startTime)
                     .map((slot) => (
-                      <button
+                      <Button
+                        type="button"
+                        variant={endTime === slot ? "default" : "outline"}
                         key={slot}
                         className={`reservationform-time-slot ${
                           endTime === slot ? "selected" : ""
@@ -298,7 +304,7 @@ const ReservationForm = () => {
                         onClick={() => handleEndTimeChange(slot)}
                       >
                         {slot}
-                      </button>
+                      </Button>
                     ))}
                 </div>
               </div>
@@ -347,7 +353,7 @@ const ReservationForm = () => {
               </label>
               <label class="labelquantitypicker">
                 Choose amount:{" "}
-                <input
+                <Input
                   type="number"
                   class="quantity-picker"
                   min="0"
@@ -378,7 +384,7 @@ const ReservationForm = () => {
               </label>
               <label class="labelquantitypicker">
                 Choose amount:{" "}
-                <input
+                <Input
                   type="number"
                   class="quantity-picker"
                   min="0"
@@ -408,7 +414,7 @@ const ReservationForm = () => {
               </label>
               <label class="labelquantitypicker">
                 Choose amount:{" "}
-                <input
+                <Input
                   type="number"
                   class="quantity-picker"
                   min="0"
@@ -425,7 +431,7 @@ const ReservationForm = () => {
       <div class="reservation-form2">
         <div class="reservation-input-group">
           <label for="name">Name</label>
-          <input
+          <Input
             type="text"
             id="name"
             placeholder="Enter name"
@@ -435,7 +441,7 @@ const ReservationForm = () => {
         </div>
         <div class="reservation-input-group">
           <label for="email">Email</label>
-          <input
+          <Input
             type="email"
             id="email"
             placeholder="Enter email"
@@ -445,9 +451,9 @@ const ReservationForm = () => {
         </div>
       </div>
 
-      <button className="submit-button" onClick={handleReservationSubmit}>
+      <Button size="lg" className="submit-button" onClick={handleReservationSubmit}>
         Submit Reservation
-      </button>
+      </Button>
 
       {showPopup && (
         <ConfirmationPopup
@@ -474,9 +480,9 @@ const ConfirmationPopup = ({
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <button className="close-btn" onClick={onClose}>
+        <Button variant="ghost" size="icon" className="close-btn" onClick={onClose}>
           &times;
-        </button>
+        </Button>
 
         <p className="modal-message">
           {message.split("\n").map((line, index) => (
@@ -488,9 +494,9 @@ const ConfirmationPopup = ({
         </p>
 
         {isConfirmationStep && (
-          <button className="submit-reservationpage-btn" onClick={onSubmit}>
+          <Button size="lg" className="submit-reservationpage-btn" onClick={onSubmit}>
             Submit Reservation
-          </button>
+          </Button>
         )}
       </div>
     </div>

@@ -3,6 +3,8 @@ import "./UserDashboard.css";
 import avatarImg from "../assets/logo.avif";
 import { makeRegistrationRequestCall } from "../api/api";
 import { useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
@@ -110,7 +112,7 @@ const UserDashboard = () => {
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("avatarurl");
 
-    navigate("/login&signup");
+    navigate("/login");
   }
   return (
     <div className="dashboard-container">
@@ -118,16 +120,16 @@ const UserDashboard = () => {
       <div className={`dashboard-header${isMobile ? " mobile" : ""}`}>
         <h2>User Dashboard</h2>
         {isMobile ? null : (
-          <button className="sign-out" onClick={handleLogout}>
+          <Button variant="outline" className="sign-out" onClick={handleLogout}>
             Sign Out
-          </button>
+          </Button>
         )}
       </div>
       {isMobile && (
         <div className="sign-out-mobile-row">
-          <button className="sign-out" onClick={handleLogout}>
+          <Button variant="outline" className="sign-out" onClick={handleLogout}>
             Sign Out
-          </button>
+          </Button>
         </div>
       )}
 
@@ -144,15 +146,15 @@ const UserDashboard = () => {
           )}
         </div>
         {isMobile ? null : (
-          <button className="editprofilebutton" onClick={handleEditClick}>
+          <Button className="editprofilebutton" onClick={handleEditClick}>
             {isEditing ? "Close" : "Edit Profile"}
-          </button>
+          </Button>
         )}
         {isMobile && (
           <div className="editprofilebutton-mobile-row">
-            <button className="editprofilebutton" onClick={handleEditClick}>
+            <Button className="editprofilebutton" onClick={handleEditClick}>
               {isEditing ? "Close" : "Edit Profile"}
-            </button>
+            </Button>
           </div>
         )}
       </div>
@@ -161,50 +163,52 @@ const UserDashboard = () => {
       {isEditing && (
         <div className="edit-profile-form">
           <label>Name</label>
-          <input
+          <Input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
 
           <label>Email</label>
-          <input
+          <Input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <div className="edit-buttons">
-            <button className="edit-buttons-save" onClick={handleSave}>
+            <Button className="edit-buttons-save" onClick={handleSave}>
               Save Changes
-            </button>
+            </Button>
 
-            <button className="edit-buttons-cancel" onClick={handleCancel}>
+            <Button variant="outline" className="edit-buttons-cancel" onClick={handleCancel}>
               Cancel
-            </button>
+            </Button>
             {showPopup && (
               <div className="popup-overlay">
                 <div className="popup">
-                  <button
+                  <Button
+                    variant="ghost"
+                    size="icon"
                     className="close-popup-button"
                     onClick={() => setShowPopup(false)}
                   >
                     ×
-                  </button>
+                  </Button>
                   <h2>Verify Password</h2>
                   <p>Please enter your password to confirm changes:</p>
-                  <input
+                  <Input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
                   />
-                  <button
+                  <Button
                     className="confrim-password-btn"
                     onClick={handleConfirm}
                   >
                     Confirm
-                  </button>
+                  </Button>
                   {updateStatus && (
                     <p
                       className={
@@ -276,14 +280,14 @@ const UserDashboard = () => {
           <div className="dashboard-section">
             <h3>Generate Discount Code</h3>
             <div className={`discount-code-form${isMobile ? " mobile" : ""}`}>
-              <input
+              <Input
                 className="enter-amount-field"
                 type="number"
                 placeholder="Enter Amount"
               />
-              <button className="generate-amount-btn">
+              <Button className="generate-amount-btn">
                 Generate Discount Code
-              </button>
+              </Button>
             </div>
           </div>
           <div className="dashboard-section">

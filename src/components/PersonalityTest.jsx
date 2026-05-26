@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./PersonalityTest.css";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 const PersonalityTest = () => {
   const [currentScreen, setCurrentScreen] = useState("welcome");
@@ -158,12 +160,12 @@ const PersonalityTest = () => {
           <div className="welcome-screen">
             <h1>Let's test your Worth</h1>
             <p>Jedi or Sith Personality Test</p>
-            <button
+            <Button
               className="personality-test-button"
               onClick={() => setCurrentScreen("questions")}
             >
               Start
-            </button>
+            </Button>
           </div>
         );
 
@@ -178,26 +180,26 @@ const PersonalityTest = () => {
 
             {currentQ.isTextField ? (
               <form onSubmit={handleTextAnswer}>
-                <input
+                <Input
                   className="personality-test-input-field"
                   type="text"
                   placeholder="Type your answer..."
                   required
                 />
-                <button className="personality-test-button" type="submit">
+                <Button className="personality-test-button" type="submit">
                   Next
-                </button>
+                </Button>
               </form>
             ) : (
               <div className="options">
                 {currentQ.options.map((option, index) => (
-                  <button
+                  <Button
                     className="personality-test-button"
                     key={index}
                     onClick={() => handleAnswer(option.ending)}
                   >
                     {option.text}
-                  </button>
+                  </Button>
                 ))}
               </div>
             )}
@@ -231,7 +233,7 @@ const PersonalityTest = () => {
               </>
             )}
 
-            <button
+            <Button
               className="personality-test-button"
               onClick={() => {
                 setCurrentScreen("welcome");
@@ -241,7 +243,7 @@ const PersonalityTest = () => {
               }}
             >
               Take the test again
-            </button>
+            </Button>
           </div>
         );
 

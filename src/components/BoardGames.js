@@ -4,6 +4,8 @@ import "./BoardGames.css";
 import noposter from "../assets/noposter.avif";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 const BoardGamesSection = () => {
   const [games, setGames] = useState([]);
@@ -81,12 +83,12 @@ const BoardGamesSection = () => {
         </h3>
 
         <div className="board-games-button-wrapper">
-          <button onClick={handleReserveGame}>Reserve a Table</button>
+          <Button size="lg" onClick={handleReserveGame}>Reserve a Table</Button>
         </div>
 
         <div className="search-and-button-wrapper">
           <div className="boardsearch-bar-container">
-            <input
+            <Input
               type="text"
               placeholder="Search for a game..."
               value={searchQuery}
@@ -97,7 +99,7 @@ const BoardGamesSection = () => {
           </div>
 
           <div className="flex2">
-            <button onClick={viewAll}>View All Board Games</button>
+            <Button variant="outline" onClick={viewAll}>View All Board Games</Button>
           </div>
         </div>
       </div>
@@ -148,7 +150,7 @@ const BoardGamesSection = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <button className="buy-now-button">Buy Now</button>
+                      <Button size="sm" className="buy-now-button">Buy Now</Button>
                     </a>
                   )}
                 </div>
@@ -156,7 +158,7 @@ const BoardGamesSection = () => {
             </div>
             {visibleForSale < filteredForSale.length && (
               <div className="boardgames-text-center">
-                <button onClick={loadMoreForSale}>View More</button>
+                <Button variant="outline" onClick={loadMoreForSale}>View More</Button>
               </div>
             )}
           </section>
@@ -196,11 +198,12 @@ const BoardGamesSection = () => {
             </div>
             {visibleForRent < filteredForRent.length && (
               <div className="boardgames-text-center">
-                <button
+                <Button
+                  variant="outline"
                   onClick={() => setVisibleForRent(filteredForRent.length)}
                 >
                   View More
-                </button>
+                </Button>
               </div>
             )}
           </section>

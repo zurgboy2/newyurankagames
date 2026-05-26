@@ -39,7 +39,7 @@ const Navbar = () => {
     return (
       <Button
         variant="link"
-        className="text-base text-primary link hover:no-underline"
+        className="text-base link hover:no-underline"
         asChild
       >
         <Link
@@ -55,7 +55,7 @@ const Navbar = () => {
 
   const navigationMenu = () => {
     return (
-      <ul className="bg-muted rounded-full lg:flex items-center px-5 my-3.5 hidden">
+      <ul className="bg-muted/75 rounded-full lg:flex items-center px-5 my-3.5 hidden">
         {mainLinks.slice(0, 1).map((link) => (
           <li key={link.title}>{navLink(link)}</li>
         ))}
@@ -63,14 +63,14 @@ const Navbar = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-base h-8 px-2.5 text-primary font-medium">
+                <NavigationMenuTrigger className="text-base h-8 px-2.5 text-highlight font-medium">
                   Events
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-background">
                   {eventLinks.map((link) => (
                     <NavigationMenuLink key={link.title} className="p-0">
                       <Link
-                        className="min-w-30 text-base px-3 py-1.5 hover:text-primary transition-colors"
+                        className="min-w-30 text-base px-3 py-1.5 hover:text-highlight transition-colors"
                         to={link.to}
                       >
                         {link.title}
@@ -89,14 +89,14 @@ const Navbar = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-base h-8 px-2.5 text-primary font-medium">
+                <NavigationMenuTrigger className="text-base h-8 px-2.5 text-highlight font-medium">
                   More
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-background">
                   {moreLinks.map((link) => (
                     <NavigationMenuLink key={link.title} className="p-0">
                       <Link
-                        className="min-w-30 text-base px-3 py-1.5 hover:text-primary transition-colors"
+                        className="min-w-30 text-base px-3 py-1.5 hover:text-highlight transition-colors"
                         to={link.to}
                       >
                         {link.title}
@@ -135,7 +135,7 @@ const Navbar = () => {
     return (
       <Drawer direction="left">
         <DrawerTrigger asChild>
-          <Button variant="icon" className="lg:hidden mr-auto">
+          <Button variant="ghost" size="icon" className="lg:hidden mr-auto">
             <FaBars className="text-primary size-6" />
           </Button>
         </DrawerTrigger>
@@ -154,7 +154,8 @@ const Navbar = () => {
           ))}
 
           {username ? (
-            <button
+            <Button
+              variant="ghost"
               type="button"
               className="mt-2 flex items-center gap-3 rounded-lg px-3 py-2 text-left hover:bg-muted"
               onClick={() => navigate('/dashboard')}
@@ -165,30 +166,20 @@ const Navbar = () => {
                 className="size-8 rounded-full object-cover"
               />
               <span className="text-base font-medium">{username}</span>
-            </button>
+            </Button>
           ) : (
             <div className="flex gap-3 flex-col pt-2">
               <Button
                 variant="secondary"
                 className="text-base w-full"
-                onClick={() =>
-                  navigate('/login&signup', {
-                    state: { isLogin: true },
-                    replace: true,
-                  })
-                }
+                onClick={() => navigate('/login')}
               >
                 Login
               </Button>
               <Button
                 variant="default"
                 className="text-base w-full"
-                onClick={() =>
-                  navigate('/login&signup', {
-                    state: { isLogin: false },
-                    replace: true,
-                  })
-                }
+                onClick={() => navigate('/signup')}
               >
                 Sign Up
               </Button>
@@ -216,7 +207,8 @@ const Navbar = () => {
 
         <div className="hidden md:block ml-auto lg:ml-0">
           {username ? (
-            <button
+            <Button
+              variant="ghost"
               type="button"
               className="flex items-center gap-2 rounded-lg px-2 py-1 hover:bg-muted"
               onClick={() => navigate('/dashboard')}
@@ -227,30 +219,20 @@ const Navbar = () => {
                 className="size-7 rounded-full object-cover"
               />
               <span className="text-sm font-medium">{username}</span>
-            </button>
+            </Button>
           ) : (
             <div className="flex gap-3 flex-col md:flex-row">
               <Button
                 variant="ghost"
                 className="max-md:text-base w-full md:w-auto"
-                onClick={() =>
-                  navigate('/login&signup', {
-                    state: { isLogin: true },
-                    replace: true,
-                  })
-                }
+                onClick={() => navigate('/login')}
               >
                 Login
               </Button>
               <Button
                 variant="default"
                 className="max-md:text-base w-full md:w-auto"
-                onClick={() =>
-                  navigate('/login&signup', {
-                    state: { isLogin: false },
-                    replace: true,
-                  })
-                }
+                onClick={() => navigate('/signup')}
               >
                 Sign Up
               </Button>
