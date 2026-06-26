@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="container grid grid-cols sm:grid-flow-col md:grid-cols-3 gap-8 py-4 text-sm">
         {/* Brand Section */}
         <div>
-          <h3 className="font-bold text-base text-foreground mb-2">
+          <h3 className="heading-5 text-foreground mb-2">
             Yuranka Games
           </h3>
           <p className="footer-subtext">
@@ -29,7 +29,7 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-base text-foreground mb-2">
+          <h3 className="heading-5 text-foreground mb-2">
             Quick Links
           </h3>
           <Link to="https://store.yuranka.com" className="w-fit link">
@@ -55,7 +55,7 @@ const Footer = () => {
         <div className="flex flex-col gap-8">
           {/* Contact Info */}
           <div className="flex flex-col gap-2 max-w-60">
-            <h3 className="font-bold text-base text-foreground mb-2">
+            <h3 className="heading-5 text-foreground mb-2">
               Contact
             </h3>
             <div className="flex items-center gap-2">
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
           {/* Social Media */}
           <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-base text-foreground mb-2">
+            <h3 className="heading-5 text-foreground mb-2">
               Follow Us
             </h3>
             <div className="flex gap-4">

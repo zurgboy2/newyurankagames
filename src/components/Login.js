@@ -4,6 +4,7 @@ import { makeRequestCall } from '../api/api';
 import { AuthCardShell } from './AuthCardShell';
 import { AuthField } from './AuthFields';
 import { Button } from './ui/button';
+import { toast } from 'sonner';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -31,13 +32,14 @@ const Login = () => {
         sessionStorage.setItem('name', data.name);
         sessionStorage.setItem('email', data.email);
         sessionStorage.setItem('avatarurl', data.image_url);
+        toast.success('Logged in successfully.');
         navigate('/');
       } else {
-        alert(data.message || 'Request failed.');
+        toast.error(data.message || 'Request failed.');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred. Please try again.');
+      toast.error('An error occurred. Please try again.');
     } finally {
       setLoading(false);
     }

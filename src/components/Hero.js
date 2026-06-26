@@ -11,7 +11,7 @@ const Hero = () => {
     >
       <div className="container flex flex-col-reverse items-center justify-between gap-8 py-8 text-white md:flex-row lg:items-center lg:py-20 z-20 relative">
         <div className="w-full md:min-w-100 md:max-w-150 grow">
-          <h1 className="mb-4 text-3xl font-bold md:text-4xl text-center">
+          <h1 className="heading-1 mb-4 text-center">
             Discover the Ultimate Hub for Trading Card Games, Board Games and
             Video Games in Riga, Latvia.
           </h1>

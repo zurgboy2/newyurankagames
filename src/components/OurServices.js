@@ -67,7 +67,7 @@ const OurServices = () => {
                   </div>
                 </CardContent>
                 <CardContent className="flex flex-1 flex-col p-5 pt-0 text-center sm:p-6 sm:pl-0 sm:text-left lg:p-5 lg:pt-2 lg:text-center">
-                  <h3 className="mb-3 text-xl font-bold leading-tight sm:text-2xl">
+                  <h3 className="heading-4 mb-3 leading-tight">
                     {title}
                   </h3>
                   <p className="mb-6 text-base font-light leading-relaxed text-muted-foreground sm:text-lg">

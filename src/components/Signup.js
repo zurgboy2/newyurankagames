@@ -4,6 +4,7 @@ import { makeRequestCall } from '../api/api';
 import { AuthCardShell } from './AuthCardShell';
 import { AuthField } from './AuthFields';
 import { Button } from './ui/button';
+import { toast } from 'sonner';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const Signup = () => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match.');
+      toast.error('Passwords do not match.');
       return;
     }
 
@@ -62,14 +63,14 @@ const Signup = () => {
       const data = await makeRequestCall('auth_script', 'signUp', formData);
 
       if (data.success) {
-        alert('Sign up successful! Please log in.');
+        toast.success('Sign up successful! Please log in.');
         navigate('/login');
       } else {
-        alert(data.message || 'Request failed.');
+        toast.error(data.message || 'Request failed.');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred. Please try again.');
+      toast.error('An error occurred. Please try again.');
     } finally {
       setLoading(false);
     }

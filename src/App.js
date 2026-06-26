@@ -16,6 +16,7 @@ import OpenInBrowserBanner from './components/OpenInBrowserBanner';
 import ResetPassword from './components/ResetPassword';
 import { useState, useEffect } from 'react';
 import { isInstagramInAppBrowser } from './components/Utility';
+import { Toaster } from './components/ui/sonner';
 
 function App() {
   const [showBanner, setShowBanner] = useState(false);
@@ -46,6 +47,7 @@ function App() {
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
+      <Toaster />
     </div>
   );
 }

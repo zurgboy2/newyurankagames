@@ -21,13 +21,13 @@ import { Skeleton } from './ui/skeleton';
 const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
 const frequencyBadgeStyles = {
-  weekly: 'border-white/90 bg-white/90 text-black',
+  weekly: 'border-muted-foreground/30 bg-white/30 text-white',
   oneTime: 'border-highlight/80 bg-highlight/60 text-white',
-  monthly: 'border-muted-foreground/30 bg-muted-foreground/15 text-foreground',
+  monthly: 'border-muted-foreground/30 bg-muted-foreground/10 text-foreground',
 };
 
 const frequencySurfaceStyles = {
-  weekly: 'border-white/90 bg-white/90 text-black',
+  weekly: 'border-muted-foreground/30 bg-white/30 text-white',
   oneTime: 'border-highlight/80 bg-highlight/60 text-white',
   monthly: 'border-muted-foreground/30 bg-muted-foreground/15 text-foreground',
 };
@@ -108,7 +108,7 @@ const EventsCalendar = ({ tournaments, onEventClick, loading }) => {
             <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-highlight">
               Calendar
             </p>
-            <CardTitle className="flex items-center gap-2 text-2xl">
+            <CardTitle className="heading-3 flex items-center gap-2">
               <CalendarDaysIcon className="size-6 text-highlight" />
               Monthly Events Calendar
             </CardTitle>

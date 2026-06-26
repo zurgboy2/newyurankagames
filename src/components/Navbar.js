@@ -1,21 +1,19 @@
+import { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import logo from '../assets/logo.avif';
-import { Link, useNavigate } from 'react-router-dom';
-import avatarImg from '../assets/logo.avif';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ChevronDownIcon, UserIcon } from 'lucide-react';
 import { Button } from './ui/button';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from './ui/navigation-menu';
+import { cn } from '../lib/utils';
+import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { Drawer, DrawerContent, DrawerTrigger } from './ui/drawer';
 
 const mainLinks = [
   { title: 'Store', to: 'https://store.yuranka.com', external: true },
   { title: 'Reservations', to: '/reservations' },
+];
+
+const gameLinks = [
   { title: 'Board Games', to: '/boardgames' },
   { title: 'Video Games', to: '/videogames' },
 ];
@@ -33,13 +31,23 @@ const moreLinks = [
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [openDropdown, setOpenDropdown] = useState(null);
   const username = sessionStorage.getItem('username');
+  const isActiveLink = ({ to, external }) =>
+    !external && location.pathname === to;
 
-  const navLink = ({ title, to, external }) => {
+  const navLink = (link) => {
+    const { title, to, external } = link;
+    const isActive = isActiveLink(link);
+
     return (
       <Button
         variant="link"
-        className="text-base link hover:no-underline"
+        className={cn(
+          'text-base link hover:no-underline',
+          isActive && 'text-primary',
+        )}
         asChild
       >
         <Link
@@ -53,6 +61,57 @@ const Navbar = () => {
     );
   };
 
+  const dropdownLink = (link) => (
+    <Link
+      key={link.title}
+      className={cn(
+        'min-w-34 rounded-md px-3 py-1.5 text-base transition-colors hover:bg-muted hover:text-highlight',
+        isActiveLink(link) && 'bg-muted text-highlight',
+      )}
+      to={link.to}
+      onClick={() => setOpenDropdown(null)}
+    >
+      {link.title}
+    </Link>
+  );
+
+  const dropdownMenu = ({ title, links, value }) => {
+    const isOpen = openDropdown === value;
+    const isActive = links.some(isActiveLink);
+
+    return (
+      <Popover
+        open={isOpen}
+        onOpenChange={(open) => setOpenDropdown(open ? value : null)}
+      >
+        <PopoverTrigger asChild>
+          <Button
+            variant="ghost"
+            type="button"
+            className={cn(
+              'h-8 px-2.5 text-base font-medium text-highlight hover:bg-transparent hover:text-primary aria-expanded:bg-transparent aria-expanded:text-primary',
+              (isActive || isOpen) && 'text-primary',
+            )}
+          >
+            {title}
+            <ChevronDownIcon
+              className={cn(
+                'size-4 transition-transform',
+                isOpen && 'rotate-180',
+              )}
+            />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent
+          align="start"
+          className="w-auto gap-0.5 bg-background p-1"
+        >
+          {links.map(dropdownLink)}
+        </PopoverContent>
+      </Popover>
+    );
+  };
+
   const navigationMenu = () => {
     return (
       <ul className="bg-muted/75 rounded-full lg:flex items-center px-5 my-3.5 hidden">
@@ -60,64 +119,37 @@ const Navbar = () => {
           <li key={link.title}>{navLink(link)}</li>
         ))}
         <li>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-base h-8 px-2.5 text-highlight font-medium">
-                  Events
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-background">
-                  {eventLinks.map((link) => (
-                    <NavigationMenuLink key={link.title} className="p-0">
-                      <Link
-                        className="min-w-30 text-base px-3 py-1.5 hover:text-highlight transition-colors"
-                        to={link.to}
-                      >
-                        {link.title}
-                      </Link>
-                    </NavigationMenuLink>
-                  ))}
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          {dropdownMenu({
+            title: 'Events',
+            links: eventLinks,
+            value: 'events',
+          })}
         </li>
         {mainLinks.slice(1).map((link) => (
           <li key={link.title}>{navLink(link)}</li>
         ))}
         <li>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-base h-8 px-2.5 text-highlight font-medium">
-                  More
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-background">
-                  {moreLinks.map((link) => (
-                    <NavigationMenuLink key={link.title} className="p-0">
-                      <Link
-                        className="min-w-30 text-base px-3 py-1.5 hover:text-highlight transition-colors"
-                        to={link.to}
-                      >
-                        {link.title}
-                      </Link>
-                    </NavigationMenuLink>
-                  ))}
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          {dropdownMenu({ title: 'Games', links: gameLinks, value: 'games' })}
+        </li>
+        <li>
+          {dropdownMenu({ title: 'More', links: moreLinks, value: 'more' })}
         </li>
       </ul>
     );
   };
 
-  const mobileLink = ({ title, to, external }) => {
+  const mobileLink = (link) => {
+    const { title, to, external } = link;
+    const isActive = isActiveLink(link);
+
     return (
       <Button
         variant="ghost"
         size="lg"
-        className="justify-start text-xl hover:text-highlight active:text-highlight"
+        className={cn(
+          'w-full justify-start text-xl hover:text-highlight active:text-highlight',
+          isActive && 'bg-muted text-highlight',
+        )}
         asChild
       >
         <Link
@@ -139,52 +171,60 @@ const Navbar = () => {
             <FaBars className="text-primary size-6" />
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="flex flex-col gap-3 p-4 data-[vaul-drawer-direction=left]:sm:max-w-60">
-          {mainLinks.slice(0, 1).map((link) => (
-            <div key={link.title}>{mobileLink(link)}</div>
-          ))}
-          {eventLinks.map((link) => (
-            <div key={link.title}>{mobileLink(link)}</div>
-          ))}
-          {mainLinks.slice(1).map((link) => (
-            <div key={link.title}>{mobileLink(link)}</div>
-          ))}
-          {moreLinks.map((link) => (
-            <div key={link.title}>{mobileLink(link)}</div>
-          ))}
+        <DrawerContent className="overflow-y-auto p-4 data-[vaul-drawer-direction=left]:sm:max-w-60">
+          <div className="flex flex-1 flex-col gap-1">
+            <div>{mobileLink({ title: 'Home', to: '/' })}</div>
+            {mainLinks.slice(0, 1).map((link) => (
+              <div key={link.title}>{mobileLink(link)}</div>
+            ))}
+            {eventLinks.map((link) => (
+              <div key={link.title}>{mobileLink(link)}</div>
+            ))}
+            {mainLinks.slice(1).map((link) => (
+              <div key={link.title}>{mobileLink(link)}</div>
+            ))}
+            {gameLinks.map((link) => (
+              <div key={link.title}>{mobileLink(link)}</div>
+            ))}
+            {moreLinks.map((link) => (
+              <div key={link.title}>{mobileLink(link)}</div>
+            ))}
 
-          {username ? (
-            <Button
-              variant="ghost"
-              type="button"
-              className="mt-2 flex items-center gap-3 rounded-lg px-3 py-2 text-left hover:bg-muted"
-              onClick={() => navigate('/dashboard')}
-            >
-              <img
-                src={avatarImg}
-                alt="User Avatar"
-                className="size-8 rounded-full object-cover"
-              />
-              <span className="text-base font-medium">{username}</span>
-            </Button>
-          ) : (
-            <div className="flex gap-3 flex-col pt-2">
-              <Button
-                variant="secondary"
-                className="text-base w-full"
-                onClick={() => navigate('/login')}
-              >
-                Login
-              </Button>
-              <Button
-                variant="default"
-                className="text-base w-full"
-                onClick={() => navigate('/signup')}
-              >
-                Sign Up
-              </Button>
+            <div className="border-t pt-4 mt-auto">
+              {username ? (
+                <Button
+                  variant="ghost"
+                  type="button"
+                  className="h-11 w-full justify-start gap-3 px-3 text-left hover:bg-muted"
+                  onClick={() => navigate('/dashboard')}
+                >
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full border bg-muted text-highlight">
+                    <UserIcon className="size-4" />
+                  </span>
+                  <span className="truncate text-base font-medium">
+                    {username}
+                  </span>
+                </Button>
+              ) : (
+                <div className="grid gap-3">
+                  <Button
+                    variant="secondary"
+                    className="text-base w-full"
+                    onClick={() => navigate('/login')}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    variant="default"
+                    className="text-base w-full"
+                    onClick={() => navigate('/signup')}
+                  >
+                    Sign Up
+                  </Button>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </DrawerContent>
       </Drawer>
     );
@@ -195,12 +235,11 @@ const Navbar = () => {
       <div className="container lg:flex items-center justify-between grid grid-cols-[minmax(0,1fr)_1fr_minmax(0,1fr)] h-15">
         {mobileDrawer()}
 
-        <Link to="/" className="mx-auto lg:mx-0">
-          <img
-            src={logo}
-            alt="YurankaGames Logo"
-            className="-my-5.5 w-18 lg:w-22.5"
-          />
+        <Link
+          to="/"
+          className="mx-auto lg:mx-0 overflow-hidden h-full flex items-center"
+        >
+          <img src={logo} alt="YurankaGames Logo" className="w-18 md:w-22" />
         </Link>
 
         {navigationMenu()}
@@ -210,14 +249,10 @@ const Navbar = () => {
             <Button
               variant="ghost"
               type="button"
-              className="flex items-center gap-2 rounded-lg px-2 py-1 hover:bg-muted"
+              className="flex h-9 items-center gap-2 rounded-full border border-border bg-muted/40 pl-2.5 pr-3.5 hover:bg-muted"
               onClick={() => navigate('/dashboard')}
             >
-              <img
-                src={avatarImg}
-                alt="User Avatar"
-                className="size-7 rounded-full object-cover"
-              />
+              <UserIcon className="size-4 text-highlight" />
               <span className="text-sm font-medium">{username}</span>
             </Button>
           ) : (

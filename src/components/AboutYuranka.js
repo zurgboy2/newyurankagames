@@ -76,7 +76,7 @@ const AboutYuranka = () => {
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-highlight">
               About Yuranka Games
             </p>
-            <h1 className="mt-4 text-4xl font-bold sm:text-5xl">
+            <h1 className="heading-1 mt-4">
               Built for play, community, and repeat visits.
             </h1>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -122,7 +122,7 @@ const AboutYuranka = () => {
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-highlight">
                       {section.eyebrow}
                     </p>
-                    <CardTitle className="mt-3 text-3xl">
+                    <CardTitle className="heading-2 mt-3">
                       {section.title}
                     </CardTitle>
                     <div className="mt-5 space-y-4 text-sm leading-7 text-muted-foreground sm:text-base">
@@ -144,7 +144,7 @@ const AboutYuranka = () => {
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-highlight">
               Our Mission
             </p>
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+            <h2 className="heading-2 mt-4">
               Three things guide how the store grows
             </h2>
             <p className="mt-3 text-base text-muted-foreground sm:text-lg">
@@ -164,7 +164,7 @@ const AboutYuranka = () => {
                       className="max-h-12 w-auto object-contain"
                     />
                   </div>
-                  <CardTitle className="mt-4 text-2xl">{item.title}</CardTitle>
+                  <CardTitle className="heading-3 mt-4">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="p-6 text-center text-sm leading-7 text-muted-foreground sm:text-base">
                   {item.body}

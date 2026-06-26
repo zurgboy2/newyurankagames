@@ -7,6 +7,7 @@ import { AuthField } from './AuthFields';
 import OrientationWarning from './OrientationWarning';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { toast } from 'sonner';
 
 /**
  * ResetPassword component styled to match the Login/Sign Up page.
@@ -50,7 +51,7 @@ const ResetPassword = () => {
   const handleRequest = async (e) => {
     e && e.preventDefault();
     if (!identifier) {
-      alert('Please enter your email or username');
+      toast.error('Please enter your email or username');
       return;
     }
     setRequestLoading(true);
@@ -58,11 +59,13 @@ const ResetPassword = () => {
       const res = await makeRequestCall('auth_script', 'requestPasswordReset', {
         emailOrUsername: identifier,
       });
-      alert(res.message || 'If an account exists, an email will be sent.');
+      toast.success(
+        res.message || 'If an account exists, an email will be sent.',
+      );
       navigate('/login');
     } catch (err) {
       console.error(err);
-      alert('Request failed');
+      toast.error('Request failed');
     } finally {
       setRequestLoading(false);
     }
@@ -71,11 +74,11 @@ const ResetPassword = () => {
   const handleReset = async (e) => {
     e && e.preventDefault();
     if (!newPassword || !confirmPassword) {
-      alert('Please fill both password fields');
+      toast.error('Please fill both password fields');
       return;
     }
     if (newPassword !== confirmPassword) {
-      alert('Passwords do not match');
+      toast.error('Passwords do not match');
       return;
     }
     setLoadingMode('save');
@@ -85,14 +88,14 @@ const ResetPassword = () => {
         newPassword,
       });
       if (res.success) {
-        alert('Password updated. Please log in.');
+        toast.success('Password updated. Please log in.');
         navigate('/login');
       } else {
-        alert(res.message || 'Failed to reset password');
+        toast.error(res.message || 'Failed to reset password');
       }
     } catch (err) {
       console.error(err);
-      alert('Failed to reset password');
+      toast.error('Failed to reset password');
     } finally {
       setLoadingMode('');
     }

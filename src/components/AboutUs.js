@@ -14,7 +14,7 @@ const AboutUs = () => {
         <div className="flex flex-col items-center text-center mb-8">
           <h2 className="heading-2">
             <span className="text-xl font-normal">at </span>
-            <span className="text-[2.5rem] font-bold text-[#de2323] sm:text-[3.5rem]">
+            <span className="text-highlight">
               Yuranka Games
             </span>{' '}
           </h2>

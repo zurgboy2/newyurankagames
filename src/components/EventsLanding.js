@@ -109,7 +109,7 @@ const EventsLandingPageSection = () => {
           </div>
         ) : upcomingTournaments.length === 0 ? (
           <Card className="items-center p-8 text-center">
-            <CardTitle>No upcoming events yet</CardTitle>
+            <CardTitle className="heading-4">No upcoming events yet</CardTitle>
             <CardContent className="max-w-xl p-0 text-muted-foreground">
               Check back soon or visit the events page for the full calendar.
             </CardContent>
@@ -151,12 +151,12 @@ const EventsLandingPageSection = () => {
                 </div>
 
                 <CardHeader>
-                  <CardTitle className="line-clamp-2 min-h-11 text-lg">
+                  <CardTitle className="heading-5 line-clamp-2 min-h-11">
                     {tournament.name}
                   </CardTitle>
                 </CardHeader>
 
-                <CardContent className="flex min-h-24 flex-col flex-1 gap-3 text-sm text-muted-foreground">
+                <CardContent className="flex min-h-21 flex-col flex-1 gap-3 text-sm text-muted-foreground">
                   <div className="flex h-5 items-center gap-2">
                     <CalendarDaysIcon className="size-5 shrink-0 text-highlight" />
                     <span>

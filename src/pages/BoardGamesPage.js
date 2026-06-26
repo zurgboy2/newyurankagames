@@ -1,7 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import OrientationWarning from "../components/OrientationWarning";
-import "./Home.css";
 
 import { useEffect } from "react";
 import BoardGamesSection from "../components/BoardGames";
@@ -13,7 +12,7 @@ function BoardGamesPage() {
   }, []);
 
   return (
-    <div className="Home">
+    <div className="min-h-screen bg-background text-foreground">
       <OrientationWarning />
       <Navbar />
       <BoardGamesSection />

@@ -17,7 +17,7 @@ const StarWarsPage = () => {
       <Navbar />
       <div className="starwars-page">
         <div className="starwars-header">
-          <h1>Star Wars Universe</h1>
+          <h1 className="heading-1">Star Wars Universe</h1>
           <p>Explore the galaxy far, far away...</p>
         </div>
         <div className="starwars-content">

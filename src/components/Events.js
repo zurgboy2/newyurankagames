@@ -1,5 +1,6 @@
 import { makeRegistrationRequestCall, makeRequestCall } from '../api/api';
 import { useEffect, useMemo, useState } from 'react';
+import { toast } from 'sonner';
 import moment from 'moment';
 import noposter from '../assets/noposter.avif';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -161,9 +162,7 @@ const EventsSection = () => {
           <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-highlight">
             Community calendar
           </p>
-          <h1 className="text-4xl font-bold sm:text-5xl">
-            Tournaments & Events
-          </h1>
+          <h1 className="heading-1">Tournaments & Events</h1>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
             Browse upcoming one-time events, recurring weekly tournaments, and
             monthly community meetups.
@@ -272,7 +271,7 @@ const EventSection = ({
       <CardHeader className="border-b p-5">
         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           <div>
-            <CardTitle className="text-2xl">{title}</CardTitle>
+            <CardTitle className="heading-3">{title}</CardTitle>
             <p className="mt-2 text-sm text-muted-foreground">{description}</p>
           </div>
           <Badge variant="outline" className="text-base h-fit px-3">
@@ -368,7 +367,7 @@ const EventCard = ({ event, onRegister }) => {
       </div>
 
       <CardHeader>
-        <CardTitle className="line-clamp-2 min-h-14 text-lg">
+        <CardTitle className="heading-5 line-clamp-2 min-h-14">
           {event.name}
         </CardTitle>
         <div className="flex flex-wrap gap-2">
@@ -481,7 +480,7 @@ const RegistrationModal = ({ tournament, open, onClose }) => {
     e.preventDefault();
 
     if (!name.trim() || !email.trim()) {
-      alert('Please fill in all required fields.');
+      toast.error('Please fill in all required fields.');
       return;
     }
 
@@ -522,7 +521,7 @@ const RegistrationModal = ({ tournament, open, onClose }) => {
               <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-highlight">
                 Event registration
               </p>
-              <CardTitle className="text-2xl">{tournament.name}</CardTitle>
+              <CardTitle className="heading-3">{tournament.name}</CardTitle>
             </div>
             <Button
               type="button"

@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./Home.css";
 import ReservationForm from "../components/ReservationForm";
 import { useEffect } from "react";
 import OrientationWarning from "../components/OrientationWarning";
@@ -12,7 +11,7 @@ function ReservationsPage() {
   }, []);
 
   return (
-    <div className="Home">
+    <div className="min-h-screen bg-background text-foreground">
       <OrientationWarning />
       <Navbar />
       <ReservationForm />
