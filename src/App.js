@@ -13,6 +13,7 @@ import StarWarsPage from "./pages/StarWarsPage";
 import CareersPage from "./pages/CareersPage";
 import OpenInBrowserBanner from "./components/OpenInBrowserBanner";
 import ResetPassword from "./components/ResetPassword";
+import BuyoutPage from "./components/BuyoutPage";
 import { useState, useEffect } from "react";
 import { isInstagramInAppBrowser } from "./components/Utility";
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/starwars" element={<StarWarsPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/buyout" element={<BuyoutPage />} />
       </Routes>
     </div>
   );

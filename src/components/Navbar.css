@@ -44,10 +44,16 @@
 }
 
 .nav-links li {
-  margin: 0 0.45rem;
-  /* Less space between links */
+  margin: 0 0.2rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.08);
+  transition: background 0.2s ease;
 }
 
+.nav-links li:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
 .nav-links a {
   text-decoration: none;
   color: #ef4444;
@@ -197,10 +203,6 @@
     padding: 0.25rem 0.75rem;
   }
 
-  .nav-links li {
-    margin: 0 0.2rem;
-  }
-
   .nav-links a {
     font-size: 0.84rem;
   }
@@ -270,16 +272,7 @@
     /* Move it into view */
   }
 
-  .nav-links li {
-    width: 100%;
-  }
 
-  /* Optionally adjust links styling */
-  .nav-links li a {
-    font-size: 1.3rem;
-    color: #e5e7eb;
-    text-decoration: none;
-  }
 
   .mobile-auth {
     display: block;
@@ -408,12 +401,7 @@
     /* Move it into view */
   }
 
-  /* Optionally adjust links styling */
-  .nav-links li a {
-    font-size: 1.3rem;
-    color: #e5e7eb;
-    text-decoration: none;
-  }
+
 
   .mobile-auth {
     display: block;

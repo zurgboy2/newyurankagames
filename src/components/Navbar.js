@@ -134,6 +134,11 @@ const Navbar = () => {
             Careers
           </Link>
         </li>
+        <li>
+          <Link to="/buyout" onClick={closeNavigation}>
+            Sell Cards
+          </Link>
+        </li>
 
         {/* Auth Buttons for Mobile */}
         {sessionStorage.getItem("username") ? (

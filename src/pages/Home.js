@@ -9,6 +9,7 @@ import EventsLandingPageSection from "../components/EventsLanding";
 import FAQSection from "../components/FAQ";
 import OrientationWarning from "../components/OrientationWarning";
 
+
 function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
