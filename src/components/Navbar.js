@@ -11,6 +11,7 @@ import { Drawer, DrawerContent, DrawerTrigger } from './ui/drawer';
 const mainLinks = [
   { title: 'Store', to: 'https://store.yuranka.com', external: true },
   { title: 'Reservations', to: '/reservations' },
+  { title: 'Sell Cards', to: '/buyout' },
 ];
 
 const gameLinks = [
@@ -125,12 +126,15 @@ const Navbar = () => {
             value: 'events',
           })}
         </li>
-        {mainLinks.slice(1).map((link) => (
+        {mainLinks.slice(1, 2).map((link) => (
           <li key={link.title}>{navLink(link)}</li>
         ))}
         <li>
           {dropdownMenu({ title: 'Games', links: gameLinks, value: 'games' })}
         </li>
+        {mainLinks.slice(2).map((link) => (
+          <li key={link.title}>{navLink(link)}</li>
+        ))}
         <li>
           {dropdownMenu({ title: 'More', links: moreLinks, value: 'more' })}
         </li>
@@ -180,10 +184,13 @@ const Navbar = () => {
             {eventLinks.map((link) => (
               <div key={link.title}>{mobileLink(link)}</div>
             ))}
-            {mainLinks.slice(1).map((link) => (
+            {mainLinks.slice(1, 2).map((link) => (
               <div key={link.title}>{mobileLink(link)}</div>
             ))}
             {gameLinks.map((link) => (
+              <div key={link.title}>{mobileLink(link)}</div>
+            ))}
+            {mainLinks.slice(2).map((link) => (
               <div key={link.title}>{mobileLink(link)}</div>
             ))}
             {moreLinks.map((link) => (

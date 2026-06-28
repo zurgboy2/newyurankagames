@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Navigate, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import ReservationsPage from './pages/ReservationsPage';
 import AboutUsPage from './pages/AboutUsPage';
@@ -14,6 +14,7 @@ import StarWarsPage from './pages/StarWarsPage';
 import CareersPage from './pages/CareersPage';
 import OpenInBrowserBanner from './components/OpenInBrowserBanner';
 import ResetPassword from './components/ResetPassword';
+import BuyoutPage from './components/BuyoutPage';
 import { useState, useEffect } from 'react';
 import { isInstagramInAppBrowser } from './components/Utility';
 import { Toaster } from './components/ui/sonner';
@@ -40,12 +41,14 @@ function App() {
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login&signup" element={<Navigate to="/signup" replace />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/videogames" element={<VideoGamesPage />} />
         <Route path="/boardgames" element={<BoardGamesPage />} />
         <Route path="/starwars" element={<StarWarsPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/buyout" element={<BuyoutPage />} />
       </Routes>
       <Toaster />
     </div>

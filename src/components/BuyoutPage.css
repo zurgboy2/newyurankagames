@@ -1,0 +1,32 @@
+.BuyoutPage {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.BuyoutPage > footer {
+  margin-top: auto;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html,
+  body,
+  #root,
+  .BuyoutPage {
+    background: white !important;
+    color: black !important;
+  }
+
+  .BuyoutPage > nav,
+  .BuyoutPage > footer,
+  .orientation-modal-backdrop {
+    display: none !important;
+  }
+}
