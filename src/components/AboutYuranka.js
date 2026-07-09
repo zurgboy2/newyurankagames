@@ -11,7 +11,9 @@ import aboutUs5 from '../assets/aboutUs5.avif';
 import aboutUs6 from '../assets/aboutUs6.avif';
 import aboutUs7 from '../assets/aboutUs7.avif';
 import aboutUs8 from '../assets/aboutUs8.avif';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Button } from './ui/button';
 
 const galleryImages = [
   aboutUs1,
@@ -39,6 +41,19 @@ const missionItems = [
     icon: missionIcon3,
     title: 'A real third place',
     body: 'Build a space where people meet, play, learn, and return often because the community feels as important as the products.',
+  },
+];
+
+const pastEventPages = [
+  {
+    title: 'Minicons',
+    to: '/minicons',
+    body: 'A Mini-Con hub with themed events, schedules, activities, prizes, and event details.',
+  },
+  {
+    title: 'Star Wars',
+    to: '/starwars',
+    body: 'A Star Wars Universe page featuring the Jedi or Sith personality test.',
   },
 ];
 
@@ -168,6 +183,37 @@ const AboutYuranka = () => {
                 </CardHeader>
                 <CardContent className="p-6 text-center text-sm leading-7 text-muted-foreground sm:text-base">
                   {item.body}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t">
+        <div className="container py-10 sm:py-14">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-highlight">
+              Community Pages
+            </p>
+            <h2 className="heading-2 mt-4">Yuranka community pages</h2>
+            <p className="mt-3 text-base text-muted-foreground sm:text-lg">
+              Explore Yuranka community experiences that live outside the main
+              events calendar.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-8 grid max-w-4xl gap-5 sm:grid-cols-2">
+            {pastEventPages.map((page) => (
+              <Card key={page.title} className="h-full p-0">
+                <CardContent className="flex h-full flex-col p-6">
+                  <CardTitle className="heading-3">{page.title}</CardTitle>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground sm:text-base">
+                    {page.body}
+                  </p>
+                  <Button className="mt-6 w-fit" asChild>
+                    <Link to={page.to}>View page</Link>
+                  </Button>
                 </CardContent>
               </Card>
             ))}

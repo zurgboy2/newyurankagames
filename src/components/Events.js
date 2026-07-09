@@ -513,8 +513,14 @@ const RegistrationModal = ({ tournament, open, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 p-4 backdrop-blur-sm">
-      <Card className="max-h-[90vh] w-full max-w-4xl overflow-y-auto p-0">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 p-4 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <Card
+        className="max-h-[90vh] w-full max-w-4xl overflow-y-auto p-0"
+        onClick={(event) => event.stopPropagation()}
+      >
         <CardHeader className="border-b p-5">
           <div className="flex items-start justify-between gap-4">
             <div>

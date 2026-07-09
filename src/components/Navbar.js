@@ -19,11 +19,7 @@ const gameLinks = [
   { title: 'Video Games', to: '/videogames' },
 ];
 
-const eventLinks = [
-  { title: 'Main Events', to: '/events' },
-  { title: 'Minicons', to: '/minicons' },
-  { title: 'Star Wars', to: '/starwars' },
-];
+const eventsLink = { title: 'Events', to: '/events' };
 
 const moreLinks = [
   { title: 'About Us', to: '/about' },
@@ -119,13 +115,7 @@ const Navbar = () => {
         {mainLinks.slice(0, 1).map((link) => (
           <li key={link.title}>{navLink(link)}</li>
         ))}
-        <li>
-          {dropdownMenu({
-            title: 'Events',
-            links: eventLinks,
-            value: 'events',
-          })}
-        </li>
+        <li>{navLink(eventsLink)}</li>
         {mainLinks.slice(1, 2).map((link) => (
           <li key={link.title}>{navLink(link)}</li>
         ))}
@@ -181,9 +171,7 @@ const Navbar = () => {
             {mainLinks.slice(0, 1).map((link) => (
               <div key={link.title}>{mobileLink(link)}</div>
             ))}
-            {eventLinks.map((link) => (
-              <div key={link.title}>{mobileLink(link)}</div>
-            ))}
+            <div>{mobileLink(eventsLink)}</div>
             {mainLinks.slice(1, 2).map((link) => (
               <div key={link.title}>{mobileLink(link)}</div>
             ))}
